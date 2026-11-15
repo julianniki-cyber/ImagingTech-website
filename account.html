@@ -577,6 +577,8 @@
   .order-card .status{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--indigo-tint);color:var(--indigo);}
   .order-card ul{display:flex;flex-direction:column;gap:4px;font-size:13.5px;color:var(--ink-soft);}
   .order-card .sum{display:flex;justify-content:space-between;border-top:1px solid var(--line);margin-top:12px;padding-top:10px;font-weight:700;}
+  .acct-who p{font-size:14px;color:var(--ink-soft);overflow-wrap:anywhere;}
+  .acct-who b{color:var(--ink);}
   .acct-out{background:none;border:1px solid var(--line);border-radius:999px;padding:11px;font:700 13.5px Sora,sans-serif;color:var(--ink);}
   .acct-out:hover{border-color:var(--magenta);color:var(--magenta);}
 </style>
@@ -2956,15 +2958,7 @@
         </div>
       </div>
       <aside class="cart-side">
-        <form class="cart-form" id="profileForm" novalidate>
-          <h2>Your details</h2>
-          <div class="cf"><label>Email</label><input id="pfEmail" disabled></div>
-          <div class="cf"><label for="pfName">Full name</label><input id="pfName" name="name" autocomplete="name" maxlength="120"></div>
-          <div class="cf"><label for="pfCompany">Company</label><input id="pfCompany" name="company" autocomplete="organization" maxlength="160"></div>
-          <div class="cf"><label for="pfPhone">Phone</label><input id="pfPhone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
-          <button type="submit" class="btn-primary cart-submit">Save details</button>
-          <p class="cart-msg" role="status"></p>
-        </form>
+        <div class="cart-summary acct-who"><p>Signed in as <b id="whoEmail"></b></p></div>
         <button type="button" class="acct-out" id="signOut">Sign out</button>
       </aside>
     </div>
@@ -3215,6 +3209,7 @@
     }
     function loadProfile(sb, user){
       var meta = user.user_metadata || {};
+      $('whoEmail').textContent = user.email || '';
       return sb.from('trade_accounts').select('full_name,company,phone').eq('user_id', user.id).maybeSingle().then(function(r){
         var p = r && r.data;
         if(!p && !r.error){
@@ -3222,22 +3217,12 @@
           sb.from('trade_accounts').insert(Object.assign({user_id: user.id, email: user.email}, p)).then(function(){});
         }
         p = p || {};
-        $('pfEmail').value = user.email || '';
-        $('pfName').value = p.full_name || ''; $('pfCompany').value = p.company || ''; $('pfPhone').value = p.phone || '';
+        if(!p.full_name) p.full_name = meta.full_name || '';
         var first = (p.full_name || '').split(' ')[0];
         $('acctTitle').textContent = first ? 'Welcome back, ' + first + '.' : 'Your trade account';
-        $('acctLead').textContent = 'Track your order requests and keep your details up to date.';
+        $('acctLead').textContent = 'Track your order requests here.';
       });
     }
-    $('profileForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      var form = this, f = form.elements;
-      window.itSupabase.then(function(sb){
-        return window.itUser.then(function(user){
-          return sb.from('trade_accounts').upsert({user_id: user.id, email: user.email, full_name: f.name.value.trim(), company: f.company.value.trim(), phone: f.phone.value.trim(), updated_at: new Date().toISOString()});
-        });
-      }).then(function(r){ say(form, r && r.error ? 'Not saved: ' + r.error.message : 'Saved.', r && r.error); });
-    });
     $('signOut').addEventListener('click', function(){
       window.itSupabase.then(function(sb){ return sb.auth.signOut(); }).then(function(){ location.href = here; });
     });
