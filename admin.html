@@ -787,7 +787,7 @@
   // ---------- connect ----------
   function unavailable(){
     menuLoaded = true; render();
-    notice('The product database can\'t be reached from this view. Check your connection and the Firebase setup in js/local-data.js, then reload.', {err:true});
+    notice('The product database can\'t be reached from this view. Check your connection and the Supabase setup in js/local-data.js, then reload.', {err:true});
   }
   var timer = setTimeout(function(){ if(!menuLoaded) unavailable(); }, 10000);
   function start(tries){

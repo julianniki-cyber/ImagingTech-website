@@ -112,20 +112,21 @@ The live version of the site runs on Claude, which provides the database behind 
 
 The site is hosted on **GitHub Pages** (repo `julianniki-cyber/ImagingTech-website`). Every push to `main` redeploys it within a minute or two.
 
-### Live admin editing with Firebase
-`js/local-data.js` switches to Firebase as soon as `FIREBASE_CONFIG` at the top of it is filled in. Until then the site runs read-only from `data/*.json`.
+### Live admin editing with Supabase (free, no card)
+`js/local-data.js` switches to Supabase as soon as `SUPABASE_CONFIG` at the top of it is filled in. Until then the site runs read-only from `data/*.json`.
 
-One-time setup (about 15 minutes):
-1. Go to **console.firebase.google.com → Add project** (e.g. "imagingtech"). Analytics is optional.
-2. **Build → Firestore Database → Create database** (production mode, any nearby region). Open the **Rules** tab, paste `firestore.rules`, replace `EDITOR_EMAIL` with your Google address, and click **Publish**.
-3. **Build → Authentication → Get started → Google → Enable.** Under **Settings → Authorized domains**, add `julianniki-cyber.github.io` (plus any custom domain).
-4. **Build → Storage → Get started.** New Storage buckets need the pay-as-you-go **Blaze** plan; the free allowance still applies, and you can set a budget alert. Paste `storage.rules` into its **Rules** tab with the same email, then **Publish**.
-5. **Project settings → Your apps → Web (</>)**. Register the app, copy the `firebaseConfig` values into `FIREBASE_CONFIG` in `js/local-data.js`, then commit and push.
-6. Open `admin.html` on the live site and click **Sign in with Google**. On the first sign-in, the contents of `data/*.json` are copied into Firestore. From then on, admin saves and image uploads are live for every visitor.
+One-time setup (about 10 minutes):
+1. Sign up at **supabase.com** (GitHub login works) → **New project**. Pick a name, a database password (save it somewhere) and a nearby region, on the Free plan.
+2. **SQL Editor → New query**: paste all of `supabase.sql`, change `EDITOR_EMAIL` on the last line to your email, and click **Run**.
+3. **Authentication → URL Configuration**: set **Site URL** to `https://julianniki-cyber.github.io/ImagingTech-website/` and add `https://julianniki-cyber.github.io/ImagingTech-website/**` under **Redirect URLs**. For local testing, also add `http://127.0.0.1:5500/**`.
+4. **Project Settings → API**: copy the **Project URL** and the **anon public** key into `SUPABASE_CONFIG` in `js/local-data.js`, then commit and push.
+5. Open `admin.html` on the live site, enter your email, and click the login link that arrives. On the first login, the contents of `data/*.json` are copied into the database. From then on, admin saves and image uploads are live for every visitor.
 
-After step 6, Firestore holds the real data and the JSON files are only a fallback. Edit products in the admin, not in the JSON files.
+After step 5, Supabase holds the real data and the JSON files are only a fallback. Edit products in the admin, not in the JSON files.
 
-Quotes, the cart and sign-up forms still need their own backend (e.g. Firestore collections or a form service), which is not wired up yet.
+Free-plan limits: 500 MB database, 1 GB images. A project with no traffic for about a week is paused; restore it from the dashboard. Supabase's built-in login emails are rate-limited (a few per hour), which is fine for a handful of editors.
+
+Quotes, the cart and sign-up forms still need wiring up (they can use the same Supabase project).
 
 ---
 

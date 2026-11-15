@@ -3,35 +3,34 @@
  * interface it was built against, backed by one of:
  *
  *   1. Claude's built-in database, when the site runs on Claude (this file steps aside).
- *   2. Firebase (Firestore + Auth + Storage), when FIREBASE_CONFIG below is filled in.
- *      The admin signs in with Google; saves and image uploads go live for everyone.
- *   3. The JSON files in data/ (read-only), when FIREBASE_CONFIG is null.
+ *   2. Supabase (database + login + image storage), when SUPABASE_CONFIG below is filled in.
+ *      Editors sign in to admin.html with an emailed login link; saves and image
+ *      uploads go live for every visitor.
+ *   3. The JSON files in data/ (read-only), when SUPABASE_CONFIG is null.
  *
- * With Firebase, data/products.json and data/menu.json are still used as a fallback
- * until the database has content, and are copied into Firestore automatically the
- * first time an editor signs in to admin.html. See README section 6.
+ * With Supabase, data/products.json and data/menu.json are still used as a fallback
+ * until the database has content, and are copied into it automatically the first
+ * time an editor signs in to admin.html. See README section 6 and supabase.sql.
  *
  * Needs a web server (VS Code "Live Server" or any host); browsers block reading
  * JSON files when a page is opened straight from disk.
  */
 
-// Paste the config from Firebase console → Project settings → Your apps → Web app.
-// These values are public by design; access is controlled by firestore.rules / storage.rules.
-var FIREBASE_CONFIG = null;
+// From Supabase dashboard → Project Settings → API. Both values are public by design;
+// who can change what is controlled by the policies in supabase.sql.
+var SUPABASE_CONFIG = null;
 /* e.g.
-var FIREBASE_CONFIG = {
-  apiKey: "AIza...",
-  authDomain: "imagingtech-xxxx.firebaseapp.com",
-  projectId: "imagingtech-xxxx",
-  storageBucket: "imagingtech-xxxx.firebasestorage.app",
-  appId: "1:123:web:abc"
+var SUPABASE_CONFIG = {
+  url: "https://abcdefghijkl.supabase.co",
+  anonKey: "eyJhbGciOi..."
 };
 */
 
 (function () {
   if (window.claude) return; // running on Claude: use the real database
 
-  var FIREBASE_VERSION = '10.14.1';
+  var SUPABASE_JS = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js';
+  var BUCKET = 'uploads';
 
   // ---------- JSON snapshot (fallback + seed source) ----------
   function load(path) {
@@ -60,7 +59,7 @@ var FIREBASE_CONFIG = {
   }
 
   // ---------- 3. read-only JSON mode ----------
-  if (!FIREBASE_CONFIG) {
+  if (!SUPABASE_CONFIG) {
     var readOnly = function () {
       return Promise.reject({ code: 'invalid_argument', message: 'Local data is read-only. Edit the files in /data instead.' });
     };
@@ -92,166 +91,201 @@ var FIREBASE_CONFIG = {
     return;
   }
 
-  // ---------- 2. Firebase mode ----------
-  var bucket = FIREBASE_CONFIG.storageBucket;
-  window.itImageUrl = function (id) {
-    return 'https://firebasestorage.googleapis.com/v0/b/' + bucket + '/o/' + encodeURIComponent('uploads/' + id) + '?alt=media';
-  };
+  // ---------- 2. Supabase mode ----------
+  var base = SUPABASE_CONFIG.url.replace(/\/+$/, '');
+  window.itImageUrl = function (id) { return base + '/storage/v1/object/public/' + BUCKET + '/' + encodeURIComponent(id); };
 
-  function script(src) {
-    return new Promise(function (res, rej) {
-      var s = document.createElement('script');
-      s.src = src; s.onload = res; s.onerror = rej;
-      document.head.appendChild(s);
-    });
-  }
-  var base = 'https://www.gstatic.com/firebasejs/' + FIREBASE_VERSION + '/';
-  var ready = script(base + 'firebase-app-compat.js').then(function () {
-    return Promise.all(['firestore', 'auth', 'storage'].map(function (m) { return script(base + 'firebase-' + m + '-compat.js'); }));
+  var ready = new Promise(function (res, rej) {
+    var s = document.createElement('script');
+    s.src = SUPABASE_JS; s.onload = res; s.onerror = rej;
+    document.head.appendChild(s);
   }).then(function () {
-    firebase.initializeApp(FIREBASE_CONFIG);
-    return firebase;
+    return window.supabase.createClient(base, SUPABASE_CONFIG.anonKey);
   });
 
-  // the first auth state tells us whether someone is signed in
-  var authP = ready.then(function (fb) {
-    return new Promise(function (res) {
-      var off = fb.auth().onAuthStateChanged(function (u) { off(); res(u); });
-    });
-  });
+  // getSession waits for a login link in the URL to be processed
+  var authP = ready.then(function (sb) {
+    return sb.auth.getSession().then(function (r) { return (r.data && r.data.session && r.data.session.user) || null; });
+  }).catch(function () { return null; });
+  var editorP = authP.then(function (u) {
+    if (!u) return false;
+    return ready.then(function (sb) { return sb.rpc('is_editor'); }).then(function (r) { return !r.error && r.data === true; });
+  }).catch(function () { return false; });
 
-  // map Firebase error codes onto the codes the pages already handle
+  // map Supabase / Postgres errors onto the codes the pages already handle
   function mapErr(err) {
-    var c = (err && err.code) || '';
-    var storage = c.indexOf('storage/') === 0;
-    if (/permission-denied|unauthenticated|unauthorized/.test(c)) return { code: storage ? 'not_granted' : 'invalid_argument', message: err.message };
-    if (/resource-exhausted|quota-exceeded/.test(c)) return { code: storage ? 'quota_or_state' : 'quota_exceeded', message: err.message };
-    return err;
+    var c = String((err && (err.code || err.statusCode || err.status)) || ''), m = String((err && err.message) || '');
+    if (c === '42501' || c === '401' || c === '403' || /row-level security|permission|unauthori[sz]ed/i.test(m)) return { code: 'invalid_argument', message: m };
+    if (c === '413' || /too large|exceeded the maximum/i.test(m)) return { code: 'too_large', message: m };
+    if (/mime|content type/i.test(m)) return { code: 'unsupported_type', message: m };
+    return err || { code: 'unknown' };
   }
-  function wrapWrite(p) { return p.catch(function (e) { throw mapErr(e); }); }
+  function check(r) { if (r.error) throw mapErr(r.error); return r; }
 
-  function fsRef(path) {
+  // one realtime channel shared by every listener on the page
+  var listeners = [];
+  var channelP = null;
+  function listen(fn) {
+    listeners.push(fn);
+    if (!channelP) channelP = ready.then(function (sb) {
+      return sb.channel('docs-changes')
+        .on('postgres_changes', { event: '*', schema: 'public', table: 'docs' }, function (p) {
+          var row = (p.new && p.new.collection) ? p.new : p.old;
+          listeners.slice().forEach(function (l) { l(row || {}); });
+        })
+        .subscribe();
+    });
+    return function () { listeners = listeners.filter(function (l) { return l !== fn; }); };
+  }
+
+  function fetchDoc(col, id) {
+    return ready.then(function (sb) {
+      return sb.from('docs').select('data').eq('collection', col).eq('id', id).maybeSingle();
+    }).then(check).then(function (r) {
+      return r.data ? docSnap(id, r.data.data) : jsonDoc(col, id);
+    });
+  }
+  function fetchCol(col) {
+    return ready.then(function (sb) {
+      return sb.from('docs').select('id,data').eq('collection', col);
+    }).then(check).then(function (r) {
+      if (!r.data || !r.data.length) return jsonCol(col);
+      var map = {};
+      r.data.forEach(function (row) { map[row.id] = row.data; });
+      return colSnap(map);
+    });
+  }
+
+  function sbRef(path) {
     var parts = path.split('/'), col = parts[0], id = parts[1];
-    var ref = function () { return ready.then(function (fb) { return fb.firestore().doc(path); }); };
     return {
       id: id, path: path,
-      get: function () {
-        return ref().then(function (r) { return r.get(); }).then(function (s) { return s.exists ? s : jsonDoc(col, id); });
-      },
+      get: function () { return fetchDoc(col, id); },
       onSnapshot: function (next, error) {
-        var off = null, stopped = false;
-        ref().then(function (r) {
-          if (stopped) return;
-          off = r.onSnapshot(function (s) {
-            if (s.exists) next(s); else jsonDoc(col, id).then(next);
-          }, error || function () {});
-        }, error || function () {});
-        return function () { stopped = true; if (off) off(); };
+        var pull = function () { fetchDoc(col, id).then(next, error || function () {}); };
+        pull();
+        return listen(function (row) { if (row.collection === col && (!row.id || row.id === id)) pull(); });
       },
-      set: function (data) { return wrapWrite(ref().then(function (r) { return r.set(data); })); },
-      update: function (data) { return wrapWrite(ref().then(function (r) { return r.set(data, { merge: true }); })); },
-      delete: function () { return wrapWrite(ref().then(function (r) { return r.delete(); })); }
+      set: function (data) {
+        return ready.then(function (sb) {
+          return sb.from('docs').upsert({ collection: col, id: id, data: data, updated_at: new Date().toISOString() });
+        }).then(check).then(function () {});
+      },
+      update: function (data) {
+        return fetchDoc(col, id).then(function (s) {
+          return sbRef(path).set(Object.assign({}, s.data() || {}, data));
+        });
+      },
+      delete: function () {
+        return ready.then(function (sb) {
+          return sb.from('docs').delete().eq('collection', col).eq('id', id).select('id');
+        }).then(check).then(function (r) {
+          // row-level security makes a forbidden delete silently match nothing
+          if (!r.data || !r.data.length) return editorP.then(function (ok) { if (!ok) throw { code: 'invalid_argument' }; });
+        });
+      }
     };
   }
-  function fsCol(col) {
-    var ref = function () { return ready.then(function (fb) { return fb.firestore().collection(col); }); };
+  function sbCol(col) {
     return {
       path: col,
-      get: function () {
-        return ref().then(function (r) { return r.get(); }).then(function (s) { return s.empty ? jsonCol(col) : s; });
-      },
+      get: function () { return fetchCol(col); },
       onSnapshot: function (next, error) {
-        var off = null, stopped = false;
-        ref().then(function (r) {
-          if (stopped) return;
-          off = r.onSnapshot(function (s) {
-            if (s.empty) jsonCol(col).then(next); else next(s);
-          }, error || function () {});
-        }, error || function () {});
-        return function () { stopped = true; if (off) off(); };
+        var pull = function () { fetchCol(col).then(next, error || function () {}); };
+        pull();
+        return listen(function (row) { if (row.collection === col) pull(); });
       },
-      doc: function (id) { return fsRef(col + '/' + id); }
+      doc: function (id) { return sbRef(col + '/' + id); }
     };
   }
-  var fsDb = { doc: fsRef, collection: fsCol };
+  var sbDb = { doc: sbRef, collection: sbCol };
 
-  var fsUser = {
-    canEdit: function () { return authP.then(function (u) { return !!u; }); },
-    id: function () { return authP.then(function (u) { return u ? u.uid : null; }); }
+  var sbUser = {
+    canEdit: function () { return editorP; },
+    id: function () { return authP.then(function (u) { return u ? u.id : null; }); }
   };
 
   function randomId() {
     var a = new Uint8Array(15); crypto.getRandomValues(a);
     return Array.prototype.map.call(a, function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
   }
-  var fsAssets = {
+  var sbAssets = {
     upload: function (blob, opts) {
       var id = randomId(), type = (opts && opts.type) || blob.type || 'image/jpeg';
       if (blob.size > 20 * 1024 * 1024) return Promise.reject({ code: 'too_large' });
-      return ready.then(function (fb) {
-        return fb.storage().ref('uploads/' + id).put(blob, { contentType: type, cacheControl: 'public, max-age=31536000' });
-      }).then(function () { return { id: id, url: window.itImageUrl(id) }; }, function (e) { throw mapErr(e); });
+      return ready.then(function (sb) {
+        return sb.storage.from(BUCKET).upload(id, blob, { contentType: type, cacheControl: '31536000', upsert: false });
+      }).then(check).then(function () { return { id: id, url: window.itImageUrl(id) }; });
     },
     delete: function (id) {
-      return ready.then(function (fb) { return fb.storage().ref('uploads/' + id).delete(); }).catch(function (e) { throw mapErr(e); });
+      return ready.then(function (sb) { return sb.storage.from(BUCKET).remove([id]); }).then(check);
     }
   };
 
   window.claude = {
     use: function (name) {
-      if (name === 'db') return Promise.resolve(fsDb);
-      if (name === 'user') return Promise.resolve(fsUser);
-      if (name === 'assets') return authP.then(function (u) { return u ? fsAssets : null; });
+      if (name === 'db') return Promise.resolve(sbDb);
+      if (name === 'user') return Promise.resolve(sbUser);
+      if (name === 'assets') return editorP.then(function (ok) { return ok ? sbAssets : null; });
       return Promise.resolve(null);
     }
   };
 
-  // ---------- admin page: sign-in bar + first-run seeding ----------
+  // ---------- admin page: login bar + first-run seeding ----------
   if (!/admin\.html$/.test(location.pathname)) return;
 
-  function seed(fb) {
-    var fs = fb.firestore();
-    return fs.doc('site/menu').get().then(function (s) {
-      if (s.exists) return;
-      return Promise.all([menuP, productsP]).then(function (r) {
-        var menu = r[0], products = r[1] || {};
+  function seed(sb) {
+    return sb.from('docs').select('id').eq('collection', 'site').eq('id', 'menu').maybeSingle().then(check).then(function (r) {
+      if (r.data) return;
+      return Promise.all([menuP, productsP]).then(function (j) {
+        var menu = j[0], products = j[1] || {};
         if (!menu) return;
-        var batch = fs.batch();
-        batch.set(fs.doc('site/menu'), menu);
-        Object.keys(products).forEach(function (id) { batch.set(fs.doc('products/' + id), products[id]); });
-        return batch.commit().then(function () { console.info('ImagingTech: copied data/*.json into Firestore.'); });
+        var rows = [{ collection: 'site', id: 'menu', data: menu }];
+        Object.keys(products).forEach(function (id) { rows.push({ collection: 'products', id: id, data: products[id] }); });
+        return sb.from('docs').upsert(rows).then(check).then(function () {
+          console.info('ImagingTech: copied data/*.json into Supabase.');
+        });
       });
-    }).catch(function (e) { console.warn('ImagingTech: could not seed Firestore', e); });
+    }).catch(function (e) { console.warn('ImagingTech: could not seed Supabase', e); });
   }
 
-  function bar(user) {
-    var b = document.createElement('div');
-    b.style.cssText = 'position:fixed;right:16px;bottom:16px;z-index:9999;display:flex;gap:10px;align-items:center;background:#14152A;color:#fff;font:600 13px Inter,sans-serif;padding:10px 14px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.25);';
+  function bar(sb, user, isEditor) {
+    var b = document.createElement('form');
+    b.style.cssText = 'position:fixed;right:16px;bottom:16px;z-index:9999;display:flex;gap:10px;align-items:center;flex-wrap:wrap;max-width:calc(100vw - 32px);background:#14152A;color:#fff;font:600 13px Inter,sans-serif;padding:10px 14px;border-radius:22px;box-shadow:0 10px 30px rgba(0,0,0,.25);';
     var t = document.createElement('span');
     var btn = document.createElement('button');
-    btn.type = 'button';
+    btn.type = 'submit';
     btn.style.cssText = 'background:#FFC72C;color:#14152A;border:none;border-radius:999px;padding:7px 14px;font:700 13px Sora,Inter,sans-serif;cursor:pointer;';
+    b.appendChild(t);
     if (user) {
-      t.textContent = 'Signed in as ' + (user.email || 'editor');
+      t.textContent = 'Signed in as ' + (user.email || 'editor') + (isEditor ? '' : ' (not an editor)');
       btn.textContent = 'Sign out';
-      btn.onclick = function () { firebase.auth().signOut().then(function () { location.reload(); }); };
+      b.onsubmit = function (e) { e.preventDefault(); sb.auth.signOut().then(function () { location.reload(); }); };
     } else {
-      t.textContent = 'Sign in to edit products';
-      btn.textContent = 'Sign in with Google';
-      btn.onclick = function () {
-        firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
-          .then(function () { location.reload(); })
-          .catch(function (e) { t.textContent = 'Sign-in failed: ' + (e.code || e.message); });
+      t.textContent = 'Editors:';
+      var inp = document.createElement('input');
+      inp.type = 'email'; inp.required = true; inp.placeholder = 'Your email'; inp.setAttribute('aria-label', 'Email address');
+      inp.style.cssText = 'border:none;border-radius:999px;padding:7px 12px;font:500 13px Inter,sans-serif;min-width:180px;';
+      b.appendChild(inp);
+      btn.textContent = 'Email me a login link';
+      b.onsubmit = function (e) {
+        e.preventDefault();
+        btn.disabled = true;
+        sb.auth.signInWithOtp({ email: inp.value.trim(), options: { emailRedirectTo: location.href.split('#')[0] } }).then(function (r) {
+          if (r.error) { t.textContent = 'Could not send: ' + r.error.message; btn.disabled = false; return; }
+          inp.remove(); btn.remove();
+          t.textContent = 'Check your inbox and open the login link.';
+        });
       };
     }
-    b.appendChild(t); b.appendChild(btn);
+    b.appendChild(btn);
     document.body.appendChild(b);
   }
 
-  Promise.all([ready, authP]).then(function (r) {
-    var user = r[1];
-    var show = function () { bar(user); };
+  Promise.all([ready, authP, editorP]).then(function (r) {
+    var sb = r[0], user = r[1], isEditor = r[2];
+    var show = function () { bar(sb, user, isEditor); };
     if (document.body) show(); else document.addEventListener('DOMContentLoaded', show);
-    if (user) seed(r[0]);
+    if (isEditor) seed(sb);
   });
 })();
