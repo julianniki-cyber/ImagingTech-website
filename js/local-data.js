@@ -18,13 +18,10 @@
 
 // From Supabase dashboard → Project Settings → API. Both values are public by design;
 // who can change what is controlled by the policies in supabase.sql.
-var SUPABASE_CONFIG = null;
-/* e.g.
 var SUPABASE_CONFIG = {
-  url: "https://abcdefghijkl.supabase.co",
-  anonKey: "eyJhbGciOi..."
+  url: "https://xnfnliiasgnumptwjgcg.supabase.co",
+  anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhuZm5saWlhc2dudW1wdHdqZ2NnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNzYzMzUsImV4cCI6MjA5ODc1MjMzNX0.emJkaa0gnIIx-dcbwqS3avWOH-KoX4TqaEn9XFXmSlE"
 };
-*/
 
 (function () {
   if (window.claude) return; // running on Claude: use the real database
