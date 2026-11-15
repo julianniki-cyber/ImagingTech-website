@@ -437,9 +437,9 @@
   .promo p{color:rgba(255,255,255,.82);margin-top:16px;max-width:420px;font-size:15px;}
   .promo .btn-primary{background:#fff;color:var(--indigo);margin-top:26px;}
   .promo .btn-primary:hover{background:var(--yellow);color:var(--ink);}
-  .promo-visual{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
-  .promo-visual span{aspect-ratio:1;border-radius:10px;}
-  @media(max-width:800px){.promo{grid-template-columns:1fr;padding:36px;}}
+  .promo-visual{position:relative;z-index:1;display:flex;justify-content:center;align-items:center;margin:-24px -16px -36px 0;}
+  .promo-visual img{width:100%;max-width:560px;height:auto;display:block;}
+  @media(max-width:800px){.promo{grid-template-columns:1fr;padding:36px;}.promo-visual{margin:0 -8px -16px;}}
 
   /* ---------- footer ---------- */
   footer{background:var(--ink);color:#cfd0e0;padding-top:70px;}
@@ -3064,10 +3064,11 @@
         <p>Send your dimensions, material and quantity — our team turns most custom quotes around within one business day.</p>
         <a href="#" class="btn-primary">Request a Trade Quote</a>
       </div>
-      <div class="promo-visual" aria-hidden="true">
-        <span style="background:#4B55B0;"></span><span style="background:#4FBF5B;"></span><span style="background:#FFD24D;"></span><span style="background:#EF4B84;"></span>
-        <span style="background:#26D1FF;"></span><span style="background:#2B337F;"></span><span style="background:#4B55B0;"></span><span style="background:#FFD24D;"></span>
-        <span style="background:#EF4B84;"></span><span style="background:#26D1FF;"></span><span style="background:#4FBF5B;"></span><span style="background:#2B337F;"></span>
+      <div class="promo-visual">
+        <picture>
+          <source srcset="images/quote-channel-letter.webp" type="image/webp">
+          <img src="images/quote-channel-letter.png" width="900" height="672" alt="Blueprint drawing of a dimensional letter A beside the finished blue and brushed-aluminium channel letter" loading="lazy">
+        </picture>
       </div>
     </div>
   </div>
