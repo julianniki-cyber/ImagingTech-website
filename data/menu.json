@@ -1,0 +1,2346 @@
+{
+  "categories": [
+    {
+      "id": "print-products",
+      "name": "Print Products",
+      "products": [
+        {
+          "id": "postcards",
+          "name": "Postcards",
+          "desc": "A cost-effective mailer or handout — bright, durable, and sized to standard postal specs.",
+          "tag": "",
+          "img": "images/print/postcards-thumb.jpg",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "10pt-matte-finish",
+                  "name": "10pt + Matte Finish",
+                  "doc": "postcards-10pt-matte-finish"
+                },
+                {
+                  "id": "14pt-matte-finish",
+                  "name": "14pt + Matte Finish",
+                  "doc": "postcards-14pt-matte-finish"
+                },
+                {
+                  "id": "16pt-matte-finish",
+                  "name": "16pt + Matte Finish"
+                },
+                {
+                  "id": "14pt-uv-high-gloss",
+                  "name": "14pt + UV (High Gloss)",
+                  "doc": "postcards",
+                  "page": "postcards.html"
+                },
+                {
+                  "id": "16pt-uv-high-gloss",
+                  "name": "16pt + UV (High Gloss)"
+                },
+                {
+                  "id": "18pt-gloss-lamination",
+                  "name": "18pt Gloss Lamination"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "metallic-foil",
+                  "name": "Metallic Foil"
+                },
+                {
+                  "id": "kraft-paper",
+                  "name": "Kraft Paper"
+                },
+                {
+                  "id": "rounded-corners",
+                  "name": "Rounded Corners"
+                },
+                {
+                  "id": "spot-uv",
+                  "name": "Spot UV"
+                },
+                {
+                  "id": "pearl-paper",
+                  "name": "Pearl Paper"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "flyers",
+          "name": "Flyers",
+          "desc": "Single-sheet marketing that folds into any campaign — handouts, inserts, or counter displays.",
+          "tag": "",
+          "img": "images/print/flyers-thumb.jpg",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "100lb-matte-finish",
+                  "name": "100lb + Matte Finish"
+                },
+                {
+                  "id": "100lb-uv-high-gloss",
+                  "name": "100lb + UV (High Gloss)",
+                  "doc": "flyers",
+                  "page": "flyers.html"
+                },
+                {
+                  "id": "80lb-uncoated",
+                  "name": "80lb Uncoated"
+                },
+                {
+                  "id": "14pt-aq",
+                  "name": "14pt + AQ"
+                },
+                {
+                  "id": "recycled-100lb-matte",
+                  "name": "Recycled 100lb Matte"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "kraft-paper",
+                  "name": "Kraft Paper"
+                },
+                {
+                  "id": "perforated",
+                  "name": "Perforated"
+                },
+                {
+                  "id": "synthetic-tear-proof",
+                  "name": "Synthetic (Tear-Proof)"
+                },
+                {
+                  "id": "ncr-carbonless",
+                  "name": "NCR Carbonless"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "brochures",
+          "name": "Brochures",
+          "desc": "Bi-fold, tri-fold or z-fold — built to carry more story per square inch.",
+          "tag": "",
+          "img": "images/print/brochures-thumb.jpg",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "100lb-matte-finish",
+                  "name": "100lb + Matte Finish"
+                },
+                {
+                  "id": "100lb-uv-high-gloss",
+                  "name": "100lb + UV (High Gloss)"
+                },
+                {
+                  "id": "80lb-uncoated",
+                  "name": "80lb Uncoated"
+                },
+                {
+                  "id": "14pt-aq-self-cover",
+                  "name": "14pt + AQ (Self Cover)"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "gate-fold",
+                  "name": "Gate Fold"
+                },
+                {
+                  "id": "roll-fold",
+                  "name": "Roll Fold"
+                },
+                {
+                  "id": "french-fold",
+                  "name": "French Fold"
+                },
+                {
+                  "id": "soft-touch-cover",
+                  "name": "Soft Touch Cover"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "business-cards",
+          "name": "Business Cards",
+          "desc": "First impressions on 14–32pt stock, with the finish to match any brand.",
+          "tag": "sale",
+          "img": "images/print/business-cards-thumb.jpg",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "14pt-matte-finish",
+                  "name": "14pt + Matte Finish",
+                  "doc": "business-cards-14pt",
+                  "page": "business-cards-14pt.html"
+                },
+                {
+                  "id": "16pt-uv-high-gloss",
+                  "name": "16pt + UV (High Gloss)"
+                },
+                {
+                  "id": "18pt-silk-laminated",
+                  "name": "18pt Silk Laminated"
+                },
+                {
+                  "id": "32pt-ultra-thick",
+                  "name": "32pt Ultra Thick"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "suede-soft-touch",
+                  "name": "Suede (Soft Touch)"
+                },
+                {
+                  "id": "raised-spot-uv",
+                  "name": "Raised Spot UV"
+                },
+                {
+                  "id": "raised-foil",
+                  "name": "Raised Foil"
+                },
+                {
+                  "id": "painted-edge",
+                  "name": "Painted Edge"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "booklets",
+          "name": "Booklets",
+          "desc": "Saddle-stitched or perfect-bound multi-page pieces for catalogs, menus and reports.",
+          "tag": "sale",
+          "img": "images/print/booklets-thumb.jpg",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "saddle-stitched-8-48pg",
+                  "name": "Saddle-Stitched (8–48pg)"
+                },
+                {
+                  "id": "perfect-bound-50pg",
+                  "name": "Perfect Bound (50pg+)"
+                },
+                {
+                  "id": "100lb-text-matte",
+                  "name": "100lb Text + Matte"
+                },
+                {
+                  "id": "100lb-text-uv-gloss",
+                  "name": "100lb Text + UV Gloss"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "cover-soft-touch",
+                  "name": "Cover Soft Touch"
+                },
+                {
+                  "id": "belly-band",
+                  "name": "Belly Band"
+                },
+                {
+                  "id": "custom-trim-size",
+                  "name": "Custom Trim Size"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "door-hangers",
+          "name": "Door Hangers",
+          "desc": "Die-cut with a hook slot — built for local, door-to-door marketing runs.",
+          "tag": "",
+          "img": "images/print/door-hangers-thumb.jpg",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "14pt-matte-finish",
+                  "name": "14pt + Matte Finish"
+                },
+                {
+                  "id": "14pt-uv-high-gloss",
+                  "name": "14pt + UV (High Gloss)"
+                },
+                {
+                  "id": "16pt-matte-finish",
+                  "name": "16pt + Matte Finish"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "perforated-tear-off",
+                  "name": "Perforated Tear-Off"
+                },
+                {
+                  "id": "rounded-corners",
+                  "name": "Rounded Corners"
+                },
+                {
+                  "id": "custom-die-cut-shape",
+                  "name": "Custom Die-Cut Shape"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "greeting-cards",
+          "name": "Greeting Cards",
+          "desc": "Folded cards with envelopes included — ready for seasonal or corporate mailers.",
+          "tag": "",
+          "img": "images/print/greeting-cards-thumb.jpg",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "14pt-matte-finish",
+                  "name": "14pt + Matte Finish"
+                },
+                {
+                  "id": "14pt-uv-high-gloss",
+                  "name": "14pt + UV (High Gloss)"
+                },
+                {
+                  "id": "100lb-uncoated",
+                  "name": "100lb Uncoated"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "foil-stamped",
+                  "name": "Foil Stamped"
+                },
+                {
+                  "id": "kraft-envelope",
+                  "name": "Kraft Envelope"
+                },
+                {
+                  "id": "square-format",
+                  "name": "Square Format"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "invitations-and-announcements",
+          "name": "Invitations & Announcements",
+          "desc": "Event-ready stock with premium finish options and matching envelopes.",
+          "tag": "",
+          "img": "images/print/invitations-thumb.jpg",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "14pt-matte-finish",
+                  "name": "14pt + Matte Finish"
+                },
+                {
+                  "id": "14pt-uv-high-gloss",
+                  "name": "14pt + UV (High Gloss)"
+                },
+                {
+                  "id": "110lb-cotton",
+                  "name": "110lb Cotton"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "letterpress-look",
+                  "name": "Letterpress Look"
+                },
+                {
+                  "id": "deckled-edge",
+                  "name": "Deckled Edge"
+                },
+                {
+                  "id": "pearl-shimmer",
+                  "name": "Pearl Shimmer"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "large-format",
+      "name": "Large Format",
+      "products": [
+        {
+          "id": "vinyl-banners",
+          "name": "Vinyl Banners",
+          "desc": "13oz–18oz scrim vinyl, hemmed and grommeted for indoor or outdoor hanging.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "13oz-standard-vinyl",
+                  "name": "13oz Standard Vinyl",
+                  "doc": "vinyl-banners",
+                  "page": "vinyl-banners.html"
+                },
+                {
+                  "id": "15oz-heavy-duty-vinyl",
+                  "name": "15oz Heavy Duty Vinyl",
+                  "doc": "vinyl-banners-15oz-heavy-duty-vinyl"
+                },
+                {
+                  "id": "18oz-premium-vinyl",
+                  "name": "18oz Premium Vinyl"
+                },
+                {
+                  "id": "single-or-double-sided",
+                  "name": "Single or Double-Sided"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "mesh-wind-through",
+                  "name": "Mesh (Wind-Through)"
+                },
+                {
+                  "id": "backlit-vinyl",
+                  "name": "Backlit Vinyl"
+                },
+                {
+                  "id": "pole-pockets",
+                  "name": "Pole Pockets"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mesh-banners",
+          "name": "Mesh Banners",
+          "desc": "Perforated vinyl that lets wind pass through — built for fences and scaffolding.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "9oz-mesh-vinyl",
+                  "name": "9oz Mesh Vinyl"
+                },
+                {
+                  "id": "70-30-perforation",
+                  "name": "70/30 Perforation"
+                },
+                {
+                  "id": "hemmed-grommeted",
+                  "name": "Hemmed + Grommeted"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "reinforced-corners",
+                  "name": "Reinforced Corners"
+                },
+                {
+                  "id": "custom-perforation-ratio",
+                  "name": "Custom Perforation Ratio"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pull-up-banners",
+          "name": "Pull-Up Banners",
+          "desc": "Retractable stand banners that set up in under a minute — no tools required.",
+          "tag": "new",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "33in-standard-stand",
+                  "name": "33in Standard Stand"
+                },
+                {
+                  "id": "47in-wide-stand",
+                  "name": "47in Wide Stand"
+                },
+                {
+                  "id": "double-sided-stand",
+                  "name": "Double-Sided Stand"
+                },
+                {
+                  "id": "table-top-mini",
+                  "name": "Table Top Mini"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "premium-aluminum-base",
+                  "name": "Premium Aluminum Base"
+                },
+                {
+                  "id": "carrying-case-included",
+                  "name": "Carrying Case Included"
+                },
+                {
+                  "id": "led-light-kit",
+                  "name": "LED Light Kit"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "rigid-signs",
+          "name": "Rigid Signs",
+          "desc": "Coroplast through aluminum composite — the full range of rigid substrates.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "4mm-coroplast",
+                  "name": "4mm Coroplast"
+                },
+                {
+                  "id": "3mm-pvc",
+                  "name": "3mm PVC"
+                },
+                {
+                  "id": "1-2in-foam-board",
+                  "name": "1/2in Foam Board"
+                },
+                {
+                  "id": "3mm-alupanel",
+                  "name": "3mm Alupanel"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "brushed-aluminum",
+                  "name": "Brushed Aluminum"
+                },
+                {
+                  "id": "acrylic-gloss",
+                  "name": "Acrylic (Gloss)"
+                },
+                {
+                  "id": "ultra-board",
+                  "name": "Ultra Board"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "backdrops",
+          "name": "Backdrops",
+          "desc": "Step-and-repeat and photo backdrops, tensioned on a lightweight adjustable frame.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "wrinkle-resistant-fabric",
+                  "name": "Wrinkle-Resistant Fabric"
+                },
+                {
+                  "id": "vinyl-matte",
+                  "name": "Vinyl (Matte)"
+                },
+                {
+                  "id": "adjustable-frame-included",
+                  "name": "Adjustable Frame Included"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "tension-fabric-seamless",
+                  "name": "Tension Fabric (Seamless)"
+                },
+                {
+                  "id": "curved-frame-option",
+                  "name": "Curved Frame Option"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "window-graphics",
+          "name": "Window Graphics",
+          "desc": "Perforated vinyl and static cling for storefront glass, inside or out.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "perforated-window-vinyl",
+                  "name": "Perforated Window Vinyl"
+                },
+                {
+                  "id": "static-cling-clear",
+                  "name": "Static Cling (Clear)"
+                },
+                {
+                  "id": "static-cling-white",
+                  "name": "Static Cling (White)"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "frosted-adhesive",
+                  "name": "Frosted Adhesive"
+                },
+                {
+                  "id": "low-tack-removable",
+                  "name": "Low-Tack Removable"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "vehicle-wraps",
+          "name": "Vehicle Wraps",
+          "desc": "Partial or full wraps in cast vinyl, laminated for years of road exposure.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "cast-vinyl-full-wrap",
+                  "name": "Cast Vinyl (Full Wrap)"
+                },
+                {
+                  "id": "calendared-vinyl-partial",
+                  "name": "Calendared Vinyl (Partial)"
+                },
+                {
+                  "id": "gloss-or-matte-laminate",
+                  "name": "Gloss or Matte Laminate"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "colour-change-wrap",
+                  "name": "Colour-Change Wrap"
+                },
+                {
+                  "id": "chrome-metallic-finish",
+                  "name": "Chrome / Metallic Finish"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "signs",
+      "name": "Signs",
+      "products": [
+        {
+          "id": "store-front-sign",
+          "name": "Store-Front Sign",
+          "desc": "Bold, street-facing signage sized and lit to make your storefront the one people notice first.",
+          "tag": "",
+          "img": "images/storefront-sign-menu.jpg",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "illuminated-cabinet",
+                  "name": "Illuminated Cabinet"
+                },
+                {
+                  "id": "non-illuminated-panel",
+                  "name": "Non-Illuminated Panel"
+                },
+                {
+                  "id": "aluminum-frame",
+                  "name": "Aluminum Frame"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "custom-shape-cutout",
+                  "name": "Custom Shape Cutout"
+                },
+                {
+                  "id": "backlit-acrylic-face",
+                  "name": "Backlit Acrylic Face"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "window-graphics",
+          "name": "Window Graphics",
+          "desc": "Storefront glass graphics for hours, promotions and branding — printed to fit any pane.",
+          "tag": "",
+          "img": "images/window-graphics-signs.jpg",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "static-cling",
+                  "name": "Static Cling"
+                },
+                {
+                  "id": "perforated-vinyl",
+                  "name": "Perforated Vinyl"
+                },
+                {
+                  "id": "frosted-vinyl",
+                  "name": "Frosted Vinyl"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "gold-leaf-lettering",
+                  "name": "Gold Leaf Lettering"
+                },
+                {
+                  "id": "etched-glass-look",
+                  "name": "Etched-Glass Look"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "vehicle-wraps",
+          "name": "Vehicle Wraps",
+          "desc": "Partial or full wraps in cast vinyl, laminated for years of road exposure.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "cast-vinyl-full-wrap",
+                  "name": "Cast Vinyl (Full Wrap)"
+                },
+                {
+                  "id": "calendared-vinyl-partial",
+                  "name": "Calendared Vinyl (Partial)"
+                },
+                {
+                  "id": "gloss-or-matte-laminate",
+                  "name": "Gloss or Matte Laminate"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "colour-change-wrap",
+                  "name": "Colour-Change Wrap"
+                },
+                {
+                  "id": "chrome-metallic-finish",
+                  "name": "Chrome / Metallic Finish"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "channel-letter-sign",
+          "name": "Channel Letter Sign",
+          "desc": "Dimensional, illuminated lettering for storefronts — built to spec, letter by letter.",
+          "tag": "new",
+          "img": "images/channel-letter-sign-menu.jpg",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "front-lit-led",
+                  "name": "Front-Lit LED"
+                },
+                {
+                  "id": "non-illuminated",
+                  "name": "Non-Illuminated"
+                },
+                {
+                  "id": "raceway-mount",
+                  "name": "Raceway Mount"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "custom-font-match",
+                  "name": "Custom Font Match"
+                },
+                {
+                  "id": "reverse-lit-trim-cap",
+                  "name": "Reverse-Lit Trim Cap"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "halo-lit-sign",
+          "name": "Halo Lit Sign",
+          "desc": "Backlit letters that throw a soft glow around each edge — a premium after-dark look.",
+          "tag": "",
+          "img": "images/halo-lit-sign-menu.jpg",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "halo-lit-led",
+                  "name": "Halo-Lit LED"
+                },
+                {
+                  "id": "acrylic-back-panel",
+                  "name": "Acrylic Back Panel"
+                },
+                {
+                  "id": "standoff-mount",
+                  "name": "Standoff Mount"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "colour-changing-led",
+                  "name": "Colour-Changing LED"
+                },
+                {
+                  "id": "dual-front-halo-lighting",
+                  "name": "Dual Front + Halo Lighting"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "indoor-sign-display",
+          "name": "Indoor Sign Display",
+          "desc": "Lobby and reception signage — dimensional logos, directories and directional signage.",
+          "tag": "",
+          "img": "images/indoor-sign-menu.jpg",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "dimensional-lobby-logo",
+                  "name": "Dimensional Lobby Logo"
+                },
+                {
+                  "id": "wayfinding-panel",
+                  "name": "Wayfinding Panel"
+                },
+                {
+                  "id": "directory-board",
+                  "name": "Directory Board"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "backlit-lobby-sign",
+                  "name": "Backlit Lobby Sign"
+                },
+                {
+                  "id": "frosted-acrylic-standoffs",
+                  "name": "Frosted Acrylic Standoffs"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "metal-sign",
+          "name": "Metal Sign",
+          "desc": "Rust-resistant aluminum and metal signage rated for years of outdoor exposure.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "0-040in-aluminum",
+                  "name": "0.040in Aluminum"
+                },
+                {
+                  "id": "0-063in-aluminum",
+                  "name": "0.063in Aluminum"
+                },
+                {
+                  "id": "reflective-options",
+                  "name": "Reflective Options"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "engraved-finish",
+                  "name": "Engraved Finish"
+                },
+                {
+                  "id": "brushed-metal-look",
+                  "name": "Brushed Metal Look"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "acrylic-letters-and-logos",
+          "name": "Acrylic (Letters & Logos)",
+          "desc": "Cast acrylic letters and logos with a glossy, dimensional finish for interior or exterior use.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "cast-acrylic-1-2in",
+                  "name": "Cast Acrylic, 1/2in"
+                },
+                {
+                  "id": "cast-acrylic-3-4in",
+                  "name": "Cast Acrylic, 3/4in"
+                },
+                {
+                  "id": "clear-or-colour-matched",
+                  "name": "Clear or Colour-Matched"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "mirror-polished-edges",
+                  "name": "Mirror-Polished Edges"
+                },
+                {
+                  "id": "illuminated-acrylic",
+                  "name": "Illuminated Acrylic"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "flat-cut-acrylic-sign",
+          "name": "Flat Cut Acrylic Sign",
+          "desc": "Precision laser-cut acrylic lettering and shapes, mounted flush or on standoffs.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "1-8in-acrylic",
+                  "name": "1/8in Acrylic"
+                },
+                {
+                  "id": "1-4in-acrylic",
+                  "name": "1/4in Acrylic"
+                },
+                {
+                  "id": "standoff-mount",
+                  "name": "Standoff Mount"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "painted-edge-detail",
+                  "name": "Painted Edge Detail"
+                },
+                {
+                  "id": "brushed-metal-laminate",
+                  "name": "Brushed Metal Laminate"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "flat-cut-pvc-sign",
+          "name": "Flat Cut PVC Sign",
+          "desc": "Lightweight cut-to-shape PVC lettering and logos, a cost-effective alternative to metal or acrylic.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "1-2in-pvc",
+                  "name": "1/2in PVC"
+                },
+                {
+                  "id": "3-4in-pvc",
+                  "name": "3/4in PVC"
+                },
+                {
+                  "id": "primed-for-paint",
+                  "name": "Primed for Paint"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "custom-colour-match",
+                  "name": "Custom Colour Match"
+                },
+                {
+                  "id": "textured-finish",
+                  "name": "Textured Finish"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "formed-plastic-sign",
+          "name": "Formed Plastic Sign",
+          "desc": "Vacuum-formed plastic sign faces for franchise and cabinet-style signage programs.",
+          "tag": "",
+          "img": "images/formed-plastic-sign-menu.jpg",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "vacuum-formed-face",
+                  "name": "Vacuum-Formed Face"
+                },
+                {
+                  "id": "injection-molded-letters",
+                  "name": "Injection-Molded Letters"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "franchise-colour-matching",
+                  "name": "Franchise Colour Matching"
+                },
+                {
+                  "id": "uv-stable-plastic",
+                  "name": "UV-Stable Plastic"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cutout-letters-sign",
+          "name": "Cutout Letters Sign",
+          "desc": "Individually cut dimensional letters in metal, acrylic or PVC, mounted directly to your wall.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "aluminum-cutout-letters",
+                  "name": "Aluminum Cutout Letters"
+                },
+                {
+                  "id": "acrylic-cutout-letters",
+                  "name": "Acrylic Cutout Letters"
+                },
+                {
+                  "id": "pvc-cutout-letters",
+                  "name": "PVC Cutout Letters"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "illuminated-cutout-letters",
+                  "name": "Illuminated Cutout Letters"
+                },
+                {
+                  "id": "brushed-or-polished-finish",
+                  "name": "Brushed or Polished Finish"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wall-murals-and-displays",
+          "name": "Wall Murals & Displays",
+          "desc": "Large-format wall graphics and murals that turn an entire wall into a brand statement.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "wall-vinyl-mural",
+                  "name": "Wall Vinyl Mural"
+                },
+                {
+                  "id": "fabric-wall-display",
+                  "name": "Fabric Wall Display"
+                },
+                {
+                  "id": "removable-wallpaper",
+                  "name": "Removable Wallpaper"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "textured-wall-wrap",
+                  "name": "Textured Wall Wrap"
+                },
+                {
+                  "id": "dry-erase-laminate",
+                  "name": "Dry-Erase Laminate"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "custom-signs",
+          "name": "Custom Signs",
+          "desc": "Not seeing your exact spec? We build fully custom signage to your shape, size and material.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "custom-shape-and-size",
+                  "name": "Custom Shape & Size"
+                },
+                {
+                  "id": "mixed-material-builds",
+                  "name": "Mixed-Material Builds"
+                },
+                {
+                  "id": "any-substrate",
+                  "name": "Any Substrate"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "rush-custom-fabrication",
+                  "name": "Rush Custom Fabrication"
+                },
+                {
+                  "id": "on-site-consultation",
+                  "name": "On-Site Consultation"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "plaques",
+          "name": "Plaques",
+          "desc": "Recognition and identification plaques for offices, lobbies and award presentations.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "acrylic-plaque",
+                  "name": "Acrylic Plaque"
+                },
+                {
+                  "id": "aluminum-plaque",
+                  "name": "Aluminum Plaque"
+                },
+                {
+                  "id": "wood-look-plaque",
+                  "name": "Wood-Look Plaque"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "photo-engraved-plaque",
+                  "name": "Photo-Engraved Plaque"
+                },
+                {
+                  "id": "full-colour-uv-print",
+                  "name": "Full-Colour UV Print"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cast-plaques",
+          "name": "Cast Plaques",
+          "desc": "Traditional cast bronze and aluminum plaques for building dedications and historical markers.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "cast-bronze",
+                  "name": "Cast Bronze"
+                },
+                {
+                  "id": "cast-aluminum",
+                  "name": "Cast Aluminum"
+                },
+                {
+                  "id": "raised-lettering",
+                  "name": "Raised Lettering"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "antique-patina-finish",
+                  "name": "Antique Patina Finish"
+                },
+                {
+                  "id": "custom-relief-artwork",
+                  "name": "Custom Relief Artwork"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "etched-plaques",
+          "name": "Etched Plaques",
+          "desc": "Chemically etched metal plaques with crisp, permanent detail — built to last indoors or out.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "etched-brass",
+                  "name": "Etched Brass"
+                },
+                {
+                  "id": "etched-aluminum",
+                  "name": "Etched Aluminum"
+                },
+                {
+                  "id": "etched-stainless-steel",
+                  "name": "Etched Stainless Steel"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "colour-filled-etching",
+                  "name": "Colour-Filled Etching"
+                },
+                {
+                  "id": "two-tone-finish",
+                  "name": "Two-Tone Finish"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "metal-signs-and-plates",
+          "name": "Metal Signs & Plates",
+          "desc": "Durable metal nameplates and ID plates for equipment, doors and asset tagging.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "aluminum-nameplate",
+                  "name": "Aluminum Nameplate"
+                },
+                {
+                  "id": "stainless-steel-plate",
+                  "name": "Stainless Steel Plate"
+                },
+                {
+                  "id": "adhesive-or-screw-mount",
+                  "name": "Adhesive or Screw Mount"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "sequential-serial-numbering",
+                  "name": "Sequential Serial Numbering"
+                },
+                {
+                  "id": "barcode-qr-plates",
+                  "name": "Barcode / QR Plates"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sign-product-store",
+          "name": "Sign Product Store",
+          "desc": "Browse the full sign catalogue in one place — every material, mount and finish we offer.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "full-product-catalogue",
+                  "name": "Full Product Catalogue"
+                },
+                {
+                  "id": "filter-by-material",
+                  "name": "Filter by Material"
+                },
+                {
+                  "id": "filter-by-application",
+                  "name": "Filter by Application"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "trade-pricing-unlocked-at-sign-in",
+                  "name": "Trade Pricing Unlocked at Sign-In"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stickers-and-labels",
+      "name": "Stickers & Labels",
+      "products": [
+        {
+          "id": "custom-stickers",
+          "name": "Custom Stickers",
+          "desc": "Die-cut to any shape, printed full colour with a laminate that shrugs off scuffs.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "vinyl-gloss-laminate",
+                  "name": "Vinyl + Gloss Laminate"
+                },
+                {
+                  "id": "vinyl-matte-laminate",
+                  "name": "Vinyl + Matte Laminate"
+                },
+                {
+                  "id": "kiss-cut-sheets",
+                  "name": "Kiss-Cut Sheets"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "holographic",
+                  "name": "Holographic"
+                },
+                {
+                  "id": "clear-no-white-ink",
+                  "name": "Clear (No White Ink)"
+                },
+                {
+                  "id": "glitter-finish",
+                  "name": "Glitter Finish"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "roll-labels",
+          "name": "Roll Labels",
+          "desc": "Product and packaging labels on a roll, ready for high-speed dispensing.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "gloss-bopp",
+                  "name": "Gloss BOPP"
+                },
+                {
+                  "id": "matte-paper",
+                  "name": "Matte Paper"
+                },
+                {
+                  "id": "clear-bopp",
+                  "name": "Clear BOPP"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "freezer-grade-adhesive",
+                  "name": "Freezer-Grade Adhesive"
+                },
+                {
+                  "id": "tamper-evident",
+                  "name": "Tamper-Evident"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sheet-labels",
+          "name": "Sheet Labels",
+          "desc": "Multiple labels per sheet — ideal for short runs and in-house application.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "gloss-paper",
+                  "name": "Gloss Paper"
+                },
+                {
+                  "id": "matte-paper",
+                  "name": "Matte Paper"
+                },
+                {
+                  "id": "clear-polyester",
+                  "name": "Clear Polyester"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "round-corner-die-cut",
+                  "name": "Round Corner Die-Cut"
+                },
+                {
+                  "id": "waterproof-polyester",
+                  "name": "Waterproof Polyester"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "static-clings",
+          "name": "Static Clings",
+          "desc": "No adhesive needed — clings to glass and reposition without residue.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "clear-static-cling",
+                  "name": "Clear Static Cling"
+                },
+                {
+                  "id": "white-static-cling",
+                  "name": "White Static Cling"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "double-sided-read-both-ways",
+                  "name": "Double-Sided (Read Both Ways)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wall-decals",
+          "name": "Wall Decals",
+          "desc": "Removable wall graphics for offices, retail and event spaces.",
+          "tag": "new",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "removable-vinyl",
+                  "name": "Removable Vinyl"
+                },
+                {
+                  "id": "fabric-wall-decal",
+                  "name": "Fabric Wall Decal"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "dry-erase-laminate",
+                  "name": "Dry-Erase Laminate"
+                },
+                {
+                  "id": "large-format-mural",
+                  "name": "Large-Format Mural"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "accessories-and-hardware",
+      "name": "Accessories & Hardware",
+      "products": [
+        {
+          "id": "banner-stands",
+          "name": "Banner Stands",
+          "desc": "Retractable and X-frame stands to get any banner upright in seconds.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "standard-retractable-base",
+                  "name": "Standard Retractable Base"
+                },
+                {
+                  "id": "premium-aluminum-base",
+                  "name": "Premium Aluminum Base"
+                },
+                {
+                  "id": "x-frame-stand",
+                  "name": "X-Frame Stand"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "double-sided-stand",
+                  "name": "Double-Sided Stand"
+                },
+                {
+                  "id": "wide-format-stand",
+                  "name": "Wide Format Stand"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "flag-hardware",
+          "name": "Flag Hardware",
+          "desc": "Ground spikes, cross bases and poles for feather and teardrop flags.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "ground-spike-straight",
+                  "name": "Ground Spike (Straight)"
+                },
+                {
+                  "id": "cross-base",
+                  "name": "Cross Base"
+                },
+                {
+                  "id": "water-fillable-base",
+                  "name": "Water-Fillable Base"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "heavy-duty-metal-plate-base",
+                  "name": "Heavy-Duty Metal Plate Base"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "real-estate-sign-hardware",
+          "name": "Real Estate Sign Hardware",
+          "desc": "Frames, H-stands and post kits sized to standard real estate rider signs.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "metal-h-stand",
+                  "name": "Metal H-Stand"
+                },
+                {
+                  "id": "metal-post-frame",
+                  "name": "Metal Post + Frame"
+                },
+                {
+                  "id": "a-frame",
+                  "name": "A-Frame"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "lock-box",
+                  "name": "Lock Box"
+                },
+                {
+                  "id": "brochure-box",
+                  "name": "Brochure Box"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "tension-fabric-frames",
+          "name": "Tension Fabric Frames",
+          "desc": "Lightweight aluminum frames for a seamless, wrinkle-free fabric graphic.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "straight-frame",
+                  "name": "Straight Frame"
+                },
+                {
+                  "id": "curved-frame",
+                  "name": "Curved Frame"
+                },
+                {
+                  "id": "backlit-frame",
+                  "name": "Backlit Frame"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "seg-silicone-edge-graphic-frame",
+                  "name": "SEG (Silicone Edge Graphic) Frame"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "led-lights",
+          "name": "LED Lights",
+          "desc": "Clip-on lighting kits that make any banner stand or backdrop pop after dark.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "clip-on-led-bar",
+                  "name": "Clip-On LED Bar"
+                },
+                {
+                  "id": "battery-pack-kit",
+                  "name": "Battery Pack Kit"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "dimmable-kit",
+                  "name": "Dimmable Kit"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "promotional-products",
+      "name": "Promotional Products",
+      "products": [
+        {
+          "id": "mens-clothing",
+          "name": "Men's Clothing",
+          "desc": "Custom printed and embroidered menswear — tees, polos and hoodies for staff uniforms or event merch.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "cotton-t-shirt",
+                  "name": "Cotton T-Shirt"
+                },
+                {
+                  "id": "polo-shirt",
+                  "name": "Polo Shirt"
+                },
+                {
+                  "id": "fleece-hoodie",
+                  "name": "Fleece Hoodie"
+                },
+                {
+                  "id": "performance-tee",
+                  "name": "Performance Tee"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "embroidered-logo",
+                  "name": "Embroidered Logo"
+                },
+                {
+                  "id": "moisture-wicking-fabric",
+                  "name": "Moisture-Wicking Fabric"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mugs",
+          "name": "Mugs",
+          "desc": "Ceramic mugs printed or laser-engraved with your logo — a dishwasher-safe daily reminder of your brand.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "11oz-ceramic-mug",
+                  "name": "11oz Ceramic Mug"
+                },
+                {
+                  "id": "15oz-ceramic-mug",
+                  "name": "15oz Ceramic Mug"
+                },
+                {
+                  "id": "color-changing-mug",
+                  "name": "Color-Changing Mug"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "two-tone-handle",
+                  "name": "Two-Tone Handle"
+                },
+                {
+                  "id": "photo-mug",
+                  "name": "Photo Mug"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "bottles",
+          "name": "Bottles",
+          "desc": "Reusable water bottles in stainless steel or BPA-free plastic, printed or engraved.",
+          "tag": "new",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "24oz-stainless-bottle",
+                  "name": "24oz Stainless Bottle"
+                },
+                {
+                  "id": "20oz-sport-bottle",
+                  "name": "20oz Sport Bottle"
+                },
+                {
+                  "id": "insulated-tumbler-bottle",
+                  "name": "Insulated Tumbler Bottle"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "vacuum-insulated-hot-cold",
+                  "name": "Vacuum-Insulated (Hot/Cold)"
+                },
+                {
+                  "id": "carabiner-clip-lid",
+                  "name": "Carabiner Clip Lid"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "tote-bags",
+          "name": "Tote Bags",
+          "desc": "Reusable tote bags that put your brand on the street — cotton canvas, jute or non-woven.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "cotton-canvas-tote",
+                  "name": "Cotton Canvas Tote"
+                },
+                {
+                  "id": "non-woven-tote",
+                  "name": "Non-Woven Tote"
+                },
+                {
+                  "id": "jute-tote",
+                  "name": "Jute Tote"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "full-colour-sublimation",
+                  "name": "Full-Colour Sublimation"
+                },
+                {
+                  "id": "reinforced-handles",
+                  "name": "Reinforced Handles"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "name-tags",
+          "name": "Name Tags",
+          "desc": "Professional staff name badges — magnetic or pin-back, printed or engraved to match your brand.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "magnetic-backing",
+                  "name": "Magnetic Backing"
+                },
+                {
+                  "id": "pin-backing",
+                  "name": "Pin Backing"
+                },
+                {
+                  "id": "engraved-plastic",
+                  "name": "Engraved Plastic"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "full-colour-printed",
+                  "name": "Full-Colour Printed"
+                },
+                {
+                  "id": "photo-id-badge",
+                  "name": "Photo ID Badge"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "canvas",
+          "name": "Canvas",
+          "desc": "Stretched canvas prints for office decor, event backdrops, or client gifts.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "8-10-stretched-canvas",
+                  "name": "8×10 Stretched Canvas"
+                },
+                {
+                  "id": "16-20-stretched-canvas",
+                  "name": "16×20 Stretched Canvas"
+                },
+                {
+                  "id": "24-36-stretched-canvas",
+                  "name": "24×36 Stretched Canvas"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "gallery-wrap-edge",
+                  "name": "Gallery Wrap Edge"
+                },
+                {
+                  "id": "float-frame",
+                  "name": "Float Frame"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "photo-panel",
+          "name": "Photo Panel",
+          "desc": "High-gloss photo panels in aluminum, acrylic or foam — vivid colour for portraits and product shots.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "aluminum-photo-panel",
+                  "name": "Aluminum Photo Panel"
+                },
+                {
+                  "id": "acrylic-photo-panel",
+                  "name": "Acrylic Photo Panel"
+                },
+                {
+                  "id": "foam-photo-panel",
+                  "name": "Foam Photo Panel"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "high-gloss-metal-print",
+                  "name": "High-Gloss Metal Print"
+                },
+                {
+                  "id": "float-mount",
+                  "name": "Float Mount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "uv-dtf",
+          "name": "UV DTF",
+          "desc": "UV DTF transfers and stickers — apply to curved surfaces like tumblers, glass, and metal with a raised, glossy finish.",
+          "tag": "new",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "uv-dtf-stickers-sheet",
+                  "name": "UV DTF Stickers (Sheet)"
+                },
+                {
+                  "id": "uv-dtf-transfers-roll",
+                  "name": "UV DTF Transfers (Roll)"
+                },
+                {
+                  "id": "custom-die-cut-shape",
+                  "name": "Custom Die-Cut Shape"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "waterproof-uv-resistant",
+                  "name": "Waterproof / UV Resistant"
+                },
+                {
+                  "id": "raised-texture-finish",
+                  "name": "Raised Texture Finish"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "custom-dtf",
+          "name": "Custom DTF",
+          "desc": "Direct-to-film transfers for apparel — full colour, stretchable, and ready to press onto cotton, poly or blends.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": [
+                {
+                  "id": "dtf-transfer-single",
+                  "name": "DTF Transfer (Single)"
+                },
+                {
+                  "id": "dtf-transfer-bulk-roll",
+                  "name": "DTF Transfer (Bulk Roll)"
+                },
+                {
+                  "id": "gang-sheet",
+                  "name": "Gang Sheet"
+                }
+              ]
+            },
+            {
+              "name": "Specialty",
+              "items": [
+                {
+                  "id": "glow-in-the-dark-ink",
+                  "name": "Glow-in-the-Dark Ink"
+                },
+                {
+                  "id": "metallic-finish",
+                  "name": "Metallic Finish"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shop-by-solution",
+      "name": "Shop by Solution",
+      "products": [
+        {
+          "id": "retail-and-storefronts",
+          "name": "Retail & Storefronts",
+          "desc": "Window graphics, floor decals and light boxes that sell from the street.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": []
+            },
+            {
+              "name": "Specialty",
+              "items": []
+            }
+          ]
+        },
+        {
+          "id": "real-estate",
+          "name": "Real Estate",
+          "desc": "For-sale signs, riders and sleeves matched to every listing.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": []
+            },
+            {
+              "name": "Specialty",
+              "items": []
+            }
+          ]
+        },
+        {
+          "id": "events-and-trade-shows",
+          "name": "Events & Trade Shows",
+          "desc": "Pop-ups, tension fabric and tents that travel and set up fast.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": []
+            },
+            {
+              "name": "Specialty",
+              "items": []
+            }
+          ]
+        },
+        {
+          "id": "corporate-and-office",
+          "name": "Corporate & Office",
+          "desc": "Wayfinding, wall murals and branded print for HQ spaces.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": []
+            },
+            {
+              "name": "Specialty",
+              "items": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "design",
+      "name": "Design",
+      "products": [
+        {
+          "id": "custom-design",
+          "name": "Custom Design",
+          "desc": "Our in-house team builds your artwork from scratch — logo, layout and all.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": []
+            },
+            {
+              "name": "Specialty",
+              "items": []
+            }
+          ]
+        },
+        {
+          "id": "free-design-review",
+          "name": "Free Design Review",
+          "desc": "Upload your file and we'll flag any bleed, resolution or colour issues before it prints.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": []
+            },
+            {
+              "name": "Specialty",
+              "items": []
+            }
+          ]
+        },
+        {
+          "id": "template-library",
+          "name": "Template Library",
+          "desc": "Editable, print-ready templates for every product — swap in your own copy and go.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": []
+            },
+            {
+              "name": "Specialty",
+              "items": []
+            }
+          ]
+        },
+        {
+          "id": "rush-design",
+          "name": "Rush Design",
+          "desc": "Need it fast? Get a first draft back from our design team within 24 hours.",
+          "tag": "",
+          "img": "",
+          "groups": [
+            {
+              "name": "Standard",
+              "items": []
+            },
+            {
+              "name": "Specialty",
+              "items": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

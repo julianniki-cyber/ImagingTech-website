@@ -1,0 +1,14 @@
+rules_version = '2';
+// Paste into Firebase console → Firestore Database → Rules.
+// Replace EDITOR_EMAIL with the Google account(s) allowed to edit products.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isEditor() {
+      return request.auth != null
+        && request.auth.token.email_verified
+        && request.auth.token.email in ['EDITOR_EMAIL'];
+    }
+    match /site/{doc}      { allow read: if true; allow write: if isEditor(); }
+    match /products/{doc}  { allow read: if true; allow write: if isEditor(); }
+  }
+}

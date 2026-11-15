@@ -1,0 +1,6 @@
+{
+  "liveServer.settings.port": 5500,
+  "editor.wordWrap": "on",
+  "files.associations": { "*.html": "html" },
+  "[json]": { "editor.tabSize": 2 }
+}

@@ -1,0 +1,3116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script src="js/local-data.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About ImagingTech — Wholesale Print &amp; Imaging Partner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --indigo:#37419A;
+    --indigo-dark:#232a68;
+    --indigo-tint:#EEEFF9;
+    --ink:#14152A;
+    --ink-soft:#5B5D75;
+    --paper:#FBFAF6;
+    --paper-alt:#F2F0E7;
+    --line:#E4E1D6;
+    --green:#3FAE4B;
+    --yellow:#FFC72C;
+    --magenta:#E91E63;
+    --cyan:#00AEEF;
+    --radius:14px;
+    --shadow:0 18px 40px -20px rgba(20,21,42,.25);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Sora',sans-serif;
+    margin:0;
+    color:var(--ink);
+    letter-spacing:-.01em;
+  }
+  p{margin:0;color:var(--ink-soft);line-height:1.6;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;margin:0;padding:0;}
+  img,svg{display:block;}
+  button{font-family:inherit;cursor:pointer;}
+  :focus-visible{outline:3px solid var(--cyan);outline-offset:2px;}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 32px;}
+  @media(max-width:720px){.wrap{padding:0 20px;}}
+
+  /* ---------- signature dot mark ---------- */
+  .dotmark{display:inline-flex;flex-direction:column;gap:3px;width:9px;}
+  .dotmark span{width:9px;height:9px;border-radius:2px;}
+  .dotmark span:nth-child(1){background:var(--green);}
+  .dotmark span:nth-child(2){background:var(--yellow);}
+  .dotmark span:nth-child(3){background:var(--magenta);}
+  .dotmark span:nth-child(4){background:var(--cyan);}
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Sora',sans-serif;font-weight:700;font-size:12.5px;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);
+    margin-bottom:14px;
+  }
+
+  /* ---------- utility bar ---------- */
+  .utility-bar{background:var(--indigo-dark);color:#fff;font-size:13px;}
+  .utility-bar .wrap{display:flex;align-items:center;justify-content:space-between;height:38px;}
+  .utility-bar a{opacity:.92;}
+  .utility-bar a:hover{opacity:1;text-decoration:underline;}
+  .utility-left{display:flex;gap:22px;align-items:center;}
+  .utility-right{display:flex;gap:22px;align-items:center;}
+  .utility-bar .divider{opacity:.35;}
+  @media(max-width:860px){.utility-right .hide-sm{display:none;}}
+  @media(max-width:640px){.utility-bar{display:none;}}
+
+  /* ---------- header ---------- */
+  header.site{
+    position:sticky;top:0;z-index:60;background:#fff;
+    border-bottom:1px solid var(--line);
+  }
+  .header-main{display:flex;align-items:center;gap:36px;padding:16px 32px;max-width:1280px;margin:0 auto;}
+  .logo-lockup{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  .logo-lockup .dotmark span{width:7px;height:7px;}
+  .logo-text{display:flex;flex-direction:column;line-height:1;}
+  .logo-text .word{font-family:'Sora',sans-serif;font-weight:800;font-size:23px;color:var(--indigo);letter-spacing:-.01em;}
+  .logo-text .word b{font-weight:800;color:var(--ink);}
+  .logo-text .tag{font-family:'Caveat',cursive;font-size:14px;color:var(--ink-soft);margin-top:2px;}
+  .logo-svg{height:52px;width:auto;display:block;}
+  .logo-chip{display:inline-flex;background:#fff;border-radius:12px;padding:14px 18px;}
+  .logo-chip .logo-svg{height:46px;}
+
+  .search-form{
+    flex:1;display:flex;align-items:center;background:var(--paper-alt);
+    border:1px solid var(--line);border-radius:999px;padding:4px 6px 4px 18px;
+    max-width:560px;
+  }
+  .search-form input{
+    flex:1;border:none;background:transparent;font-size:14.5px;font-family:'Inter',sans-serif;color:var(--ink);
+  }
+  .search-form input:focus{outline:none;}
+  .search-form button{
+    width:38px;height:38px;border-radius:50%;background:var(--indigo);border:none;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .search-form button svg{stroke:#fff;}
+
+  .header-actions{display:flex;align-items:center;gap:26px;flex-shrink:0;}
+  .header-action{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11.5px;font-weight:600;color:var(--ink-soft);position:relative;}
+  .header-action svg{stroke:var(--ink);}
+  .header-action:hover svg{stroke:var(--indigo);}
+  .header-action:hover{color:var(--indigo);}
+  .cart-count{
+    position:absolute;top:-6px;right:-10px;background:var(--magenta);color:#fff;
+    font-size:10px;font-weight:700;border-radius:50%;width:16px;height:16px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .btn-quote{
+    background:var(--indigo);color:#fff;padding:11px 20px;border-radius:999px;
+    font-family:'Sora',sans-serif;font-weight:600;font-size:13.5px;white-space:nowrap;
+    transition:background .15s ease;
+  }
+  .btn-quote:hover{background:var(--indigo-dark);}
+
+  .hamburger{display:none;background:none;border:none;padding:6px;}
+
+  /* ---------- mega nav ---------- */
+  nav.megabar{border-top:1px solid var(--line);background:#fff;}
+  .megabar .wrap{display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .nav-item{position:relative;flex-shrink:0;}
+  .nav-item>a, .nav-item>button.nav-trigger{
+    display:flex;align-items:center;gap:6px;
+    font-family:'Sora',sans-serif;font-weight:600;font-size:13.5px;color:var(--ink);
+    padding:14px 13px;background:none;border:none;white-space:nowrap;
+  }
+  .nav-item>a::after,.nav-trigger::after{
+    content:"";position:absolute;left:16px;right:16px;bottom:0;height:3px;border-radius:3px 3px 0 0;
+    background:transparent;transition:background .15s ease;
+  }
+  .nav-item:hover>a::after,.nav-item.open>.nav-trigger::after{background:var(--cyan);}
+  .nav-item:hover>a,.nav-item:hover>.nav-trigger,.nav-item.open>.nav-trigger{color:var(--indigo);}
+  .nav-trigger svg{transition:transform .15s ease;stroke:currentColor;}
+  .nav-item.open .nav-trigger svg{transform:rotate(180deg);}
+  .nav-item.cta a{color:var(--magenta);}
+
+  .megapanel{
+    position:absolute;top:100%;left:0;width:min(920px,86vw);
+    background:#fff;border:1px solid var(--line);border-radius:0 0 18px 18px;
+    box-shadow:var(--shadow);padding:32px;
+    display:none;grid-template-columns:repeat(4,1fr) 1.1fr;gap:28px;
+    z-index:50;
+  }
+  .nav-item.open .megapanel{display:grid;}
+  .megapanel h5{
+    font-family:'Sora',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--indigo);margin-bottom:12px;font-weight:700;
+  }
+  .megapanel ul li{margin-bottom:9px;}
+  .megapanel ul li a{font-size:13.6px;color:var(--ink-soft);}
+  .megapanel ul li a:hover{color:var(--indigo);text-decoration:underline;}
+  .mega-feature{
+    background:var(--indigo);border-radius:12px;padding:20px;color:#fff;
+    display:flex;flex-direction:column;justify-content:space-between;gap:16px;
+  }
+  .mega-feature .tagchip{
+    align-self:flex-start;background:rgba(255,255,255,.16);font-size:11px;font-weight:700;
+    padding:4px 10px;border-radius:999px;letter-spacing:.04em;text-transform:uppercase;
+  }
+  .mega-feature strong{font-family:'Sora',sans-serif;font-size:17px;line-height:1.3;display:block;margin:10px 0 6px;}
+  .mega-feature span{font-size:12.5px;opacity:.85;}
+  .mega-feature a{font-size:13px;font-weight:700;text-decoration:underline;margin-top:4px;}
+
+  /* ---------- list + detail mega menu ---------- */
+  .megapanel.listdetail{
+    grid-template-columns:300px 1fr;padding:0;gap:0;
+    width:min(960px,90vw);overflow:hidden;
+  }
+  .ld-list{
+    background:var(--paper-alt);border-right:1px solid var(--line);
+    max-height:520px;overflow-y:auto;padding:10px 0;
+  }
+  .ld-list::-webkit-scrollbar{width:6px;}
+  .ld-list::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px;}
+  .ld-item{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:12px 22px;font-family:'Sora',sans-serif;font-weight:600;font-size:14px;
+    color:var(--ink);border-left:3px solid transparent;
+  }
+  .ld-item svg{stroke:var(--ink-soft);opacity:.6;flex-shrink:0;transition:transform .15s ease;}
+  .ld-item:hover, .ld-item.active{
+    color:var(--indigo);background:#fff;border-left-color:var(--indigo);
+  }
+  .ld-item:hover svg, .ld-item.active svg{stroke:var(--indigo);opacity:1;transform:translateX(2px);}
+  .ld-item .tag-sale{color:var(--magenta);font-size:10.5px;font-weight:800;letter-spacing:.03em;}
+  .ld-item .tag-new{color:var(--green);font-size:10.5px;font-weight:800;letter-spacing:.03em;}
+
+  .ld-detail{max-height:520px;overflow-y:auto;padding:30px 34px;}
+  .ld-detail::-webkit-scrollbar{width:6px;}
+  .ld-detail::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px;}
+  .ld-panel{display:none;}
+  .ld-panel.active{display:block;}
+  .ld-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;}
+  .ld-head h3{font-family:'Sora',sans-serif;font-size:22px;color:var(--indigo);margin-bottom:10px;}
+  .ld-head p{font-size:14px;max-width:360px;color:var(--ink-soft);}
+  .ld-art{width:150px;flex-shrink:0;}
+  .ld-art-svg{width:100%;height:auto;display:block;}
+  .ld-art-img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);object-fit:cover;}
+  .ld-divider{border:none;border-top:1px solid var(--line);margin:22px 0;}
+  .ld-specs{display:grid;grid-template-columns:1fr 1fr auto;gap:8px 28px;}
+  .ld-specs h4{
+    font-family:'Sora',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:.06em;
+    color:var(--indigo);margin-bottom:12px;font-weight:700;
+  }
+  .ld-specs ul{display:flex;flex-direction:column;gap:9px;}
+  .ld-specs li{font-size:13.4px;color:var(--ink);font-weight:600;}
+  .ld-specs .specialty{border-left:1px solid var(--line);padding-left:26px;}
+  .ld-specs .specialty li{font-weight:500;color:var(--ink-soft);}
+  .ld-cta{
+    display:inline-flex;align-items:center;gap:6px;margin-top:24px;
+    font-family:'Sora',sans-serif;font-weight:700;font-size:13.5px;color:var(--indigo);
+  }
+  .ld-cta svg{stroke:var(--indigo);transition:transform .15s ease;}
+  .ld-cta:hover svg{transform:translateX(4px);}
+
+  .megapanel.solutions{grid-template-columns:repeat(4,1fr);}
+  .solution-card{border:1px solid var(--line);border-radius:12px;padding:18px;transition:border-color .15s, transform .15s;}
+  .solution-card:hover{border-color:var(--indigo);transform:translateY(-3px);}
+  .solution-card .chip{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+  .solution-card h6{font-family:'Sora',sans-serif;font-size:14.5px;margin-bottom:6px;}
+  .solution-card p{font-size:12.5px;}
+
+  /* ---------- mobile nav ---------- */
+  .mobile-drawer{display:none;}
+  @media(max-width:980px){
+    .search-form{display:none;}
+    .header-actions .label-text{display:none;}
+    nav.megabar{display:none;}
+    .hamburger{display:block;}
+    .header-main{padding:14px 20px;}
+    .mobile-drawer{
+      display:block;position:fixed;inset:0 0 0 auto;width:min(340px,86vw);
+      background:#fff;transform:translateX(100%);transition:transform .25s ease;
+      z-index:100;box-shadow:-10px 0 30px rgba(0,0,0,.15);overflow-y:auto;
+    }
+    .mobile-drawer.open{transform:translateX(0);}
+    .drawer-backdrop{position:fixed;inset:0;background:rgba(20,21,42,.4);z-index:99;display:none;}
+    .drawer-backdrop.open{display:block;}
+    .drawer-head{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line);}
+    .drawer-item{border-bottom:1px solid var(--line);}
+    .drawer-item>button{
+      width:100%;display:flex;justify-content:space-between;align-items:center;
+      padding:16px 20px;background:none;border:none;font-family:'Sora',sans-serif;font-weight:600;font-size:15px;
+    }
+    .drawer-sub{display:none;padding:0 20px 16px 20px;}
+    .drawer-item.open .drawer-sub{display:block;}
+    .drawer-item.open>button svg{transform:rotate(180deg);}
+    .drawer-sub a{display:block;padding:8px 0;font-size:14px;color:var(--ink-soft);}
+    .drawer-cta{padding:20px;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;background:var(--paper-alt);}
+  .hero-banner{position:relative;display:grid;grid-template-columns:1fr minmax(240px,36%);min-height:540px;}
+  .hero-copy{order:1;}
+  .hero-visual{order:2;}
+
+  .hero-copy{
+    position:relative;background:var(--indigo);overflow:hidden;display:flex;flex-direction:column;justify-content:center;
+    padding-top:72px;padding-bottom:72px;padding-right:48px;
+    padding-left:max(32px, calc((100vw - 1280px) / 2 + 32px));
+  }
+  .hero-copy::before{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.55;
+    background-image:radial-gradient(circle, rgba(255,255,255,.16) 1.4px, transparent 1.4px);
+    background-size:16px 16px;
+    -webkit-mask-image:radial-gradient(circle at 18% 88%, black 0%, transparent 58%);
+    mask-image:radial-gradient(circle at 18% 88%, black 0%, transparent 58%);
+  }
+  .hero-copy>*{position:relative;}
+  .hero .eyebrow{color:#fff;}
+  .hero h1{font-size:clamp(30px,3.4vw,44px);line-height:1.1;font-weight:800;color:#fff;text-wrap:balance;}
+  .hero h1 em{font-style:normal;color:var(--yellow);}
+  .hero p.lead{font-size:16.5px;max-width:420px;margin-top:18px;color:rgba(255,255,255,.82);}
+  .hero-cta{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--indigo);color:#fff;padding:15px 26px;border-radius:999px;
+    font-family:'Sora',sans-serif;font-weight:700;font-size:14.5px;border:none;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn-primary:hover{background:var(--indigo-dark);transform:translateY(-2px);}
+  .hero .btn-primary{background:#fff;color:var(--indigo);}
+  .hero .btn-primary:hover{background:var(--yellow);color:var(--ink);}
+  .btn-secondary{
+    background:transparent;color:var(--ink);padding:15px 26px;border-radius:999px;
+    font-family:'Sora',sans-serif;font-weight:700;font-size:14.5px;border:1.5px solid var(--ink);
+    transition:transform .15s ease, border-color .15s ease;
+  }
+  .btn-secondary:hover{border-color:var(--indigo);color:var(--indigo);transform:translateY(-2px);}
+  .hero .btn-secondary{color:#fff;border-color:rgba(255,255,255,.55);}
+  .hero .btn-secondary:hover{color:#fff;border-color:#fff;background:rgba(255,255,255,.1);}
+
+  .hero-stats{display:flex;gap:26px;margin-top:38px;flex-wrap:wrap;}
+  .hero-stats div strong{font-family:'Sora',sans-serif;font-size:22px;display:block;color:#fff;}
+  .hero-stats div span{font-size:12px;color:rgba(255,255,255,.68);}
+
+  .hero-visual{position:relative;background:var(--paper-alt);overflow:hidden;}
+  .hero-tile-wall{position:absolute;inset:0;display:flex;gap:12px;padding:26px 26px 26px 30px;}
+  .tile-col{position:relative;flex:1;}
+  .tile-col:hover{z-index:5;}
+  .tile-col-track{position:absolute;top:0;left:0;right:0;display:flex;flex-direction:column;gap:12px;}
+  .tile-col--up .tile-col-track{animation:tileFloatUp 95s linear infinite;}
+  .tile-col--down .tile-col-track{animation:tileFloatDown 110s linear infinite;}
+  .tile-col:hover .tile-col-track{animation-play-state:paused;}
+  .tile-col-track img{
+    width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;display:block;
+    box-shadow:0 8px 16px -9px rgba(20,21,42,.35);
+    transition:transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .35s ease;
+    transform-origin:center center;
+  }
+  .tile-col-track img:hover{
+    transform:perspective(700px) translateZ(36px) scale(1.1);
+    box-shadow:0 26px 40px -10px rgba(20,21,42,.6);
+    position:relative;z-index:3;
+  }
+  @keyframes tileFloatUp{from{transform:translateY(0);}to{transform:translateY(-50%);}}
+  @keyframes tileFloatDown{from{transform:translateY(-50%);}to{transform:translateY(0);}}
+
+  .hero-signup-card{
+    position:absolute;top:50%;left:64%;transform:translate(-40%,-50%);
+    width:clamp(260px,25vw,330px);background:#fff;border-radius:16px;overflow:hidden;
+    box-shadow:0 34px 54px -16px rgba(20,21,42,.5);z-index:6;
+  }
+  .hero-signup-card::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(128deg, var(--indigo) 0%, rgba(55,65,154,.5) 24%, transparent 46%);
+    opacity:.9;
+  }
+  .hero-signup-card-inner{position:relative;padding:30px 26px 28px;}
+  .hero-signup-card h3{font-family:'Sora',sans-serif;font-size:19px;line-height:1.35;font-weight:700;color:var(--ink);margin-bottom:20px;}
+  .hero-signup-card h3 em{font-style:italic;color:var(--indigo);}
+  .hero-signup-form{display:flex;flex-direction:column;gap:11px;}
+  .hero-signup-form input{
+    border:1px solid var(--line);border-radius:9px;padding:13px 14px;font-size:14px;
+    font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper-alt);width:100%;
+  }
+  .hero-signup-form input::placeholder{color:var(--ink-soft);}
+  .hero-signup-form input:focus{outline:none;border-color:var(--indigo);background:#fff;}
+  .hero-signup-form button{
+    margin-top:7px;background:var(--yellow);color:var(--ink);border:none;border-radius:9px;
+    padding:14px;font-family:'Sora',sans-serif;font-weight:700;font-size:14.5px;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .hero-signup-form button:hover{background:#e8b820;transform:translateY(-1px);}
+
+  @media(max-width:980px){
+    .hero-banner{grid-template-columns:1fr;}
+    .hero-copy{padding:52px 24px;}
+    .hero-visual{height:300px;order:-1;}
+    .hero-signup-card{position:static;transform:none;width:100%;max-width:380px;margin:28px auto 0;order:3;}
+  }
+  @media(max-width:560px){
+    .hero-tile-wall{gap:8px;padding:18px 18px 18px 22px;}
+  }
+
+  /* ---------- category grid ---------- */
+  section{padding:88px 0;}
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px;flex-wrap:wrap;}
+  .section-head h2{font-size:clamp(26px,3vw,36px);font-weight:800;max-width:560px;}
+  .section-head p{max-width:420px;font-size:15px;}
+  .link-arrow{font-family:'Sora',sans-serif;font-weight:700;font-size:14px;color:var(--indigo);display:inline-flex;align-items:center;gap:6px;}
+  .link-arrow svg{stroke:var(--indigo);transition:transform .15s ease;}
+  .link-arrow:hover svg{transform:translateX(4px);}
+
+  .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media(max-width:900px){.cat-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.cat-grid{grid-template-columns:1fr;}}
+  .cat-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;
+    display:flex;flex-direction:column;gap:18px;border-bottom:4px solid var(--accent,var(--indigo));
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .cat-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .cat-icon{
+    width:52px;height:52px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+    background:color-mix(in srgb, var(--accent,var(--indigo)) 14%, white);
+  }
+  .cat-icon svg{stroke:var(--accent,var(--indigo));}
+  .cat-card.cat-card--photo{padding:0;gap:0;overflow:hidden;}
+  .cat-card-photo{width:100%;aspect-ratio:16/9;overflow:hidden;flex-shrink:0;}
+  .cat-card-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  .cat-card-body{padding:22px 28px 28px;display:flex;flex-direction:column;gap:18px;}
+  .cat-card h3{font-size:19px;}
+  .cat-card p{font-size:13.8px;}
+  .cat-card .go{font-family:'Sora',sans-serif;font-weight:700;font-size:13px;color:var(--ink);display:inline-flex;align-items:center;gap:6px;margin-top:auto;}
+  .cat-card .go svg{stroke:var(--ink);}
+
+  /* ---------- solutions strip (alt bg) ---------- */
+  .strip{background:var(--paper-alt);}
+  .scroller{
+    display:flex;gap:18px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory;
+    margin:0 -32px;padding-left:32px;padding-right:32px;
+  }
+  .scroller::-webkit-scrollbar{height:6px;}
+  .scroller::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px;}
+  .scroll-card{
+    flex:0 0 240px;scroll-snap-align:start;background:#fff;border:1px solid var(--line);
+    border-radius:var(--radius);overflow:hidden;
+  }
+  .scroll-card .thumb{
+    height:160px;display:flex;align-items:center;justify-content:center;
+  }
+  .scroll-card .thumb svg{width:96px;height:96px;}
+  .scroll-card .body{padding:16px;}
+  .scroll-card h4{font-size:15px;margin-bottom:6px;}
+  .scroll-card a{font-size:12.5px;font-weight:700;color:var(--indigo);}
+
+  /* ---------- feature band ---------- */
+  .features{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+  @media(max-width:900px){.features{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.features{grid-template-columns:1fr;}}
+  .feature{display:flex;flex-direction:column;gap:14px;}
+  .feature .chip{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;}
+  .feature h4{font-size:16.5px;}
+  .feature p{font-size:13.6px;}
+
+  /* ---------- split promo ---------- */
+  .promo{
+    display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;
+    background:var(--indigo);border-radius:24px;padding:56px;color:#fff;overflow:hidden;position:relative;
+  }
+  .promo::after{
+    content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;
+    background:radial-gradient(circle, rgba(255,255,255,.14), transparent 70%);
+  }
+  .promo h2{color:#fff;font-size:clamp(24px,3vw,32px);max-width:420px;}
+  .promo p{color:rgba(255,255,255,.82);margin-top:16px;max-width:420px;font-size:15px;}
+  .promo .btn-primary{background:#fff;color:var(--indigo);margin-top:26px;}
+  .promo .btn-primary:hover{background:var(--yellow);color:var(--ink);}
+  .promo-visual{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  .promo-visual span{aspect-ratio:1;border-radius:10px;}
+  @media(max-width:800px){.promo{grid-template-columns:1fr;padding:36px;}}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink);color:#cfd0e0;padding-top:70px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:32px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.1);}
+  @media(max-width:900px){.footer-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.footer-grid{grid-template-columns:1fr;}}
+  .footer-brand .logo-text .word{color:#fff;}
+  .footer-brand .logo-text .word b{color:var(--yellow);}
+  .footer-brand p{margin-top:16px;font-size:13.5px;color:#9a9cb5;max-width:280px;}
+  .footer-col h5{font-family:'Sora',sans-serif;color:#fff;font-size:13.5px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px;}
+  .footer-col li{margin-bottom:10px;}
+  .footer-col a{font-size:13.6px;color:#aeb0c6;}
+  .footer-col a:hover{color:#fff;}
+  .newsletter{display:flex;margin-top:16px;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:4px;max-width:280px;}
+  .newsletter input{flex:1;background:none;border:none;padding:8px 12px;color:#fff;font-size:13px;}
+  .newsletter input::placeholder{color:#7d7f99;}
+  .newsletter button{background:var(--cyan);border:none;border-radius:999px;padding:8px 16px;font-family:'Sora',sans-serif;font-weight:700;font-size:12.5px;color:var(--ink);}
+  .social-row{display:flex;gap:10px;margin-top:20px;}
+  .social-row a{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;}
+  .social-row a:hover{border-color:var(--cyan);}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:24px 0;font-size:12.5px;color:#8385a1;flex-wrap:wrap;gap:12px;}
+  .footer-bottom .dotmark span{width:6px;height:6px;}
+
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);}
+
+  /* ---------- about page ---------- */
+  .about-hero{background:var(--indigo);position:relative;overflow:hidden;padding:56px 0 70px;}
+  .about-hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background-image:radial-gradient(circle, rgba(255,255,255,.16) 1.4px, transparent 1.4px);
+    background-size:16px 16px;
+    -webkit-mask-image:radial-gradient(circle at 85% 20%, black 0%, transparent 60%);
+    mask-image:radial-gradient(circle at 85% 20%, black 0%, transparent 60%);
+  }
+  .about-hero .wrap{position:relative;}
+  .about-hero .eyebrow{color:#fff;}
+  .about-crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.62);margin-bottom:22px;}
+  .about-crumb a{color:rgba(255,255,255,.88);}
+  .about-crumb a:hover{text-decoration:underline;}
+  .about-hero h1{color:#fff;font-size:clamp(28px,3.6vw,44px);max-width:680px;text-wrap:balance;}
+  .about-hero p.lead{color:rgba(255,255,255,.82);font-size:16.5px;max-width:540px;margin-top:16px;}
+
+  .about-story{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  @media(max-width:900px){.about-story{grid-template-columns:1fr;}}
+  .about-story-copy h2{font-size:clamp(24px,2.8vw,32px);text-wrap:balance;}
+  .about-story-copy p{margin-top:16px;font-size:15px;max-width:480px;}
+  .about-story-photo{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3;}
+  .about-story-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+
+  .about-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px;}
+  @media(max-width:700px){.about-stats{grid-template-columns:repeat(2,1fr);}}
+  .about-stats div{text-align:center;}
+  .about-stats strong{display:block;font-family:'Sora',sans-serif;font-size:27px;color:var(--indigo);}
+  .about-stats span{font-size:12.5px;color:var(--ink-soft);}
+
+  .equip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  @media(max-width:900px){.equip-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.equip-grid{grid-template-columns:1fr;}}
+  .equip-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;}
+  .equip-card .chip{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;background:var(--indigo-tint);}
+  .equip-card .chip svg{stroke:var(--indigo);}
+  .equip-card h4{font-size:15.5px;margin-bottom:8px;}
+  .equip-card p{font-size:13.4px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;animation:none !important;scroll-behavior:auto !important;}
+  }
+</style>
+<script id="menu-sync">(function(){ var css = document.createElement('style'); css.textContent = '.ld-specs li a{color:inherit !important;font:inherit;text-decoration:none;}.ld-specs li a:hover{color:var(--indigo) !important;text-decoration:underline;}'; document.head.appendChild(css); function slug(x){ return String(x).toLowerCase().replace(/&/g, ' and ').replace(/'/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 48); } function itemName(a){ var s = a.querySelector('span'); if(!s) return ''; var c = s.cloneNode(true); c.querySelectorAll('[class^="tag-"]').forEach(function(t){ t.remove(); }); return c.textContent.trim(); } function href(it){ return /^[a-z0-9-]+\.html$/.test(String(it.page || '')) ? it.page : 'product.html#' + it.doc; } function col(title, items, cls){ var d = document.createElement('div'); if(cls) d.className = cls; var h = document.createElement('h4'); h.innerHTML = title || '&nbsp;'; d.appendChild(h); var ul = document.createElement('ul'); items.forEach(function(it){ var li = document.createElement('li'); if(it.doc){ var a = document.createElement('a'); a.href = href(it); a.textContent = it.name; li.appendChild(a); } else li.textContent = it.name; ul.appendChild(li); }); d.appendChild(ul); return d; } function apply(menu){ var byId = {}; (menu.categories || []).forEach(function(c){ byId[c.id] = c; }); document.querySelectorAll('.nav-item').forEach(function(ni){ var trig = ni.querySelector('.nav-trigger'); if(!trig) return; var cat = byId[slug(trig.textContent.trim())]; if(!cat) return; ni.querySelectorAll('.ld-item').forEach(function(a){ if(!a.dataset.pid) a.dataset.pid = slug(itemName(a)); var prod = (cat.products || []).filter(function(p){ return p.id === a.dataset.pid; })[0]; a.style.display = prod ? '' : 'none'; if(!prod) return; var span = a.querySelector('span'); if(span && span.firstChild && span.firstChild.nodeType === 3) span.firstChild.nodeValue = prod.name + ' '; var tag = span && span.querySelector('[class^="tag-"]'); if(prod.tag){ if(!tag){ tag = document.createElement('span'); span.appendChild(tag); } tag.className = 'tag-' + prod.tag; tag.textContent = prod.tag.toUpperCase(); } else if(tag) tag.remove(); var panel = document.getElementById(a.dataset.detail); if(!panel) return; var h3 = panel.querySelector('.ld-head h3'), p = panel.querySelector('.ld-head p'); if(h3) h3.textContent = prod.name; if(p) p.textContent = prod.desc || ''; var groups = prod.groups || [], std = (groups[0] && groups[0].items) || [], spe = (groups[1] && groups[1].items) || []; var specs = panel.querySelector('.ld-specs'); if(specs){ specs.textContent = ''; var half = Math.ceil(std.length / 2); if(std.length){ specs.appendChild(col((groups[0] && groups[0].name) || 'Standard', std.slice(0, half))); specs.appendChild(col('', std.slice(half))); } if(spe.length) specs.appendChild(col((groups[1] && groups[1].name) || 'Specialty', spe, 'specialty')); } var cta = panel.querySelector('.ld-cta'); if(cta){ if(cta.dataset.orig == null) cta.dataset.orig = cta.getAttribute('href') || '#'; var first = std.concat(spe).filter(function(i){ return i.doc; })[0]; cta.setAttribute('href', cta.dataset.orig !== '#' ? cta.dataset.orig : (first ? href(first) : '#')); if(cta.firstChild && cta.firstChild.nodeType === 3) cta.firstChild.nodeValue = 'Shop ' + prod.name + ' '; } }); }); } function start(tries){ if(!window.claude || !window.claude.use){ if(tries > 0) setTimeout(function(){ start(tries - 1); }, 250); return; } window.claude.use('db').then(function(db){ if(!db) return; db.doc('site/menu').onSnapshot(function(snap){ if(snap.exists) apply(snap.data() || {}); }, function(){}); }).catch(function(){}); } if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ start(20); }); else start(20); })();</script></head>
+<body>
+<!-- ===== Logo mark (hidden symbol, reused via <use>) ===== -->
+<svg style="position:absolute;width:0;height:0;overflow:hidden;" aria-hidden="true">
+<symbol id="logo-mark" viewBox="0 0 576 216">
+  <defs>
+    <style>
+      #logo-mark .st0, #logo-mark .st1 { fill: #2c4c9c; }
+      #logo-mark .st2 { fill: #ffde00; }
+      #logo-mark .st3 { fill: #1d1d1b; }
+      #logo-mark .st4 { fill: #009d41; }
+      #logo-mark .st5 { fill: #009fe3; }
+      #logo-mark .st1 { fill-rule: evenodd; }
+      #logo-mark .st6 { fill: #e71d73; }
+    </style>
+  </defs>
+  <g>
+    <path class="st3" d="M194.2,135.6c0-.8,1.2-2.7,2.6-2.4.4,0,1.3,0,1.3.7s-.7,2.8-2.3,2.6c-.7,0-1.6-.2-1.6-.9Z"/>
+    <path class="st3" d="M202.1,135.6c0-.8,1.2-2.7,2.6-2.4.4,0,1.3,0,1.3.7s-.7,2.8-2.3,2.6c-.7,0-1.6-.2-1.6-.9Z"/>
+    <path class="st3" d="M210,135.6c0-.8,1.2-2.7,2.6-2.4.4,0,1.3,0,1.3.7s-.7,2.8-2.3,2.6c-.7,0-1.6-.2-1.6-.9Z"/>
+    <path class="st3" d="M232.6,133.5c-1.2,1.2-3.5,3.3-5.5,3.3s-2.3-1.5-2.3-2.7c0-2.8,3.3-5.5,4.8-5.5s1.2.1,1.2.6c0,1.1-2.6,3.1-3.7,3.8-.2.9.2,1.4,1.4,1.4s2.7-1.2,3.8-1.9l.2.9ZM230.1,127.2c0-.9,1.3-1.7,2.3-1.7s.9.3.9.7c0,.9-1,2-2.1,2s-1-.4-1-1Z"/>
+    <path class="st3" d="M244.8,132l.2,1c-1.4,1.1-4.1,3.8-6,3.8s-1.5-.7-1.5-1.5c0-1.4,1.4-2.8,2.2-3.9h0c-1.5.9-2.9,2.1-4,3.4-.4.4-1.4,1.5-2.1,1.5-1.1,0-1.4-1.4-1.5-2.2,0-1.6,1.6-3.8,3.1-5,.3-.2.6-.3,1-.3,1.6,0,1.4.4,1.4.5,0,.9-3.3,3.2-3.3,3.7s.1.2.3.2.4-.2.5-.3c2.1-2.3,6.9-5.1,7.7-5.1s.3.1.4.4c.2.3.3.7.4,1.2,0,.9-3.2,2.6-3.2,4.2s.2.4.5.4c.6,0,1.8-.8,2.2-1.1l1.6-1.1Z"/>
+    <path class="st3" d="M253.7,132.6l.3.9c-1.6,1.4-4.4,3.4-6.5,3.3-1.7,0-3.7-.9-4.2-2.6-.2.1-.3.3-.6.3s-.4-.2-.4-.4c0-.3.4-.6.6-.8l5.7-4.5c0-.7.5-1.5,1.5-1.5s.9.2,1,.8c.1.9.5,1.6.5,2.6,0,1.8-1.7,3.2-3.4,4.1,1.7.2,2.7-.4,4-1.3l1.6-1ZM244.8,133c1,0,1.5.7,2,1.3,1.6-.8,2-1.2,2.1-2.5,0-.5-.2-1.1-.3-1.8l-3.8,3.1Z"/>
+    <path class="st3" d="M253.3,140.2c-.2.3-.7.9-1.2.9s-.8-.6-.8-1c0-1.1.5-2.3,1.6-3.6,1.2-1.5,2.5-3.3,4.2-5.8h0s-4.1,3.4-4.1,3.4v-1.1c-.1,0,6.8-6.4,6.8-6.4.6-.6,1.1-1.2,2.1-1.2s1.2.1,1.2.5-1.4,1.6-1.8,2c-.9.8-1.7,1.7-2.2,2.7h0c1.1-.7,3.8-2.1,5.2-2.1s1.1.5,1.1,1.1c0,1.2-1.3,2.8-4.2,5,2.2.1,2.8-.2,5.6-2.3l.2,1c-1.9,1.6-4.3,3.3-7.1,3.3s-1.2-.2-1.9-.4c-.4,0-.8.1-1.2.1s-.7,0-1-.1l-2.5,4.2ZM261.5,132.2c.3-.3.7-.7.7-1.1s0-.3-.3-.3c-.4,0-1.7.7-2,.9-1,.6-1.7,1.4-2.4,2.2.8,0,1.5,0,2.2.2l1.9-1.9Z"/>
+    <path class="st3" d="M274.1,133.5c-1.2,1.2-3.5,3.3-5.5,3.3s-2.2-1.5-2.2-2.7c0-2.8,3.3-5.5,4.8-5.5s1.1.1,1.1.6c0,1.1-2.6,3.1-3.7,3.8-.2.9.2,1.4,1.4,1.4s2.7-1.2,3.8-1.9l.2.9ZM271.6,127.2c0-.9,1.3-1.7,2.3-1.7s.9.3.9.7c0,.9-1,2-2.1,2s-1.1-.4-1.1-1Z"/>
+    <path class="st3" d="M275.8,131.5c-.9,1.2-2,1.8-3.1,2.8v-1c.6-.5,1.1-1,1.6-1.7-.5,0-.7-.2-.7-.7,0-1.6,2.7-3.3,3.3-3.3s.5.2.5.4,0,.4-.2.6c2.5-.3,3.9-.6,4.2-.3.4.4.6.8.6,1.2,0,.7-.5,1-1.1,1.5-.8.6-2,1.7-2,2.6s.4.6.8.6c1.1,0,2.8-1.5,3.6-2l.2.8c-1,1-4,3.5-5.5,3.5s-1.8-.9-1.8-1.7c0-1.5,1.4-2.7,2.4-3.8h0s-2.7.5-2.7.5Z"/>
+    <path class="st3" d="M292.8,133.1c-1.6,1.6-4.5,3.7-7,3.7s-2.8-1.5-2.9-3c0-3,3.7-6,7.1-6,.8,0,1.9.2,1.9,1.1s-1.3,2.8-6.3,4.2v.5c-.1.9.7,1.2,1.6,1.2,1.9,0,4.1-1.6,5.4-2.6l.2.9ZM289.6,129.4c0-.2-.1-.3-.3-.2-1.3.3-2.8,1.4-3.5,2.9,2.3-.7,3.9-2.2,3.8-2.6Z"/>
+    <path class="st3" d="M302.9,129.5c-.9,1.2-2.1,2.6-2.1,4.1s0,1.1.6,1.1c.9,0,3.3-1.8,4.1-2.3l.2.7c-1.2,1.2-3.9,3.5-5.8,3.5s-1.4-.9-1.4-1.6.1-1.1.2-1.7c-.9.7-3.3,2.9-4.5,2.9s-1.9-2.2-1.9-3c0-2.7,5.2-4.9,7.4-5,.5,0,.8.3,1.1.6.9-1.3,3.2-6,5.1-6s.8.5.8.9c0,.7-.7,1.6-1.1,2.2l-2.7,3.6ZM294.5,133.7c0,.2.1.4.4.4.3,0,4.5-2.6,4.9-4-4.6,1.3-5.2,2.1-5.3,3.5Z"/>
+    <path class="st3" d="M321.4,125c.1,0,1,.1,1,.4s-.3.3-.5.3c-.6.1-1.8.2-2.4.2s-1.3-.5-1.3-1.2c0-1.1,1.5-1.7,2.5-2,1.6-.5,3.4-.7,5.1-.7s5.3.2,5.3,2.8-.7,1.8-1.6,2.3c-.9.5-2.1.7-3.1.9l-3.9.7h0c2.1.4,5.2.6,5.4,3.1.1,1.5-2.9,4.9-9.6,4.9s-4.7-1.2-4.7-1.8,1.6-2.2,2.3-2.2.4,0,.4.3-.4.5-.6.7c.9.3,1.6.5,2.5.5,3.8,0,7.8-1.9,7.8-2.7,0-1.2-3.9-1.3-4.9-1.3s-1.5,0-2.3.2c-.2,0-.6,0-.8,0-.3,0-.4-.2-.4-.5.2-1.4.9-2.2,2.8-2.4,1.5,0,8.7-1.2,8.7-2.7s-2-.9-2.7-.9c-1.9,0-3.8.4-5.6,1h0s.5.1.5.1Z"/>
+    <path class="st3" d="M336.5,127.7h0c1.1-.4,2.1-.9,3.3-.9,1.9,0,3.1,1.4,3.1,3,0,3.7-5.6,7-7.4,7s-4.5-1.8-4.5-4.6,5-7.6,8.6-9.5c1.3-.7,1.5-.8,3-.8s2.1-.1,2.1.3-.4.4-.5.5c-1.2.5-3.1,1.6-4.1,2.4l-3.6,2.7ZM335.6,130.6c-1.1.9-1.5,1.1-1.5,2.4s0,1.5.7,1.4c1.9-.3,5.6-2.5,5.7-5.2,0-.5,0-.9-.8-.9-1.1,0-3.2,1.6-4.1,2.2Z"/>
+    <path class="st3" d="M359.8,126.1c0,4.3-4.5,10.3-10.8,10.6-2.4.2-3.8-1.9-3.8-3.8s1.9-5.4,3.8-7.2c2.3-2.2,6.3-4,8-4s2.4,1.1,2.4,1.6-.6.3-.8.4c1.2.3,1.3,1.4,1.3,2.4ZM354.5,131.4c1.1-1.1,3.4-3.8,3.4-5.3s-.3-1.3-1-1.3-1.4.8-1.6.8-.3-.3-.3-.4c-4.7,2.3-6.8,5.5-6.9,7.8,0,.4,0,1.7.8,1.7s2.5-.9,3.1-1.3l2.6-2Z"/>
+    <path class="st3" d="M376.7,132.6l.3.9c-1.6,1.4-4.4,3.4-6.5,3.3-1.7,0-3.7-.9-4.2-2.6-.1.1-.3.3-.6.3s-.4-.2-.4-.4c0-.3.4-.6.6-.8l5.7-4.5c0-.7.5-1.5,1.5-1.5s.9.2,1,.8c.1.9.5,1.6.5,2.6,0,1.8-1.7,3.2-3.4,4.1,1.7.2,2.7-.4,4-1.3l1.6-1ZM367.9,133c1,0,1.5.7,2,1.3,1.6-.8,2-1.2,2.1-2.5,0-.5-.2-1.1-.3-1.8l-3.8,3.1Z"/>
+    <path class="st3" d="M387.7,133.1c-1.2,1.3-2.3,1.8-4.2,1.8-1.1,1-2.4,1.7-4,1.7s-2.6-1.2-2.7-3.2c0-1.7.9-2.8,2.4-3.8,1.4-1,3.3-1.6,4.9-1.7.6,0,1.4.2,1.4.8s-.3.5-.6.6c.8.2.9.7.9,1.3,0,1-.5,1.8-1,2.7,1.1.2,1.9-.7,2.7-1.2l.3,1ZM379.7,132c-.6.5-1.1,1.4-1.1,2.1s.5.9,1.2.9,1.4-.4,2-.9c-.2-.4-.3-.7-.3-1,0-1.2,1.2-2.6,1.1-2.6-.9.5-2.1,1-2.9,1.6Z"/>
+    <path class="st3" d="M395.7,133.1c-1.4,1.3-3.9,3.6-6.1,3.6s-2.3-1.6-2.3-2.9c0-2.4,1.2-4.9,2.9-6.7,2.3-2.5,4.8-4.6,5.6-4.6s.6.5.5.8c-.2,2.1-.9,4.1-6.5,8.9-.2.4-.3,1-.2,1.6.2.5.6,1,1.3,1,1.4,0,3.4-1.4,4.5-2.3l.4.7ZM390.3,130.1c1.9-1.5,3.5-3.7,4-4.9-1.3.5-2.8,2.6-4,4.9h0Z"/>
+    <path class="st3" d="M402.6,130.4c.5-.4,3.1-2.6,3.8-2.6s.5,0,.6,1.2c0,.5-.7,1.1-1.1,1.4-.8.7-2.7,2.4-2.7,3.5s.2.5.7.5c1,0,3.2-1.6,4-2.1l.2,1c-1.3,1.1-4.1,3.7-6,3.7s-1.5-.7-1.5-1.5.3-1.3.5-1.9h0c-1,.7-2.8,2.8-4.2,2.8s-2-1.3-2-2.2c0-2.2,2-4.5,3.6-5.4.4-.2.7-.2,1.2-.2s1.7-.2,1.6.5c0,.4-.8,1-1,1.2-.8.8-1,1-2,1.6-.8.5-1.4,1-1.4,1.9s0,.3.2.3c.5,0,1.9-.7,3.1-1.6l2.6-2Z"/>
+    <path class="st3" d="M416.8,127c-1.2,2.2-1.4,3-4.3,2.8-.9,1-2.4,2.8-2.4,4.2s.2.8.8.8,1.8-.7,4.5-2.4v1c-1.4,1.2-4.2,3.6-6.4,3.6s-1.6-.6-1.6-1.5.3-1.6.7-2.3h0s-1.3.9-1.3.9l-.3-.9c1.6-1,3-2.2,4-3.6-1.6,0-1.1,0-2.5,0l.3-.4c1.4-2,1.6-2.3,4.4-2.4.8-.9,1.4-2,2.9-2s.8,0,.8.4-.8,1.2-1,1.5h1.6Z"/>
+    <path class="st3" d="M422.7,133.5c-1.2,1.2-3.5,3.3-5.5,3.3s-2.3-1.5-2.3-2.7c0-2.8,3.3-5.5,4.8-5.5s1.2.1,1.2.6c0,1.1-2.6,3.1-3.7,3.8-.2.9.2,1.4,1.4,1.4s2.7-1.2,3.8-1.9l.2.9ZM420.2,127.2c0-.9,1.2-1.7,2.3-1.7s.9.3.9.7c0,.9-1,2-2.1,2s-1-.4-1-1Z"/>
+    <path class="st3" d="M433.3,133.1c-1.2,1.3-2.3,1.8-4.2,1.8-1.1,1-2.4,1.7-4,1.7s-2.6-1.2-2.7-3.2c0-1.7.9-2.8,2.4-3.8,1.4-1,3.3-1.6,4.9-1.7.6,0,1.4.2,1.4.8s-.3.5-.6.6c.8.2.9.7.9,1.3,0,1-.5,1.8-1,2.7,1.2.2,1.9-.7,2.7-1.2l.3,1ZM425.3,132c-.6.5-1.1,1.4-1.1,2.1s.5.9,1.1.9,1.4-.4,2-.9c-.2-.4-.3-.7-.3-1,0-1.2,1.2-2.6,1.1-2.6-.9.5-2.1,1-2.9,1.6Z"/>
+    <path class="st3" d="M445.2,132l.2,1c-1.4,1.1-4.1,3.8-6,3.8s-1.5-.7-1.5-1.5c0-1.4,1.4-2.8,2.2-3.9h0c-1.5.9-2.8,2.1-4,3.4-.4.4-1.4,1.5-2.1,1.5-1.1,0-1.4-1.4-1.5-2.2,0-1.6,1.6-3.8,3.1-5,.3-.2.6-.3,1-.3,1.6,0,1.4.4,1.4.5,0,.9-3.3,3.2-3.3,3.7s.1.2.3.2.4-.2.5-.3c2.1-2.3,6.9-5.1,7.7-5.1s.3.1.4.4c.1.3.3.7.4,1.2,0,.9-3.2,2.6-3.2,4.2s.2.4.5.4c.6,0,1.8-.8,2.2-1.1l1.6-1.1Z"/>
+    <path class="st3" d="M454.1,132.6l.3.9c-1.6,1.4-4.4,3.4-6.5,3.3-1.7,0-3.7-.9-4.1-2.6-.2.1-.3.3-.6.3s-.4-.2-.4-.4c0-.3.4-.6.6-.8l5.7-4.5c0-.7.5-1.5,1.5-1.5s.9.2,1,.8c.1.9.5,1.6.5,2.6,0,1.8-1.7,3.2-3.4,4.1,1.7.2,2.7-.4,4-1.3l1.6-1ZM445.2,133c1,0,1.5.7,2,1.3,1.6-.8,2-1.2,2.1-2.5,0-.5-.2-1.1-.3-1.8l-3.8,3.1Z"/>
+  </g>
+  <rect class="st4" x="310.1" y="64.5" width="16.1" height="11.8"/>
+  <rect class="st2" x="310.1" y="79.1" width="16.1" height="11.1"/>
+  <rect class="st6" x="310.1" y="93.7" width="16.1" height="11.8"/>
+  <rect class="st5" x="310.1" y="108.2" width="16.1" height="11.1"/>
+  <path class="st1" d="M353.7,70.8v-6.2h-16.8v55.5h16.8v-32.6c0-5.4,3.5-10.4,7.8-10.4h3c5.2,0,9.6,4.2,9.6,10.4v32.6h16.7v-33.3c0-14.2-6.4-22.9-17.9-22.9h-1.8c-6.9,0-12.9,4.2-17.3,6.9Z"/>
+  <path class="st1" d="M417.7,89.5c0-7.2,2.8-12.5,9-12.5h19.1v-12.5h-16.1c-16.1,0-30.5,3-30.5,21.5v9c0,20.6,10.6,25,28.1,25h23.3v-31.9h-16.8v20.1h-4.8c-6.9,0-11.4-4.8-11.4-12.5v-6.2Z"/>
+  <path class="st1" d="M139.1,72.2c-2.4-4.1-7.3-7.6-13.2-7.6h-4.8c-6.1,0-7.8,3-11.8,4.1l-1.3-4.1h-14.3v55.5h16.1v-31.2c0-6.7,1.9-11.8,7.8-11.8h2.4c3.6,0,7.2,4.2,7.2,8.3v34.7h16.7v-34.7c0-3.7,3.2-8.3,6.6-8.3h4.2c4.6,0,6.6,6.3,6.6,11.8v31.2h16.1v-37.5c0-11.5-8.7-18.7-18.5-18.7h-.6c-8.1,0-14.3,4.6-19.1,8.3Z"/>
+  <rect class="st0" x="66.2" y="64.5" width="16.7" height="55.5"/>
+  <path class="st1" d="M267,89.5c0-5.5,3.6-12.5,8.4-12.5h19.7v-12.5h-20.9c-14,0-25.1,6-25.1,22.2v11.1c0,14.1,8.8,21.5,20.9,21.5h29.9v-30.5h-16.1v19.4h-4.8c-9.1,0-12-6.8-12-17.3v-1.4Z"/>
+  <path class="st1" d="M203.7,89.5c0-7.5,3.8-12.5,10.2-12.5h3c4.4,0,8.4,5.8,8.4,11.1v4.2h-21.5v-2.8h0ZM204.3,104.1h20.3v16h16.7v-26.4c0-16.8-6.9-29.1-20.9-29.1h-8.4c-16.3,0-24.5,9.4-24.5,28.4v27.1h16.7v-16Z"/>
+  <polygon class="st1" points="458 69.4 463.4 69.4 463.4 73.6 458 73.6 458 77.7 471.2 77.7 471.2 73.6 465.7 73.6 465.7 69.4 471.2 69.4 471.2 65.2 458 65.2 458 69.4"/>
+  <path class="st1" d="M458,86c0,3.3,2.5,5.5,6.2,5.5h.8c4.6,0,6.2-2.8,6.2-6.9v-4.9h-3.1v4.9c0,1.6-.5,2.1-2.3,2.1h-2.3c-1.8,0-2.3-.5-2.3-2.1v-4.9h-3.1v6.2Z"/>
+  <path class="st1" d="M458,101.3c0,3.4,2.5,5.5,6.2,5.5h.8c4.6,0,6.2-2.8,6.2-6.9v-6.2h-3.1v6.2c0,1.9-.6,1.7-2.3,2.1v-7.6h-2.3v7.6c-1.7-.4-2.3-.2-2.3-2.1v-6.2h-3.1v7.6Z"/>
+  <polygon class="st0" points="457.5 120.1 457.5 108.1 461 108.1 461 112.1 471.7 112.1 471.7 116.1 461 116.1 461 120.1 457.5 120.1"/>
+  <g>
+    <path class="st0" d="M487,122.7c-4,0-8.4-2.7-8.4-8.6s4.3-8.6,8.4-8.6,8.4,3,8.4,8.6-4.3,8.6-8.4,8.6h0ZM487,106.4c-3.6,0-7.4,2.7-7.4,7.7s3.9,7.7,7.4,7.7,7.4-2.4,7.4-7.7-3.8-7.7-7.4-7.7h0Z"/>
+    <path class="st0" d="M483.6,118.8v-9.5h4.1c.8,0,1.4,0,1.9.3.4.2.8.5,1,.9.3.4.4.9.4,1.4s-.2,1.2-.6,1.7c-.4.5-1.1.8-2,.9.3.2.6.3.7.5.4.3.7.8,1,1.3l1.6,2.6h-1.5l-1.2-2c-.4-.6-.6-1-.9-1.3-.2-.3-.4-.5-.6-.6-.2-.1-.4-.2-.6-.3-.1,0-.4,0-.7,0h-1.4v4.2h-1.2ZM484.8,113.4h2.6c.6,0,1,0,1.3-.2.3-.1.6-.3.7-.6.2-.3.2-.5.2-.8,0-.5-.2-.8-.5-1.1-.3-.3-.8-.4-1.5-.4h-2.9v3.2Z"/>
+  </g>
+</symbol>
+</svg>
+
+<!-- ===== Utility bar ===== -->
+<div class="utility-bar">
+  <div class="wrap">
+    <div class="utility-left">
+      <a href="#">Trade &amp; reseller pricing available</a>
+    </div>
+    <div class="utility-right">
+      <a href="#" class="hide-sm">Help &amp; FAQs</a>
+      <span class="divider hide-sm">|</span>
+      <a href="#" class="hide-sm">About ImagingTech</a>
+      <span class="divider hide-sm">|</span>
+      <a href="tel:+18005550142">+1 (800) 555-0142</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Header ===== -->
+<header class="site">
+  <div class="header-main">
+    <a href="." class="logo-lockup" aria-label="ImagingTech — inspired 360 solutions, go to homepage">
+      <svg class="logo-svg" viewBox="0 0 576 216" role="img" aria-label="ImagingTech"><use href="#logo-mark"></use></svg>
+    </a>
+
+    <form class="search-form" role="search">
+      <input type="text" placeholder="Search banners, signs, business cards…" aria-label="Search products">
+      <button type="submit" aria-label="Search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg>
+      </button>
+    </form>
+
+    <div class="header-actions">
+      <a href="#" class="header-action">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 1 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+        <span class="label-text">Trade sign in</span>
+      </a>
+      <a href="#" class="header-action">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        <span class="cart-count">3</span>
+        <span class="label-text">Cart</span>
+      </a>
+      <a href="./#quote" class="btn-quote">Get a Quote</a>
+      <button class="hamburger" aria-label="Open menu" id="drawerOpen">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== Mega nav (desktop) ===== -->
+  <nav class="megabar" aria-label="Primary">
+    <div class="wrap">
+
+      <div class="nav-item">
+        <button class="nav-trigger">Print Products
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="megapanel listdetail">
+          <div class="ld-list">
+            <a href="#" class="ld-item active" data-detail="pp-postcards">
+              <span>Postcards</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="pp-flyers">
+              <span>Flyers</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="pp-brochures">
+              <span>Brochures</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="pp-business-cards">
+              <span>Business Cards <span class="tag-sale">SALE</span></span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="pp-booklets">
+              <span>Booklets <span class="tag-sale">SALE</span></span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="pp-door-hangers">
+              <span>Door Hangers</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="pp-greeting-cards">
+              <span>Greeting Cards</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="pp-invitations">
+              <span>Invitations & Announcements</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+          </div>
+          <div class="ld-detail">
+            <div class="ld-panel active" id="pp-postcards">
+              <div class="ld-head">
+                <div>
+                  <h3>Postcards</h3>
+                  <p>A cost-effective mailer or handout — bright, durable, and sized to standard postal specs.</p>
+                </div>
+                <div class="ld-art"><img src="images/print/postcards-thumb.jpg" alt="Stack of printed postcards with one turned to show the mailing side" class="ld-art-img" loading="lazy">
+
+
+
+
+
+
+
+</div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>10pt + Matte Finish</li><li>14pt + Matte Finish</li><li>16pt + Matte Finish</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>14pt + UV (High Gloss)</li><li>16pt + UV (High Gloss)</li><li>18pt Gloss Lamination</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Metallic Foil</li><li>Kraft Paper</li><li>Rounded Corners</li><li>Spot UV</li><li>Pearl Paper</li></ul>
+                </div>
+              </div>
+              <a href="postcards.html" class="ld-cta">Shop Postcards
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="pp-flyers">
+              <div class="ld-head">
+                <div>
+                  <h3>Flyers</h3>
+                  <p>Single-sheet marketing that folds into any campaign — handouts, inserts, or counter displays.</p>
+                </div>
+                <div class="ld-art"><img src="images/print/flyers-thumb.jpg" alt="Fan of full-colour promotional flyers on a marble counter" class="ld-art-img" loading="lazy">
+
+
+
+
+
+
+
+</div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>100lb + Matte Finish</li><li>100lb + UV (High Gloss)</li><li>80lb Uncoated</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>14pt + AQ</li><li>Recycled 100lb Matte</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Kraft Paper</li><li>Perforated</li><li>Synthetic (Tear-Proof)</li><li>NCR Carbonless</li></ul>
+                </div>
+              </div>
+              <a href="flyers.html" class="ld-cta">Shop Flyers
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="pp-brochures">
+              <div class="ld-head">
+                <div>
+                  <h3>Brochures</h3>
+                  <p>Bi-fold, tri-fold or z-fold — built to carry more story per square inch.</p>
+                </div>
+                <div class="ld-art"><img src="images/print/brochures-thumb.jpg" alt="Tri-fold brochures shown closed, standing and open" class="ld-art-img" loading="lazy">
+
+
+
+
+
+
+
+</div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>100lb + Matte Finish</li><li>100lb + UV (High Gloss)</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>80lb Uncoated</li><li>14pt + AQ (Self Cover)</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Gate Fold</li><li>Roll Fold</li><li>French Fold</li><li>Soft Touch Cover</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop Brochures
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="pp-business-cards">
+              <div class="ld-head">
+                <div>
+                  <h3>Business Cards</h3>
+                  <p>First impressions on 14–32pt stock, with the finish to match any brand.</p>
+                </div>
+                <div class="ld-art"><img src="images/print/business-cards-thumb.jpg" alt="Two stacks of thick business cards showing front and back" class="ld-art-img" loading="lazy">
+
+
+
+
+
+
+
+</div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>14pt + Matte Finish</li><li>16pt + UV (High Gloss)</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>18pt Silk Laminated</li><li>32pt Ultra Thick</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Suede (Soft Touch)</li><li>Raised Spot UV</li><li>Raised Foil</li><li>Painted Edge</li></ul>
+                </div>
+              </div>
+              <a href="business-cards-14pt.html" class="ld-cta">Shop Business Cards
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="pp-booklets">
+              <div class="ld-head">
+                <div>
+                  <h3>Booklets</h3>
+                  <p>Saddle-stitched or perfect-bound multi-page pieces for catalogs, menus and reports.</p>
+                </div>
+                <div class="ld-art"><img src="images/print/booklets-thumb.jpg" alt="Saddle-stitched booklet lying open beside closed copies" class="ld-art-img" loading="lazy">
+
+
+
+
+
+
+
+</div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>Saddle-Stitched (8–48pg)</li><li>Perfect Bound (50pg+)</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>100lb Text + Matte</li><li>100lb Text + UV Gloss</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Cover Soft Touch</li><li>Belly Band</li><li>Custom Trim Size</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop Booklets
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="pp-door-hangers">
+              <div class="ld-head">
+                <div>
+                  <h3>Door Hangers</h3>
+                  <p>Die-cut with a hook slot — built for local, door-to-door marketing runs.</p>
+                </div>
+                <div class="ld-art"><img src="images/print/door-hangers-thumb.jpg" alt="Die-cut door hanger on a front door handle" class="ld-art-img" loading="lazy">
+
+
+
+
+
+
+
+</div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>14pt + Matte Finish</li><li>14pt + UV (High Gloss)</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>16pt + Matte Finish</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Perforated Tear-Off</li><li>Rounded Corners</li><li>Custom Die-Cut Shape</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop Door Hangers
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="pp-greeting-cards">
+              <div class="ld-head">
+                <div>
+                  <h3>Greeting Cards</h3>
+                  <p>Folded cards with envelopes included — ready for seasonal or corporate mailers.</p>
+                </div>
+                <div class="ld-art"><img src="images/print/greeting-cards-thumb.jpg" alt="Folded greeting cards with a matching envelope" class="ld-art-img" loading="lazy">
+
+
+
+
+
+
+
+</div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>14pt + Matte Finish</li><li>14pt + UV (High Gloss)</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>100lb Uncoated</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Foil Stamped</li><li>Kraft Envelope</li><li>Square Format</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop Greeting Cards
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="pp-invitations">
+              <div class="ld-head">
+                <div>
+                  <h3>Invitations & Announcements</h3>
+                  <p>Event-ready stock with premium finish options and matching envelopes.</p>
+                </div>
+                <div class="ld-art"><img src="images/print/invitations-thumb.jpg" alt="Invitation suite with reply card and envelopes" class="ld-art-img" loading="lazy">
+
+
+
+
+
+
+
+</div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>14pt + Matte Finish</li><li>14pt + UV (High Gloss)</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>110lb Cotton</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Letterpress Look</li><li>Deckled Edge</li><li>Pearl Shimmer</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop Invitations & Announcements
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <button class="nav-trigger">Large Format
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="megapanel listdetail">
+          <div class="ld-list">
+            <a href="#" class="ld-item active" data-detail="lf-vinyl-banners">
+              <span>Vinyl Banners</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="lf-mesh-banners">
+              <span>Mesh Banners</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="lf-pullup-banners">
+              <span>Pull-Up Banners <span class="tag-new">NEW</span></span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="lf-rigid-signs">
+              <span>Rigid Signs</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="lf-backdrops">
+              <span>Backdrops</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="lf-window-graphics">
+              <span>Window Graphics</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="lf-vehicle-wraps">
+              <span>Vehicle Wraps</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+          </div>
+          <div class="ld-detail">
+            <div class="ld-panel active" id="lf-vinyl-banners">
+              <div class="ld-head">
+                <div>
+                  <h3>Vinyl Banners</h3>
+                  <p>13oz–18oz scrim vinyl, hemmed and grommeted for indoor or outdoor hanging.</p>
+                </div>
+                <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+          <g transform="rotate(-4 110 85)">
+            <rect x="60" y="15" width="90" height="140" rx="6" fill="#fff" stroke="#37419A" stroke-width="2"/>
+            <rect x="70" y="28" width="70" height="46" rx="4" fill="#37419A" opacity="0.85"/>
+            <rect x="70" y="82" width="70" height="8" rx="4" fill="#37419A" opacity="0.4"/>
+            <rect x="70" y="96" width="50" height="8" rx="4" fill="#37419A" opacity="0.22"/>
+            <rect x="55" y="150" width="100" height="8" rx="4" fill="#37419A"/>
+          </g>
+        </svg></div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>13oz Standard Vinyl</li><li>15oz Heavy Duty Vinyl</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>18oz Premium Vinyl</li><li>Single or Double-Sided</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Mesh (Wind-Through)</li><li>Backlit Vinyl</li><li>Pole Pockets</li></ul>
+                </div>
+              </div>
+              <a href="vinyl-banners.html" class="ld-cta">Shop Vinyl Banners
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="lf-mesh-banners">
+              <div class="ld-head">
+                <div>
+                  <h3>Mesh Banners</h3>
+                  <p>Perforated vinyl that lets wind pass through — built for fences and scaffolding.</p>
+                </div>
+                <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+          <g transform="rotate(-4 110 85)">
+            <rect x="60" y="15" width="90" height="140" rx="6" fill="#fff" stroke="#00AEEF" stroke-width="2"/>
+            <rect x="70" y="28" width="70" height="46" rx="4" fill="#00AEEF" opacity="0.85"/>
+            <rect x="70" y="82" width="70" height="8" rx="4" fill="#00AEEF" opacity="0.4"/>
+            <rect x="70" y="96" width="50" height="8" rx="4" fill="#00AEEF" opacity="0.22"/>
+            <rect x="55" y="150" width="100" height="8" rx="4" fill="#00AEEF"/>
+          </g>
+        </svg></div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>9oz Mesh Vinyl</li><li>70/30 Perforation</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>Hemmed + Grommeted</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Reinforced Corners</li><li>Custom Perforation Ratio</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop Mesh Banners
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="lf-pullup-banners">
+              <div class="ld-head">
+                <div>
+                  <h3>Pull-Up Banners</h3>
+                  <p>Retractable stand banners that set up in under a minute — no tools required.</p>
+                </div>
+                <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+          <g transform="rotate(-3 110 85)">
+            <rect x="80" y="15" width="60" height="110" rx="4" fill="#fff" stroke="#E91E63" stroke-width="2"/>
+            <rect x="88" y="24" width="44" height="60" rx="3" fill="#E91E63" opacity="0.85"/>
+            <rect x="88" y="90" width="44" height="6" rx="3" fill="#E91E63" opacity="0.4"/>
+            <rect x="88" y="100" width="30" height="6" rx="3" fill="#E91E63" opacity="0.22"/>
+            <path d="M70 145 L150 145 L135 158 L85 158 Z" fill="#E91E63" opacity="0.9"/>
+          </g>
+        </svg></div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>33in Standard Stand</li><li>47in Wide Stand</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>Double-Sided Stand</li><li>Table Top Mini</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Premium Aluminum Base</li><li>Carrying Case Included</li><li>LED Light Kit</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop Pull-Up Banners
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="lf-rigid-signs">
+              <div class="ld-head">
+                <div>
+                  <h3>Rigid Signs</h3>
+                  <p>Coroplast through aluminum composite — the full range of rigid substrates.</p>
+                </div>
+                <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+          <g transform="rotate(-6 110 85)">
+            <rect x="30" y="25" width="160" height="110" rx="8" fill="#3FAE4B" opacity="0.12"/>
+            <rect x="34" y="29" width="160" height="110" rx="8" fill="#fff" stroke="#3FAE4B" stroke-width="2"/>
+            <rect x="50" y="45" width="128" height="52" rx="4" fill="#3FAE4B" opacity="0.85"/>
+            <rect x="50" y="105" width="80" height="8" rx="4" fill="#3FAE4B" opacity="0.35"/>
+            <rect x="50" y="118" width="56" height="8" rx="4" fill="#3FAE4B" opacity="0.2"/>
+          </g>
+        </svg></div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>4mm Coroplast</li><li>3mm PVC</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>1/2in Foam Board</li><li>3mm Alupanel</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Brushed Aluminum</li><li>Acrylic (Gloss)</li><li>Ultra Board</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop Rigid Signs
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="lf-backdrops">
+              <div class="ld-head">
+                <div>
+                  <h3>Backdrops</h3>
+                  <p>Step-and-repeat and photo backdrops, tensioned on a lightweight adjustable frame.</p>
+                </div>
+                <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+          <g transform="rotate(-4 110 85)">
+            <rect x="60" y="15" width="90" height="140" rx="6" fill="#fff" stroke="#FFC72C" stroke-width="2"/>
+            <rect x="70" y="28" width="70" height="46" rx="4" fill="#FFC72C" opacity="0.85"/>
+            <rect x="70" y="82" width="70" height="8" rx="4" fill="#FFC72C" opacity="0.4"/>
+            <rect x="70" y="96" width="50" height="8" rx="4" fill="#FFC72C" opacity="0.22"/>
+            <rect x="55" y="150" width="100" height="8" rx="4" fill="#FFC72C"/>
+          </g>
+        </svg></div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>Wrinkle-Resistant Fabric</li><li>Vinyl (Matte)</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>Adjustable Frame Included</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Tension Fabric (Seamless)</li><li>Curved Frame Option</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop Backdrops
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="lf-window-graphics">
+              <div class="ld-head">
+                <div>
+                  <h3>Window Graphics</h3>
+                  <p>Perforated vinyl and static cling for storefront glass, inside or out.</p>
+                </div>
+                <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+          <g transform="rotate(8 110 85)">
+            <circle cx="90" cy="70" r="42" fill="#37419A" opacity="0.85"/>
+            <circle cx="90" cy="70" r="42" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="3 5"/>
+          </g>
+          <g transform="rotate(-10 150 110)">
+            <rect x="120" y="90" width="56" height="56" rx="10" fill="#37419A" opacity="0.25" stroke="#37419A" stroke-width="2"/>
+          </g>
+        </svg></div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>Perforated Window Vinyl</li><li>Static Cling (Clear)</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>Static Cling (White)</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Frosted Adhesive</li><li>Low-Tack Removable</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop Window Graphics
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="lf-vehicle-wraps">
+              <div class="ld-head">
+                <div>
+                  <h3>Vehicle Wraps</h3>
+                  <p>Partial or full wraps in cast vinyl, laminated for years of road exposure.</p>
+                </div>
+                <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+          <g transform="rotate(-6 110 85)">
+            <rect x="30" y="25" width="160" height="110" rx="8" fill="#E91E63" opacity="0.12"/>
+            <rect x="34" y="29" width="160" height="110" rx="8" fill="#fff" stroke="#E91E63" stroke-width="2"/>
+            <rect x="50" y="45" width="128" height="52" rx="4" fill="#E91E63" opacity="0.85"/>
+            <rect x="50" y="105" width="80" height="8" rx="4" fill="#E91E63" opacity="0.35"/>
+            <rect x="50" y="118" width="56" height="8" rx="4" fill="#E91E63" opacity="0.2"/>
+          </g>
+        </svg></div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>Cast Vinyl (Full Wrap)</li><li>Calendared Vinyl (Partial)</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>Gloss or Matte Laminate</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Colour-Change Wrap</li><li>Chrome / Metallic Finish</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop Vehicle Wraps
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+              <button class="nav-trigger">Signs
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="megapanel listdetail">
+                <div class="ld-list">
+                  <a href="#" class="ld-item active" data-detail="sg-storefront">
+                    <span>Store-Front Sign</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="sg-window-graphics">
+                    <span>Window Graphics</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="sg-vehicle-wraps">
+                    <span>Vehicle Wraps</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="sg-channel-letter">
+                    <span>Channel Letter Sign <span class="tag-new">NEW</span></span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="sg-halo-lit">
+                    <span>Halo Lit Sign</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="sg-indoor-display">
+                    <span>Indoor Sign Display</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="sg-metal-sign">
+                    <span>Metal Sign</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="sg-acrylic-letters">
+                    <span>Acrylic (Letters & Logos)</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="sg-flat-cut-acrylic">
+                    <span>Flat Cut Acrylic Sign</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="sg-flat-cut-pvc">
+                    <span>Flat Cut PVC Sign</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="sg-formed-plastic">
+                    <span>Formed Plastic Sign</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="sg-cutout-letters">
+                    <span>Cutout Letters Sign</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="sg-wall-murals">
+                    <span>Wall Murals & Displays</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="sg-custom-signs">
+                    <span>Custom Signs</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="sg-plaques">
+                    <span>Plaques</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="sg-cast-plaques">
+                    <span>Cast Plaques</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="sg-etched-plaques">
+                    <span>Etched Plaques</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="sg-metal-plates">
+                    <span>Metal Signs & Plates</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="sg-product-store">
+                    <span>Sign Product Store</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                </div>
+                <div class="ld-detail">
+                  <div class="ld-panel active" id="sg-storefront">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Store-Front Sign</h3>
+                        <p>Bold, street-facing signage sized and lit to make your storefront the one people notice first.</p>
+                      </div>
+                      <div class="ld-art"><img src="images/storefront-sign-menu.jpg" alt="Freestanding storefront monument sign for Mor Ink Tattoo" class="ld-art-img" loading="lazy"></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>Illuminated Cabinet</li><li>Non-Illuminated Panel</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Aluminum Frame</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Custom Shape Cutout</li><li>Backlit Acrylic Face</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Store-Front Sign
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="sg-window-graphics">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Window Graphics</h3>
+                        <p>Storefront glass graphics for hours, promotions and branding — printed to fit any pane.</p>
+                      </div>
+                      <div class="ld-art"><img src="images/window-graphics-signs.jpg" alt="Storefront window graphics installation for Optimal Health Medical Clinic" class="ld-art-img" loading="lazy"></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>Static Cling</li><li>Perforated Vinyl</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Frosted Vinyl</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Gold Leaf Lettering</li><li>Etched-Glass Look</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Window Graphics
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="sg-vehicle-wraps">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Vehicle Wraps</h3>
+                        <p>Partial or full wraps in cast vinyl, laminated for years of road exposure.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(-6 110 85)">
+                  <rect x="30" y="25" width="160" height="110" rx="8" fill="#E91E63" opacity="0.12"/>
+                  <rect x="34" y="29" width="160" height="110" rx="8" fill="#fff" stroke="#E91E63" stroke-width="2"/>
+                  <rect x="50" y="45" width="128" height="52" rx="4" fill="#E91E63" opacity="0.85"/>
+                  <rect x="50" y="105" width="80" height="8" rx="4" fill="#E91E63" opacity="0.35"/>
+                  <rect x="50" y="118" width="56" height="8" rx="4" fill="#E91E63" opacity="0.2"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>Cast Vinyl (Full Wrap)</li><li>Calendared Vinyl (Partial)</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Gloss or Matte Laminate</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Colour-Change Wrap</li><li>Chrome / Metallic Finish</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Vehicle Wraps
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="sg-channel-letter">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Channel Letter Sign</h3>
+                        <p>Dimensional, illuminated lettering for storefronts — built to spec, letter by letter.</p>
+                      </div>
+                      <div class="ld-art"><img src="images/channel-letter-sign-menu.jpg" alt="Close-up of dimensional channel letter sign face" class="ld-art-img" loading="lazy"></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>Front-Lit LED</li><li>Non-Illuminated</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Raceway Mount</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Custom Font Match</li><li>Reverse-Lit Trim Cap</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Channel Letter Sign
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="sg-halo-lit">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Halo Lit Sign</h3>
+                        <p>Backlit letters that throw a soft glow around each edge — a premium after-dark look.</p>
+                      </div>
+                      <div class="ld-art"><img src="images/halo-lit-sign-menu.jpg" alt="Halo-lit Pre Game storefront sign glowing red and blue" class="ld-art-img" loading="lazy"></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>Halo-Lit LED</li><li>Acrylic Back Panel</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Standoff Mount</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Colour-Changing LED</li><li>Dual Front + Halo Lighting</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Halo Lit Sign
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="sg-indoor-display">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Indoor Sign Display</h3>
+                        <p>Lobby and reception signage — dimensional logos, directories and directional signage.</p>
+                      </div>
+                      <div class="ld-art"><img src="images/indoor-sign-menu.jpg" alt="Dimensional acrylic lobby signage on standoffs for UCMAS and i-Maths" class="ld-art-img" loading="lazy"></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>Dimensional Lobby Logo</li><li>Wayfinding Panel</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Directory Board</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Backlit Lobby Sign</li><li>Frosted Acrylic Standoffs</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Indoor Sign Display
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="sg-metal-sign">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Metal Sign</h3>
+                        <p>Rust-resistant aluminum and metal signage rated for years of outdoor exposure.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(-3 110 85)">
+                  <rect x="45" y="18" width="130" height="90" rx="6" fill="#fff" stroke="#00AEEF" stroke-width="2"/>
+                  <rect x="57" y="30" width="106" height="46" rx="4" fill="#00AEEF" opacity="0.85"/>
+                  <rect x="57" y="84" width="70" height="8" rx="4" fill="#00AEEF" opacity="0.35"/>
+                  <line x1="95" y1="108" x2="95" y2="150" stroke="#00AEEF" stroke-width="5"/>
+                  <line x1="130" y1="108" x2="130" y2="150" stroke="#00AEEF" stroke-width="5"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>0.040in Aluminum</li><li>0.063in Aluminum</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Reflective Options</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Engraved Finish</li><li>Brushed Metal Look</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Metal Sign
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="sg-acrylic-letters">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Acrylic (Letters & Logos)</h3>
+                        <p>Cast acrylic letters and logos with a glossy, dimensional finish for interior or exterior use.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(-2 110 85)">
+                  <rect x="30" y="55" width="34" height="60" rx="4" fill="#E91E63" opacity="0.85"/>
+                  <rect x="70" y="35" width="34" height="80" rx="4" fill="#E91E63" opacity="0.85"/>
+                  <rect x="110" y="55" width="34" height="60" rx="4" fill="#E91E63" opacity="0.85"/>
+                  <rect x="150" y="45" width="34" height="70" rx="4" fill="#E91E63" opacity="0.85"/>
+                  <rect x="20" y="120" width="180" height="8" rx="4" fill="#E91E63" opacity="0.25"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>Cast Acrylic, 1/2in</li><li>Cast Acrylic, 3/4in</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Clear or Colour-Matched</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Mirror-Polished Edges</li><li>Illuminated Acrylic</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Acrylic (Letters & Logos)
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="sg-flat-cut-acrylic">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Flat Cut Acrylic Sign</h3>
+                        <p>Precision laser-cut acrylic lettering and shapes, mounted flush or on standoffs.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(-2 110 85)">
+                  <rect x="30" y="55" width="34" height="60" rx="4" fill="#FFC72C" opacity="0.85"/>
+                  <rect x="70" y="35" width="34" height="80" rx="4" fill="#FFC72C" opacity="0.85"/>
+                  <rect x="110" y="55" width="34" height="60" rx="4" fill="#FFC72C" opacity="0.85"/>
+                  <rect x="150" y="45" width="34" height="70" rx="4" fill="#FFC72C" opacity="0.85"/>
+                  <rect x="20" y="120" width="180" height="8" rx="4" fill="#FFC72C" opacity="0.25"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>1/8in Acrylic</li><li>1/4in Acrylic</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Standoff Mount</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Painted Edge Detail</li><li>Brushed Metal Laminate</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Flat Cut Acrylic Sign
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="sg-flat-cut-pvc">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Flat Cut PVC Sign</h3>
+                        <p>Lightweight cut-to-shape PVC lettering and logos, a cost-effective alternative to metal or acrylic.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(-3 110 85)">
+                  <rect x="45" y="18" width="130" height="90" rx="6" fill="#fff" stroke="#37419A" stroke-width="2"/>
+                  <rect x="57" y="30" width="106" height="46" rx="4" fill="#37419A" opacity="0.85"/>
+                  <rect x="57" y="84" width="70" height="8" rx="4" fill="#37419A" opacity="0.35"/>
+                  <line x1="95" y1="108" x2="95" y2="150" stroke="#37419A" stroke-width="5"/>
+                  <line x1="130" y1="108" x2="130" y2="150" stroke="#37419A" stroke-width="5"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>1/2in PVC</li><li>3/4in PVC</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Primed for Paint</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Custom Colour Match</li><li>Textured Finish</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Flat Cut PVC Sign
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="sg-formed-plastic">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Formed Plastic Sign</h3>
+                        <p>Vacuum-formed plastic sign faces for franchise and cabinet-style signage programs.</p>
+                      </div>
+                      <div class="ld-art"><img src="images/formed-plastic-sign-menu.jpg" alt="Dimensional Pre Game lobby lettering in red and blue" class="ld-art-img" loading="lazy"></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>Vacuum-Formed Face</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Injection-Molded Letters</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Franchise Colour Matching</li><li>UV-Stable Plastic</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Formed Plastic Sign
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="sg-cutout-letters">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Cutout Letters Sign</h3>
+                        <p>Individually cut dimensional letters in metal, acrylic or PVC, mounted directly to your wall.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(-2 110 85)">
+                  <rect x="30" y="55" width="34" height="60" rx="4" fill="#00AEEF" opacity="0.85"/>
+                  <rect x="70" y="35" width="34" height="80" rx="4" fill="#00AEEF" opacity="0.85"/>
+                  <rect x="110" y="55" width="34" height="60" rx="4" fill="#00AEEF" opacity="0.85"/>
+                  <rect x="150" y="45" width="34" height="70" rx="4" fill="#00AEEF" opacity="0.85"/>
+                  <rect x="20" y="120" width="180" height="8" rx="4" fill="#00AEEF" opacity="0.25"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>Aluminum Cutout Letters</li><li>Acrylic Cutout Letters</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>PVC Cutout Letters</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Illuminated Cutout Letters</li><li>Brushed or Polished Finish</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Cutout Letters Sign
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="sg-wall-murals">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Wall Murals & Displays</h3>
+                        <p>Large-format wall graphics and murals that turn an entire wall into a brand statement.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(-6 110 85)">
+                  <rect x="30" y="25" width="160" height="110" rx="8" fill="#E91E63" opacity="0.12"/>
+                  <rect x="34" y="29" width="160" height="110" rx="8" fill="#fff" stroke="#E91E63" stroke-width="2"/>
+                  <rect x="50" y="45" width="128" height="52" rx="4" fill="#E91E63" opacity="0.85"/>
+                  <rect x="50" y="105" width="80" height="8" rx="4" fill="#E91E63" opacity="0.35"/>
+                  <rect x="50" y="118" width="56" height="8" rx="4" fill="#E91E63" opacity="0.2"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>Wall Vinyl Mural</li><li>Fabric Wall Display</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Removable Wallpaper</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Textured Wall Wrap</li><li>Dry-Erase Laminate</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Wall Murals & Displays
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="sg-custom-signs">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Custom Signs</h3>
+                        <p>Not seeing your exact spec? We build fully custom signage to your shape, size and material.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(-3 110 85)">
+                  <rect x="45" y="18" width="130" height="90" rx="6" fill="#fff" stroke="#FFC72C" stroke-width="2"/>
+                  <rect x="57" y="30" width="106" height="46" rx="4" fill="#FFC72C" opacity="0.85"/>
+                  <rect x="57" y="84" width="70" height="8" rx="4" fill="#FFC72C" opacity="0.35"/>
+                  <line x1="95" y1="108" x2="95" y2="150" stroke="#FFC72C" stroke-width="5"/>
+                  <line x1="130" y1="108" x2="130" y2="150" stroke="#FFC72C" stroke-width="5"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>Custom Shape & Size</li><li>Mixed-Material Builds</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Any Substrate</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Rush Custom Fabrication</li><li>On-Site Consultation</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Custom Signs
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="sg-plaques">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Plaques</h3>
+                        <p>Recognition and identification plaques for offices, lobbies and award presentations.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(-4 110 85)">
+                  <rect x="40" y="35" width="140" height="90" rx="4" fill="#fff" stroke="#37419A" stroke-width="2"/>
+                  <rect x="54" y="52" width="112" height="30" rx="2" fill="#37419A" opacity="0.85"/>
+                  <rect x="54" y="90" width="70" height="8" rx="2" fill="#37419A" opacity="0.35"/>
+                  <circle cx="48" cy="43" r="3.5" fill="#37419A" opacity="0.6"/>
+                  <circle cx="172" cy="43" r="3.5" fill="#37419A" opacity="0.6"/>
+                  <circle cx="48" cy="117" r="3.5" fill="#37419A" opacity="0.6"/>
+                  <circle cx="172" cy="117" r="3.5" fill="#37419A" opacity="0.6"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>Acrylic Plaque</li><li>Aluminum Plaque</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Wood-Look Plaque</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Photo-Engraved Plaque</li><li>Full-Colour UV Print</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Plaques
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="sg-cast-plaques">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Cast Plaques</h3>
+                        <p>Traditional cast bronze and aluminum plaques for building dedications and historical markers.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(-4 110 85)">
+                  <rect x="40" y="35" width="140" height="90" rx="4" fill="#fff" stroke="#3FAE4B" stroke-width="2"/>
+                  <rect x="54" y="52" width="112" height="30" rx="2" fill="#3FAE4B" opacity="0.85"/>
+                  <rect x="54" y="90" width="70" height="8" rx="2" fill="#3FAE4B" opacity="0.35"/>
+                  <circle cx="48" cy="43" r="3.5" fill="#3FAE4B" opacity="0.6"/>
+                  <circle cx="172" cy="43" r="3.5" fill="#3FAE4B" opacity="0.6"/>
+                  <circle cx="48" cy="117" r="3.5" fill="#3FAE4B" opacity="0.6"/>
+                  <circle cx="172" cy="117" r="3.5" fill="#3FAE4B" opacity="0.6"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>Cast Bronze</li><li>Cast Aluminum</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Raised Lettering</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Antique Patina Finish</li><li>Custom Relief Artwork</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Cast Plaques
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="sg-etched-plaques">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Etched Plaques</h3>
+                        <p>Chemically etched metal plaques with crisp, permanent detail — built to last indoors or out.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(-4 110 85)">
+                  <rect x="40" y="35" width="140" height="90" rx="4" fill="#fff" stroke="#00AEEF" stroke-width="2"/>
+                  <rect x="54" y="52" width="112" height="30" rx="2" fill="#00AEEF" opacity="0.85"/>
+                  <rect x="54" y="90" width="70" height="8" rx="2" fill="#00AEEF" opacity="0.35"/>
+                  <circle cx="48" cy="43" r="3.5" fill="#00AEEF" opacity="0.6"/>
+                  <circle cx="172" cy="43" r="3.5" fill="#00AEEF" opacity="0.6"/>
+                  <circle cx="48" cy="117" r="3.5" fill="#00AEEF" opacity="0.6"/>
+                  <circle cx="172" cy="117" r="3.5" fill="#00AEEF" opacity="0.6"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>Etched Brass</li><li>Etched Aluminum</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Etched Stainless Steel</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Colour-Filled Etching</li><li>Two-Tone Finish</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Etched Plaques
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="sg-metal-plates">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Metal Signs & Plates</h3>
+                        <p>Durable metal nameplates and ID plates for equipment, doors and asset tagging.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(-3 110 85)">
+                  <rect x="45" y="18" width="130" height="90" rx="6" fill="#fff" stroke="#E91E63" stroke-width="2"/>
+                  <rect x="57" y="30" width="106" height="46" rx="4" fill="#E91E63" opacity="0.85"/>
+                  <rect x="57" y="84" width="70" height="8" rx="4" fill="#E91E63" opacity="0.35"/>
+                  <line x1="95" y1="108" x2="95" y2="150" stroke="#E91E63" stroke-width="5"/>
+                  <line x1="130" y1="108" x2="130" y2="150" stroke="#E91E63" stroke-width="5"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>Aluminum Nameplate</li><li>Stainless Steel Plate</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Adhesive or Screw Mount</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Sequential Serial Numbering</li><li>Barcode / QR Plates</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Metal Signs & Plates
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="sg-product-store">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Sign Product Store</h3>
+                        <p>Browse the full sign catalogue in one place — every material, mount and finish we offer.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(-3 110 85)">
+                  <rect x="40" y="60" width="140" height="70" rx="4" fill="#FFC72C" opacity="0.85"/>
+                  <path d="M35 60 L110 22 L185 60 Z" fill="#FFC72C"/>
+                  <rect x="65" y="80" width="30" height="50" fill="#fff" opacity="0.85"/>
+                  <rect x="125" y="80" width="30" height="30" fill="#fff" opacity="0.6"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>Full Product Catalogue</li><li>Filter by Material</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Filter by Application</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Trade Pricing Unlocked at Sign-In</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Sign Product Store
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+      <div class="nav-item">
+        <button class="nav-trigger">Stickers & Labels
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="megapanel listdetail">
+          <div class="ld-list">
+            <a href="#" class="ld-item active" data-detail="sl-custom-stickers">
+              <span>Custom Stickers</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="sl-roll-labels">
+              <span>Roll Labels</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="sl-sheet-labels">
+              <span>Sheet Labels</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="sl-static-clings">
+              <span>Static Clings</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="sl-wall-decals">
+              <span>Wall Decals <span class="tag-new">NEW</span></span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+          </div>
+          <div class="ld-detail">
+            <div class="ld-panel active" id="sl-custom-stickers">
+              <div class="ld-head">
+                <div>
+                  <h3>Custom Stickers</h3>
+                  <p>Die-cut to any shape, printed full colour with a laminate that shrugs off scuffs.</p>
+                </div>
+                <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+          <g transform="rotate(8 110 85)">
+            <circle cx="90" cy="70" r="42" fill="#E91E63" opacity="0.85"/>
+            <circle cx="90" cy="70" r="42" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="3 5"/>
+          </g>
+          <g transform="rotate(-10 150 110)">
+            <rect x="120" y="90" width="56" height="56" rx="10" fill="#E91E63" opacity="0.25" stroke="#E91E63" stroke-width="2"/>
+          </g>
+        </svg></div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>Vinyl + Gloss Laminate</li><li>Vinyl + Matte Laminate</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>Kiss-Cut Sheets</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Holographic</li><li>Clear (No White Ink)</li><li>Glitter Finish</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop Custom Stickers
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="sl-roll-labels">
+              <div class="ld-head">
+                <div>
+                  <h3>Roll Labels</h3>
+                  <p>Product and packaging labels on a roll, ready for high-speed dispensing.</p>
+                </div>
+                <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+          <g transform="rotate(8 110 85)">
+            <circle cx="90" cy="70" r="42" fill="#00AEEF" opacity="0.85"/>
+            <circle cx="90" cy="70" r="42" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="3 5"/>
+          </g>
+          <g transform="rotate(-10 150 110)">
+            <rect x="120" y="90" width="56" height="56" rx="10" fill="#00AEEF" opacity="0.25" stroke="#00AEEF" stroke-width="2"/>
+          </g>
+        </svg></div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>Gloss BOPP</li><li>Matte Paper</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>Clear BOPP</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Freezer-Grade Adhesive</li><li>Tamper-Evident</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop Roll Labels
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="sl-sheet-labels">
+              <div class="ld-head">
+                <div>
+                  <h3>Sheet Labels</h3>
+                  <p>Multiple labels per sheet — ideal for short runs and in-house application.</p>
+                </div>
+                <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+          <g transform="rotate(8 110 85)">
+            <circle cx="90" cy="70" r="42" fill="#3FAE4B" opacity="0.85"/>
+            <circle cx="90" cy="70" r="42" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="3 5"/>
+          </g>
+          <g transform="rotate(-10 150 110)">
+            <rect x="120" y="90" width="56" height="56" rx="10" fill="#3FAE4B" opacity="0.25" stroke="#3FAE4B" stroke-width="2"/>
+          </g>
+        </svg></div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>Gloss Paper</li><li>Matte Paper</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>Clear Polyester</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Round Corner Die-Cut</li><li>Waterproof Polyester</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop Sheet Labels
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="sl-static-clings">
+              <div class="ld-head">
+                <div>
+                  <h3>Static Clings</h3>
+                  <p>No adhesive needed — clings to glass and reposition without residue.</p>
+                </div>
+                <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+          <g transform="rotate(8 110 85)">
+            <circle cx="90" cy="70" r="42" fill="#FFC72C" opacity="0.85"/>
+            <circle cx="90" cy="70" r="42" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="3 5"/>
+          </g>
+          <g transform="rotate(-10 150 110)">
+            <rect x="120" y="90" width="56" height="56" rx="10" fill="#FFC72C" opacity="0.25" stroke="#FFC72C" stroke-width="2"/>
+          </g>
+        </svg></div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>Clear Static Cling</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>White Static Cling</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Double-Sided (Read Both Ways)</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop Static Clings
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="sl-wall-decals">
+              <div class="ld-head">
+                <div>
+                  <h3>Wall Decals</h3>
+                  <p>Removable wall graphics for offices, retail and event spaces.</p>
+                </div>
+                <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+          <g transform="rotate(8 110 85)">
+            <circle cx="90" cy="70" r="42" fill="#37419A" opacity="0.85"/>
+            <circle cx="90" cy="70" r="42" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="3 5"/>
+          </g>
+          <g transform="rotate(-10 150 110)">
+            <rect x="120" y="90" width="56" height="56" rx="10" fill="#37419A" opacity="0.25" stroke="#37419A" stroke-width="2"/>
+          </g>
+        </svg></div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>Removable Vinyl</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>Fabric Wall Decal</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Dry-Erase Laminate</li><li>Large-Format Mural</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop Wall Decals
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <button class="nav-trigger">Accessories & Hardware
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="megapanel listdetail">
+          <div class="ld-list">
+            <a href="#" class="ld-item active" data-detail="ah-banner-stands">
+              <span>Banner Stands</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="ah-flag-hardware">
+              <span>Flag Hardware</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="ah-real-estate">
+              <span>Real Estate Sign Hardware</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="ah-tension-frames">
+              <span>Tension Fabric Frames</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+            <a href="#" class="ld-item" data-detail="ah-led-lights">
+              <span>LED Lights</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </a>
+          </div>
+          <div class="ld-detail">
+            <div class="ld-panel active" id="ah-banner-stands">
+              <div class="ld-head">
+                <div>
+                  <h3>Banner Stands</h3>
+                  <p>Retractable and X-frame stands to get any banner upright in seconds.</p>
+                </div>
+                <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+          <g transform="rotate(-3 110 85)">
+            <rect x="80" y="15" width="60" height="110" rx="4" fill="#fff" stroke="#37419A" stroke-width="2"/>
+            <rect x="88" y="24" width="44" height="60" rx="3" fill="#37419A" opacity="0.85"/>
+            <rect x="88" y="90" width="44" height="6" rx="3" fill="#37419A" opacity="0.4"/>
+            <rect x="88" y="100" width="30" height="6" rx="3" fill="#37419A" opacity="0.22"/>
+            <path d="M70 145 L150 145 L135 158 L85 158 Z" fill="#37419A" opacity="0.9"/>
+          </g>
+        </svg></div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>Standard Retractable Base</li><li>Premium Aluminum Base</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>X-Frame Stand</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Double-Sided Stand</li><li>Wide Format Stand</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop Banner Stands
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="ah-flag-hardware">
+              <div class="ld-head">
+                <div>
+                  <h3>Flag Hardware</h3>
+                  <p>Ground spikes, cross bases and poles for feather and teardrop flags.</p>
+                </div>
+                <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+          <g transform="rotate(-3 110 85)">
+            <rect x="80" y="15" width="60" height="110" rx="4" fill="#fff" stroke="#00AEEF" stroke-width="2"/>
+            <rect x="88" y="24" width="44" height="60" rx="3" fill="#00AEEF" opacity="0.85"/>
+            <rect x="88" y="90" width="44" height="6" rx="3" fill="#00AEEF" opacity="0.4"/>
+            <rect x="88" y="100" width="30" height="6" rx="3" fill="#00AEEF" opacity="0.22"/>
+            <path d="M70 145 L150 145 L135 158 L85 158 Z" fill="#00AEEF" opacity="0.9"/>
+          </g>
+        </svg></div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>Ground Spike (Straight)</li><li>Cross Base</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>Water-Fillable Base</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Heavy-Duty Metal Plate Base</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop Flag Hardware
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="ah-real-estate">
+              <div class="ld-head">
+                <div>
+                  <h3>Real Estate Sign Hardware</h3>
+                  <p>Frames, H-stands and post kits sized to standard real estate rider signs.</p>
+                </div>
+                <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+          <g transform="rotate(-3 110 85)">
+            <rect x="80" y="15" width="60" height="110" rx="4" fill="#fff" stroke="#3FAE4B" stroke-width="2"/>
+            <rect x="88" y="24" width="44" height="60" rx="3" fill="#3FAE4B" opacity="0.85"/>
+            <rect x="88" y="90" width="44" height="6" rx="3" fill="#3FAE4B" opacity="0.4"/>
+            <rect x="88" y="100" width="30" height="6" rx="3" fill="#3FAE4B" opacity="0.22"/>
+            <path d="M70 145 L150 145 L135 158 L85 158 Z" fill="#3FAE4B" opacity="0.9"/>
+          </g>
+        </svg></div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>Metal H-Stand</li><li>Metal Post + Frame</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>A-Frame</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Lock Box</li><li>Brochure Box</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop Real Estate Sign Hardware
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="ah-tension-frames">
+              <div class="ld-head">
+                <div>
+                  <h3>Tension Fabric Frames</h3>
+                  <p>Lightweight aluminum frames for a seamless, wrinkle-free fabric graphic.</p>
+                </div>
+                <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+          <g transform="rotate(-3 110 85)">
+            <rect x="80" y="15" width="60" height="110" rx="4" fill="#fff" stroke="#E91E63" stroke-width="2"/>
+            <rect x="88" y="24" width="44" height="60" rx="3" fill="#E91E63" opacity="0.85"/>
+            <rect x="88" y="90" width="44" height="6" rx="3" fill="#E91E63" opacity="0.4"/>
+            <rect x="88" y="100" width="30" height="6" rx="3" fill="#E91E63" opacity="0.22"/>
+            <path d="M70 145 L150 145 L135 158 L85 158 Z" fill="#E91E63" opacity="0.9"/>
+          </g>
+        </svg></div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>Straight Frame</li><li>Curved Frame</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>Backlit Frame</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>SEG (Silicone Edge Graphic) Frame</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop Tension Fabric Frames
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="ld-panel" id="ah-led-lights">
+              <div class="ld-head">
+                <div>
+                  <h3>LED Lights</h3>
+                  <p>Clip-on lighting kits that make any banner stand or backdrop pop after dark.</p>
+                </div>
+                <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+          <g transform="rotate(-3 110 85)">
+            <rect x="80" y="15" width="60" height="110" rx="4" fill="#fff" stroke="#FFC72C" stroke-width="2"/>
+            <rect x="88" y="24" width="44" height="60" rx="3" fill="#FFC72C" opacity="0.85"/>
+            <rect x="88" y="90" width="44" height="6" rx="3" fill="#FFC72C" opacity="0.4"/>
+            <rect x="88" y="100" width="30" height="6" rx="3" fill="#FFC72C" opacity="0.22"/>
+            <path d="M70 145 L150 145 L135 158 L85 158 Z" fill="#FFC72C" opacity="0.9"/>
+          </g>
+        </svg></div>
+              </div>
+              <hr class="ld-divider">
+              <div class="ld-specs">
+                <div>
+                  <h4>Standard</h4>
+                  <ul><li>Clip-On LED Bar</li></ul>
+                </div>
+                <div>
+                  <h4>&nbsp;</h4>
+                  <ul><li>Battery Pack Kit</li></ul>
+                </div>
+                <div class="specialty">
+                  <h4>Specialty</h4>
+                  <ul><li>Dimmable Kit</li></ul>
+                </div>
+              </div>
+              <a href="#" class="ld-cta">Shop LED Lights
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+              <button class="nav-trigger">Promotional Products
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="megapanel listdetail">
+                <div class="ld-list">
+                  <a href="#" class="ld-item active" data-detail="pr-mens-clothing">
+                    <span>Men's Clothing</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="pr-mugs">
+                    <span>Mugs</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="pr-bottles">
+                    <span>Bottles <span class="tag-new">NEW</span></span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="pr-tote-bags">
+                    <span>Tote Bags</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="pr-name-tags">
+                    <span>Name Tags</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="pr-canvas">
+                    <span>Canvas</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="pr-photo-panel">
+                    <span>Photo Panel</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="pr-uv-dtf">
+                    <span>UV DTF <span class="tag-new">NEW</span></span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                  <a href="#" class="ld-item" data-detail="pr-custom-dtf">
+                    <span>Custom DTF</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </a>
+                </div>
+                <div class="ld-detail">
+                  <div class="ld-panel active" id="pr-mens-clothing">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Men's Clothing</h3>
+                        <p>Custom printed and embroidered menswear — tees, polos and hoodies for staff uniforms or event merch.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(-3 110 85)">
+                  <path d="M75 40 L60 55 L70 68 L80 60 V130 H140 V60 L150 68 L160 55 L145 40 L120 30 H100 Z" fill="#E91E63" opacity="0.85"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>Cotton T-Shirt</li><li>Polo Shirt</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Fleece Hoodie</li><li>Performance Tee</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Embroidered Logo</li><li>Moisture-Wicking Fabric</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Men's Clothing
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="pr-mugs">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Mugs</h3>
+                        <p>Ceramic mugs printed or laser-engraved with your logo — a dishwasher-safe daily reminder of your brand.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(-4 110 85)">
+                  <rect x="55" y="35" width="80" height="95" rx="8" fill="#00AEEF" opacity="0.85"/>
+                  <path d="M135 55 h20 a15 15 0 0 1 0 30 h-20" fill="none" stroke="#00AEEF" stroke-width="6"/>
+                  <rect x="65" y="50" width="60" height="20" rx="3" fill="#fff" opacity="0.9"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>11oz Ceramic Mug</li><li>15oz Ceramic Mug</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Color-Changing Mug</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Two-Tone Handle</li><li>Photo Mug</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Mugs
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="pr-bottles">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Bottles</h3>
+                        <p>Reusable water bottles in stainless steel or BPA-free plastic, printed or engraved.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(-2 110 85)">
+                  <rect x="90" y="20" width="30" height="18" rx="4" fill="#37419A" opacity="0.6"/>
+                  <path d="M85 38 h40 l6 20 v70 a6 6 0 0 1 -6 6 h-40 a6 6 0 0 1 -6 -6 v-70 z" fill="#37419A" opacity="0.85"/>
+                  <rect x="82" y="80" width="46" height="22" rx="3" fill="#fff" opacity="0.85"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>24oz Stainless Bottle</li><li>20oz Sport Bottle</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Insulated Tumbler Bottle</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Vacuum-Insulated (Hot/Cold)</li><li>Carabiner Clip Lid</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Bottles
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="pr-tote-bags">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Tote Bags</h3>
+                        <p>Reusable tote bags that put your brand on the street — cotton canvas, jute or non-woven.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(3 110 85)">
+                  <rect x="55" y="55" width="90" height="80" rx="6" fill="#3FAE4B" opacity="0.85"/>
+                  <path d="M75 55 v-15 a25 25 0 0 1 50 0 v15" fill="none" stroke="#3FAE4B" stroke-width="6"/>
+                  <rect x="70" y="75" width="60" height="8" rx="4" fill="#fff" opacity="0.6"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>Cotton Canvas Tote</li><li>Non-Woven Tote</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Jute Tote</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Full-Colour Sublimation</li><li>Reinforced Handles</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Tote Bags
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="pr-name-tags">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Name Tags</h3>
+                        <p>Professional staff name badges — magnetic or pin-back, printed or engraved to match your brand.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(-5 110 85)">
+                  <rect x="55" y="45" width="110" height="65" rx="10" fill="#fff" stroke="#FFC72C" stroke-width="2"/>
+                  <rect x="70" y="60" width="80" height="14" rx="3" fill="#FFC72C" opacity="0.85"/>
+                  <rect x="70" y="82" width="55" height="8" rx="3" fill="#FFC72C" opacity="0.35"/>
+                  <circle cx="110" cy="38" r="7" fill="none" stroke="#FFC72C" stroke-width="4"/>
+                  <line x1="110" y1="45" x2="110" y2="52" stroke="#FFC72C" stroke-width="4"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>Magnetic Backing</li><li>Pin Backing</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Engraved Plastic</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Full-Colour Printed</li><li>Photo ID Badge</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Name Tags
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="pr-canvas">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Canvas</h3>
+                        <p>Stretched canvas prints for office decor, event backdrops, or client gifts.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(-4 110 85)">
+                  <rect x="42" y="24" width="136" height="102" rx="4" fill="#E91E63" opacity="0.16"/>
+                  <rect x="50" y="30" width="136" height="102" rx="4" fill="#fff" stroke="#E91E63" stroke-width="2"/>
+                  <rect x="62" y="42" width="112" height="60" rx="3" fill="#E91E63" opacity="0.8"/>
+                  <circle cx="150" cy="58" r="10" fill="#fff" opacity="0.8"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>8×10 Stretched Canvas</li><li>16×20 Stretched Canvas</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>24×36 Stretched Canvas</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Gallery Wrap Edge</li><li>Float Frame</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Canvas
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="pr-photo-panel">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Photo Panel</h3>
+                        <p>High-gloss photo panels in aluminum, acrylic or foam — vivid colour for portraits and product shots.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(3 110 85)">
+                  <rect x="46" y="30" width="128" height="96" rx="3" fill="#00AEEF" opacity="0.85"/>
+                  <rect x="46" y="30" width="128" height="96" rx="3" fill="none" stroke="#00AEEF" stroke-width="2"/>
+                  <circle cx="150" cy="52" r="9" fill="#fff" opacity="0.75"/>
+                  <rect x="46" y="120" width="128" height="6" fill="#00AEEF" opacity="0.4"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>Aluminum Photo Panel</li><li>Acrylic Photo Panel</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Foam Photo Panel</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>High-Gloss Metal Print</li><li>Float Mount</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Photo Panel
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="pr-uv-dtf">
+                    <div class="ld-head">
+                      <div>
+                        <h3>UV DTF</h3>
+                        <p>UV DTF transfers and stickers — apply to curved surfaces like tumblers, glass, and metal with a raised, glossy finish.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(8 110 85)">
+                  <circle cx="90" cy="70" r="42" fill="#37419A" opacity="0.85"/>
+                  <circle cx="90" cy="70" r="42" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="3 5"/>
+                </g>
+                <g transform="rotate(-10 150 110)">
+                  <rect x="120" y="90" width="56" height="56" rx="10" fill="#37419A" opacity="0.25" stroke="#37419A" stroke-width="2"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>UV DTF Stickers (Sheet)</li><li>UV DTF Transfers (Roll)</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Custom Die-Cut Shape</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Waterproof / UV Resistant</li><li>Raised Texture Finish</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop UV DTF
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                  <div class="ld-panel" id="pr-custom-dtf">
+                    <div class="ld-head">
+                      <div>
+                        <h3>Custom DTF</h3>
+                        <p>Direct-to-film transfers for apparel — full colour, stretchable, and ready to press onto cotton, poly or blends.</p>
+                      </div>
+                      <div class="ld-art"><svg viewBox="0 0 220 170" class="ld-art-svg">
+                <g transform="rotate(-3 110 85)">
+                  <path d="M75 40 L60 55 L70 68 L80 60 V130 H140 V60 L150 68 L160 55 L145 40 L120 30 H100 Z" fill="#3FAE4B" opacity="0.85"/>
+                </g>
+              </svg></div>
+                    </div>
+                    <hr class="ld-divider">
+                    <div class="ld-specs">
+                      <div>
+                        <h4>Standard</h4>
+                        <ul><li>DTF Transfer (Single)</li><li>DTF Transfer (Bulk Roll)</li></ul>
+                      </div>
+                      <div>
+                        <h4>&nbsp;</h4>
+                        <ul><li>Gang Sheet</li></ul>
+                      </div>
+                      <div class="specialty">
+                        <h4>Specialty</h4>
+                        <ul><li>Glow-in-the-Dark Ink</li><li>Metallic Finish</li></ul>
+                      </div>
+                    </div>
+                    <a href="#" class="ld-cta">Shop Custom DTF
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+      <div class="nav-item">
+        <button class="nav-trigger">Shop by Solution
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="megapanel solutions">
+          <div class="solution-card">
+            <div class="chip" style="background:#EAF6EB;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 21V12h6v9"/></svg></div>
+            <h6>Retail &amp; Storefronts</h6>
+            <p>Window graphics, floor decals and light boxes that sell from the street.</p>
+          </div>
+          <div class="solution-card">
+            <div class="chip" style="background:#FFF6DF;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
+            <h6>Real Estate</h6>
+            <p>For-sale signs, riders and sleeves matched to every listing.</p>
+          </div>
+          <div class="solution-card">
+            <div class="chip" style="background:#FCE8EF;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--magenta)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21v-4a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v4"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <h6>Events &amp; Trade Shows</h6>
+            <p>Pop-ups, tension fabric and tents that travel and set up fast.</p>
+          </div>
+          <div class="solution-card">
+            <div class="chip" style="background:#E1F6FC;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="18" x2="12" y2="21"/></svg></div>
+            <h6>Corporate &amp; Office</h6>
+            <p>Wayfinding, wall murals and branded print for HQ spaces.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <button class="nav-trigger">Design
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="megapanel solutions">
+          <div class="solution-card">
+            <div class="chip" style="background:#EEEFF9;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--indigo)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
+            <h6>Custom Design</h6>
+            <p>Our in-house team builds your artwork from scratch — logo, layout and all.</p>
+          </div>
+          <div class="solution-card">
+            <div class="chip" style="background:#EAF6EB;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <h6>Free Design Review</h6>
+            <p>Upload your file and we'll flag any bleed, resolution or colour issues before it prints.</p>
+          </div>
+          <div class="solution-card">
+            <div class="chip" style="background:#FFF6DF;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+            <h6>Template Library</h6>
+            <p>Editable, print-ready templates for every product — swap in your own copy and go.</p>
+          </div>
+          <div class="solution-card">
+            <div class="chip" style="background:#FCE8EF;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--magenta)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <h6>Rush Design</h6>
+            <p>Need it fast? Get a first draft back from our design team within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+</header>
+
+<!-- ===== Mobile drawer ===== -->
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="mobile-drawer" id="drawer">
+  <div class="drawer-head">
+    <svg class="logo-svg" style="height:38px;" viewBox="0 0 576 216" role="img" aria-label="ImagingTech"><use href="#logo-mark"></use></svg>
+    <button id="drawerClose" aria-label="Close menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+
+  <div class="drawer-item">
+    <button>Print Products
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="drawer-sub">
+      <a href="postcards.html">Postcards</a><a href="flyers.html">Flyers</a><a href="#">Brochures</a><a href="business-cards-14pt.html">Business Cards</a><a href="#">Booklets</a>
+    </div>
+  </div>
+  <div class="drawer-item">
+    <button>Large Format
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="drawer-sub">
+      <a href="vinyl-banners.html">Vinyl Banners</a><a href="#">Mesh Banners</a><a href="#">Pull-Up Banners</a><a href="#">Rigid Signs</a><a href="#">Backdrops</a>
+    </div>
+  </div>
+  <div class="drawer-item">
+    <button>Signs
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="drawer-sub">
+      <a href="product-4mm-coroplast.html">Yard Signs</a><a href="#">A-Frame Signs</a><a href="#">Real Estate Signs</a><a href="#">Channel Letters</a><a href="#">Vehicle Magnets</a>
+    </div>
+  </div>
+  <div class="drawer-item">
+    <button>Stickers &amp; Labels
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="drawer-sub">
+      <a href="#">Custom Stickers</a><a href="#">Roll Labels</a><a href="#">Sheet Labels</a>
+    </div>
+  </div>
+  <div class="drawer-item">
+    <button>Promotional Products
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="drawer-sub">
+      <a href="#">Men's Clothing</a><a href="#">Mugs</a><a href="#">Bottles</a><a href="#">Tote Bags</a><a href="#">Name Tags</a><a href="#">Canvas</a><a href="#">Photo Panel</a><a href="#">UV DTF</a><a href="#">Custom DTF</a>
+    </div>
+  </div>
+  <div class="drawer-item">
+    <button>Accessories &amp; Hardware
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="drawer-sub">
+      <a href="#">Banner Stands</a><a href="#">Flag Hardware</a><a href="#">Sign Hardware</a>
+    </div>
+  </div>
+  <div class="drawer-item">
+    <button>Design
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="drawer-sub">
+      <a href="#">Custom Design</a><a href="#">Free Design Review</a><a href="#">Template Library</a><a href="#">Rush Design</a>
+    </div>
+  </div>
+
+  <div class="drawer-cta">
+    <a href="./#quote" class="btn-quote" style="display:block;text-align:center;">Get a Quote</a>
+  </div>
+</aside>
+
+<!-- ===== About hero ===== -->
+<div class="about-hero">
+  <div class="wrap">
+    <div class="about-crumb"><a href=".">Home</a><span>/</span><span>About ImagingTech</span></div>
+    <div class="eyebrow"><span class="dotmark"><span></span><span></span><span></span><span></span></span> About ImagingTech</div>
+    <h1>One trade partner, built for print &amp; imaging resellers.</h1>
+    <p class="lead">We handle the production so you can focus on the client relationship — large-format print, signage and display, made under one roof and shipped under your brand.</p>
+  </div>
+</div>
+
+<!-- ===== Story ===== -->
+<section>
+  <div class="wrap">
+    <div class="about-story">
+      <div class="about-story-copy">
+        <div class="eyebrow"><span class="dotmark"><span></span><span></span><span></span><span></span></span> Who we are</div>
+        <h2>A production partner, not just a print shop.</h2>
+        <p>ImagingTech exists to give resellers, agencies and brand teams a single, dependable partner for large-format print, signage and display — the kind of partner that answers the phone, holds a deadline, and ships exactly what was ordered, exactly on time.</p>
+        <p>From vinyl banners to dimensional channel letters, every job moves through our own production floor — no outsourcing, no guesswork on lead times, and no surprises when the truck pulls up to your customer's door.</p>
+      </div>
+      <div class="about-story-photo">
+        <img src="images/hero-tiles/hero-tile-07.jpg" alt="ImagingTech service truck on site at a channel letter sign installation">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Stats ===== -->
+<section class="strip">
+  <div class="wrap">
+    <div class="about-stats">
+      <div><strong>1,200+</strong><span>Products &amp; materials</span></div>
+      <div><strong>48 hr</strong><span>Standard turnaround</span></div>
+      <div><strong>360°</strong><span>Print, signage &amp; display</span></div>
+      <div><strong>100%</strong><span>Trade &amp; reseller focus</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Capabilities ===== -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span class="dotmark"><span></span><span></span><span></span><span></span></span> Inside the shop</div>
+        <h2>Production capabilities that cover the full order.</h2>
+      </div>
+    </div>
+    <div class="equip-grid">
+      <div class="equip-card">
+        <div class="chip"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><line x1="9" y1="21" x2="15" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h4>Large-Format UV Printing</h4>
+        <p>Flatbed and roll-to-roll UV printers for rigid and flexible substrates, from banners to backlit panels.</p>
+      </div>
+      <div class="equip-card">
+        <div class="chip"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V6a2 2 0 0 1 2-2h9l5 5v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M15 4v5h5"/></svg></div>
+        <h4>Vinyl Cutting &amp; Lamination</h4>
+        <p>Precision plotters and laminators for decals, vehicle wraps and window graphics.</p>
+      </div>
+      <div class="equip-card">
+        <div class="chip"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4l-6 6 2 2 6-6a4 4 0 0 1 5.4-5.4z"/></svg></div>
+        <h4>CNC Routing &amp; Laser Cutting</h4>
+        <p>In-house fabrication for dimensional letters, acrylic faces and metal signage.</p>
+      </div>
+      <div class="equip-card">
+        <div class="chip"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="8" cy="12" r="2.3"/><line x1="14" y1="10" x2="19" y2="10"/><line x1="14" y1="14" x2="19" y2="14"/></svg></div>
+        <h4>Bindery &amp; Finishing</h4>
+        <p>Folding, scoring, die-cutting and saddle-stitching for print runs of any size.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Commitments ===== -->
+<section class="strip">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span class="dotmark"><span></span><span></span><span></span><span></span></span> What partners can count on</div>
+        <h2>The things that don't change from order to order.</h2>
+      </div>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="chip" style="background:#EAF6EB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3FAE4B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+        <h4>Trade-Only Focus</h4>
+        <p>We work with resellers, agencies and brands only — never direct-to-consumer, so the customer relationship stays yours.</p>
+      </div>
+      <div class="feature">
+        <div class="chip" style="background:#E1F6FC;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00AEEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="14" height="10" rx="1"/><path d="M15 10h4l3 3v3h-7z"/><circle cx="6" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg></div>
+        <h4>In-House Production</h4>
+        <p>Printing, fabrication and finishing all happen on one floor, so nothing gets lost between vendors.</p>
+      </div>
+      <div class="feature">
+        <div class="chip" style="background:#FFF6DF;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFC72C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h4>Fast, Reliable Turnaround</h4>
+        <p>Most orders ship within 48 hours of file approval, with rush options when the job can't wait.</p>
+      </div>
+      <div class="feature">
+        <div class="chip" style="background:#FCE8EF;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E91E63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+        <h4>Blind Shipping, Always</h4>
+        <p>Every box ships under your brand — no ImagingTech packing slips, invoices or return addresses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section>
+  <div class="wrap">
+    <div class="promo">
+      <div>
+        <div class="eyebrow" style="color:#fff;"><span class="dotmark"><span></span><span></span><span></span><span></span></span> Become a trade partner</div>
+        <h2>Ready to put us to work on your next order?</h2>
+        <p>Tell us what you're printing and we'll get back to you with trade pricing and a realistic turnaround — usually within one business day.</p>
+        <a href="./#quote" class="btn-primary">Request a Trade Quote</a>
+      </div>
+      <div class="promo-visual" aria-hidden="true">
+        <span style="background:#4B55B0;"></span><span style="background:#4FBF5B;"></span><span style="background:#FFD24D;"></span><span style="background:#EF4B84;"></span>
+        <span style="background:#26D1FF;"></span><span style="background:#2B337F;"></span><span style="background:#4B55B0;"></span><span style="background:#FFD24D;"></span>
+        <span style="background:#EF4B84;"></span><span style="background:#26D1FF;"></span><span style="background:#4FBF5B;"></span><span style="background:#2B337F;"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-chip">
+          <svg class="logo-svg" viewBox="0 0 576 216" role="img" aria-label="ImagingTech"><use href="#logo-mark"></use></svg>
+        </span>
+        <p>Your trade partner for large-format print, signage and display — inspired 360 solutions, one source.</p>
+        <div class="newsletter">
+          <input type="email" placeholder="Email address" aria-label="Email address">
+          <button>Sign up</button>
+        </div>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#cfd0e0" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#cfd0e0" stroke-width="1.8"><path d="M15 3h-2a5 5 0 0 0-5 5v3H6v4h2v6h4v-6h3l1-4h-4V8a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#cfd0e0" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="8" y1="11" x2="8" y2="16"/><circle cx="8" cy="8" r="1"/><path d="M12 16v-3a2 2 0 0 1 4 0v3"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Our Company</h5>
+        <ul>
+          <li><a href="#">About ImagingTech</a></li>
+          <li><a href="#">Our Equipment</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Catalogue</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Customer Support</h5>
+        <ul>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Ordering Help</a></li>
+          <li><a href="#">Artwork Guidelines</a></li>
+          <li><a href="#">Production Time</a></li>
+          <li><a href="#">Shipping Options</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <ul>
+          <li><a href="#">Signage &amp; Displays</a></li>
+          <li><a href="#">Large Format Printing</a></li>
+          <li><a href="#">Print Products</a></li>
+          <li><a href="#">Stickers &amp; Labels</a></li>
+          <li><a href="#">Accessories &amp; Hardware</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:+18005550142">+1 (800) 555-0142</a></li>
+          <li><a href="mailto:info@imagingtech.com">info@imagingtech.com</a></li>
+          <li><a href="#">Mon–Fri · 8:30am–5:30pm</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 ImagingTech. All rights reserved. · <a href="admin.html" style="text-decoration:underline;">Product admin</a></span>
+      <span style="display:flex;align-items:center;gap:8px;"><span class="dotmark"><span></span><span></span><span></span><span></span></span> …inspired 360 solutions</span>
+    </div>
+  </div>
+</footer>
+<script>
+  // Desktop mega menu: toggle on click (also supports hover via CSS is not reliable for a11y, so JS drives it)
+  document.querySelectorAll('.nav-item').forEach(function(item){
+    var trigger = item.querySelector('.nav-trigger');
+    if(!trigger) return;
+    var panel = item.querySelector('.megapanel');
+    trigger.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.nav-item.open').forEach(function(o){ o.classList.remove('open'); });
+      if(!isOpen){
+        item.classList.add('open');
+        if(panel) positionMegapanel(item, panel);
+      }
+    });
+  });
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.nav-item')){
+      document.querySelectorAll('.nav-item.open').forEach(function(o){ o.classList.remove('open'); });
+    }
+  });
+  window.addEventListener('resize', function(){
+    var openItem = document.querySelector('.nav-item.open');
+    if(openItem){
+      var panel = openItem.querySelector('.megapanel');
+      if(panel) positionMegapanel(openItem, panel);
+    }
+  });
+
+  function positionMegapanel(item, panel){
+    // Reset to default (anchored to the left edge of the trigger) before measuring
+    panel.style.left = '0';
+    panel.style.right = 'auto';
+    var margin = 16;
+    var rect = panel.getBoundingClientRect();
+    var viewportWidth = window.innerWidth;
+    if(rect.right > viewportWidth - margin){
+      // Try right-aligning to the trigger instead
+      panel.style.left = 'auto';
+      panel.style.right = '0';
+      rect = panel.getBoundingClientRect();
+      if(rect.left < margin){
+        // Still doesn't fit either direction (very narrow window) — clamp with a fixed inset
+        var itemRect = item.getBoundingClientRect();
+        var shiftLeft = itemRect.left - margin;
+        panel.style.left = (-shiftLeft) + 'px';
+        panel.style.right = 'auto';
+      }
+    }
+  }
+
+  // List + detail mega menus: hovering/focusing/clicking a left item swaps the right-hand panel
+  document.querySelectorAll('.megapanel.listdetail').forEach(function(panel){
+    var list = panel.querySelector('.ld-list');
+    var detail = panel.querySelector('.ld-detail');
+    var items = list.querySelectorAll('.ld-item');
+    items.forEach(function(item){
+      function activate(e){
+        if(e && e.type === 'click') e.preventDefault();
+        items.forEach(function(i){ i.classList.remove('active'); });
+        item.classList.add('active');
+        detail.querySelectorAll('.ld-panel').forEach(function(p){ p.classList.remove('active'); });
+        var target = detail.querySelector('#' + item.dataset.detail);
+        if(target) target.classList.add('active');
+      }
+      item.addEventListener('mouseenter', activate);
+      item.addEventListener('focus', activate);
+      item.addEventListener('click', activate);
+    });
+  });
+
+  // Mobile drawer
+  var drawer = document.getElementById('drawer');
+  var backdrop = document.getElementById('drawerBackdrop');
+  document.getElementById('drawerOpen').addEventListener('click', function(){
+    drawer.classList.add('open'); backdrop.classList.add('open');
+  });
+  document.getElementById('drawerClose').addEventListener('click', function(){
+    drawer.classList.remove('open'); backdrop.classList.remove('open');
+  });
+  backdrop.addEventListener('click', function(){
+    drawer.classList.remove('open'); backdrop.classList.remove('open');
+  });
+  document.querySelectorAll('.drawer-item > button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      btn.parentElement.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>

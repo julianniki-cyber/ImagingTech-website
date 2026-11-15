@@ -1,0 +1,753 @@
+{
+  "business-cards-14pt": {
+    "name": "Business Cards",
+    "sub": "14pt Trade Value",
+    "cat": "Print Products",
+    "sale": true,
+    "unit": "card",
+    "units": "cards",
+    "desc": "The everyday business card for resellers who need dependable quality at a price that leaves room for margin. Printed full colour on 14pt gloss cover, trimmed to size and boxed — ready to hand straight to your client.",
+    "points": [
+      "14pt gloss cover, coated both sides, 95 bright",
+      "Full-colour CMYK, one or two sides",
+      "Runs from 25 to 5,000 cards",
+      "Free prepress file check on every order"
+    ],
+    "banner": {
+      "title": "Business cards that leave room for margin.",
+      "text": "14pt gloss cover, boxed and blind shipped in 2–3 business days."
+    },
+    "fields": [
+      {
+        "label": "Stock",
+        "options": [
+          {
+            "text": "14pt Gloss Cover",
+            "mult": 1,
+            "def": false
+          }
+        ]
+      },
+      {
+        "label": "Printed sides",
+        "options": [
+          {
+            "text": "1 sided (4/0)",
+            "mult": 1,
+            "def": false
+          },
+          {
+            "text": "2 sided (4/4)",
+            "mult": 1.18,
+            "def": true
+          }
+        ]
+      },
+      {
+        "label": "Size",
+        "options": [
+          {
+            "text": "3.5\" × 2\"",
+            "mult": 1,
+            "def": false
+          }
+        ]
+      }
+    ],
+    "prices": [
+      {
+        "qty": 25,
+        "price": 9.5
+      },
+      {
+        "qty": 50,
+        "price": 11.5
+      },
+      {
+        "qty": 100,
+        "price": 13.5
+      },
+      {
+        "qty": 250,
+        "price": 16.5
+      },
+      {
+        "qty": 500,
+        "price": 19.5
+      },
+      {
+        "qty": 1000,
+        "price": 27.5
+      },
+      {
+        "qty": 2500,
+        "price": 54.0
+      },
+      {
+        "qty": 5000,
+        "price": 89.0
+      }
+    ],
+    "defaultQty": 500,
+    "rush": 1.35,
+    "spec": [
+      {
+        "label": "Paper Type",
+        "value": "14pt Gloss Cover (95 bright, coated two sides)"
+      },
+      {
+        "label": "Coating",
+        "value": "No additional coating"
+      },
+      {
+        "label": "Colour",
+        "value": "Full-colour CMYK — 1 sided (4/0) or 2 sided (4/4)"
+      },
+      {
+        "label": "Quantities",
+        "value": "25 to 5,000"
+      },
+      {
+        "label": "Size",
+        "value": "3.5\" × 2\" (fixed)"
+      },
+      {
+        "label": "Finishing",
+        "value": "Cut to size and boxed"
+      },
+      {
+        "label": "File Type",
+        "value": "Print-ready PDF"
+      },
+      {
+        "label": "Turnaround",
+        "value": "2–3 business days standard, next business day rush"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Set up the document",
+        "text": "Build the artwork at 3.75\" × 2.25\" so there is 0.125\" of bleed on each edge. Work in CMYK at 300 dpi."
+      },
+      {
+        "title": "Lock down the type",
+        "text": "Convert all text to outlines, or embed every font, and keep it at least 0.125\" inside the trim line."
+      },
+      {
+        "title": "Export one PDF",
+        "text": "Save a single print-ready PDF with front and back as separate pages, in the same orientation."
+      }
+    ],
+    "icon": "card",
+    "page": "business-cards-14pt.html",
+    "order": 1
+  },
+  "postcards": {
+    "name": "Postcards",
+    "sub": "14pt Gloss Cover",
+    "cat": "Print Products",
+    "sale": false,
+    "unit": "postcard",
+    "units": "postcards",
+    "desc": "Thick, bright postcards for direct mail, handouts and thank-you cards. Printed full colour, trimmed to one of four mail-friendly sizes and shrink-wrapped — ready for your client or the mail house.",
+    "points": [
+      "14pt or 16pt gloss cover, or 14pt uncoated",
+      "Four standard sizes from 4\" × 6\" to 6\" × 11\"",
+      "Runs from 50 to 5,000 postcards",
+      "Free prepress file check on every order"
+    ],
+    "banner": {
+      "title": "Postcards ready for the mail house.",
+      "text": "Four mail-friendly sizes on 14pt or 16pt cover, shrink-wrapped and blind shipped."
+    },
+    "fields": [
+      {
+        "label": "Stock",
+        "options": [
+          {
+            "text": "14pt Gloss Cover",
+            "mult": 1,
+            "def": false
+          },
+          {
+            "text": "16pt Gloss Cover",
+            "mult": 1.12,
+            "def": false
+          },
+          {
+            "text": "14pt Uncoated Cover",
+            "mult": 1.05,
+            "def": false
+          }
+        ]
+      },
+      {
+        "label": "Printed sides",
+        "options": [
+          {
+            "text": "1 sided (4/0)",
+            "mult": 1,
+            "def": false
+          },
+          {
+            "text": "2 sided (4/4)",
+            "mult": 1.15,
+            "def": true
+          }
+        ]
+      },
+      {
+        "label": "Size",
+        "options": [
+          {
+            "text": "4\" × 6\"",
+            "mult": 1,
+            "def": false
+          },
+          {
+            "text": "5\" × 7\"",
+            "mult": 1.3,
+            "def": false
+          },
+          {
+            "text": "6\" × 9\"",
+            "mult": 1.7,
+            "def": false
+          },
+          {
+            "text": "6\" × 11\"",
+            "mult": 2.0,
+            "def": false
+          }
+        ]
+      }
+    ],
+    "prices": [
+      {
+        "qty": 50,
+        "price": 19
+      },
+      {
+        "qty": 100,
+        "price": 24
+      },
+      {
+        "qty": 250,
+        "price": 34
+      },
+      {
+        "qty": 500,
+        "price": 46
+      },
+      {
+        "qty": 1000,
+        "price": 62
+      },
+      {
+        "qty": 2500,
+        "price": 118
+      },
+      {
+        "qty": 5000,
+        "price": 198
+      }
+    ],
+    "defaultQty": 500,
+    "rush": 1.35,
+    "spec": [
+      {
+        "label": "Paper Type",
+        "value": "14pt Gloss Cover, 16pt Gloss Cover or 14pt Uncoated Cover"
+      },
+      {
+        "label": "Coating",
+        "value": "No additional coating"
+      },
+      {
+        "label": "Colour",
+        "value": "Full-colour CMYK — 1 sided (4/0) or 2 sided (4/4)"
+      },
+      {
+        "label": "Quantities",
+        "value": "50 to 5,000"
+      },
+      {
+        "label": "Sizes",
+        "value": "4\" × 6\", 5\" × 7\", 6\" × 9\", 6\" × 11\""
+      },
+      {
+        "label": "Finishing",
+        "value": "Cut to size and shrink-wrapped"
+      },
+      {
+        "label": "File Type",
+        "value": "Print-ready PDF"
+      },
+      {
+        "label": "Turnaround",
+        "value": "2–3 business days standard, next business day rush"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Set up the document",
+        "text": "Add 0.125\" of bleed to each edge — a 4\" × 6\" postcard is built at 4.25\" × 6.25\". Work in CMYK at 300 dpi."
+      },
+      {
+        "title": "Plan the mailing side",
+        "text": "If the card will be mailed, leave the address and postage area clear and keep text 0.125\" inside the trim line."
+      },
+      {
+        "title": "Export one PDF",
+        "text": "Save a single print-ready PDF with front and back as separate pages, in the same orientation."
+      }
+    ],
+    "icon": "postcard",
+    "page": "postcards.html",
+    "order": 2
+  },
+  "flyers": {
+    "name": "Flyers",
+    "sub": "100lb Gloss Text",
+    "cat": "Print Products",
+    "sale": false,
+    "unit": "flyer",
+    "units": "flyers",
+    "desc": "Crisp, full-colour flyers for handouts, inserts and counter displays. Printed on smooth gloss text that holds photos and solid colour well, trimmed to size and packed flat.",
+    "points": [
+      "100lb or 80lb gloss text, or 100lb matte text",
+      "Four sizes from 4.25\" × 11\" up to 11\" × 17\"",
+      "Runs from 100 to 10,000 flyers",
+      "Free prepress file check on every order"
+    ],
+    "banner": {
+      "title": "Flyers by the hundred or the ten-thousand.",
+      "text": "Full colour on 100lb gloss text, trimmed to size and packed flat."
+    },
+    "fields": [
+      {
+        "label": "Stock",
+        "options": [
+          {
+            "text": "100lb Gloss Text",
+            "mult": 1,
+            "def": false
+          },
+          {
+            "text": "80lb Gloss Text",
+            "mult": 0.93,
+            "def": false
+          },
+          {
+            "text": "100lb Matte Text",
+            "mult": 1.04,
+            "def": false
+          }
+        ]
+      },
+      {
+        "label": "Printed sides",
+        "options": [
+          {
+            "text": "1 sided (4/0)",
+            "mult": 1,
+            "def": false
+          },
+          {
+            "text": "2 sided (4/4)",
+            "mult": 1.15,
+            "def": true
+          }
+        ]
+      },
+      {
+        "label": "Size",
+        "options": [
+          {
+            "text": "8.5\" × 11\"",
+            "mult": 1,
+            "def": false
+          },
+          {
+            "text": "5.5\" × 8.5\"",
+            "mult": 0.62,
+            "def": false
+          },
+          {
+            "text": "4.25\" × 11\"",
+            "mult": 0.6,
+            "def": false
+          },
+          {
+            "text": "11\" × 17\"",
+            "mult": 1.85,
+            "def": false
+          }
+        ]
+      }
+    ],
+    "prices": [
+      {
+        "qty": 100,
+        "price": 32
+      },
+      {
+        "qty": 250,
+        "price": 44
+      },
+      {
+        "qty": 500,
+        "price": 58
+      },
+      {
+        "qty": 1000,
+        "price": 79
+      },
+      {
+        "qty": 2500,
+        "price": 138
+      },
+      {
+        "qty": 5000,
+        "price": 219
+      },
+      {
+        "qty": 10000,
+        "price": 379
+      }
+    ],
+    "defaultQty": 1000,
+    "rush": 1.35,
+    "spec": [
+      {
+        "label": "Paper Type",
+        "value": "100lb Gloss Text, 80lb Gloss Text or 100lb Matte Text"
+      },
+      {
+        "label": "Coating",
+        "value": "No additional coating"
+      },
+      {
+        "label": "Colour",
+        "value": "Full-colour CMYK — 1 sided (4/0) or 2 sided (4/4)"
+      },
+      {
+        "label": "Quantities",
+        "value": "100 to 10,000"
+      },
+      {
+        "label": "Sizes",
+        "value": "4.25\" × 11\", 5.5\" × 8.5\", 8.5\" × 11\", 11\" × 17\""
+      },
+      {
+        "label": "Finishing",
+        "value": "Cut to size and packed flat"
+      },
+      {
+        "label": "File Type",
+        "value": "Print-ready PDF"
+      },
+      {
+        "label": "Turnaround",
+        "value": "2–3 business days standard, next business day rush"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Set up the document",
+        "text": "Add 0.125\" of bleed to each edge — an 8.5\" × 11\" flyer is built at 8.75\" × 11.25\". Work in CMYK at 300 dpi."
+      },
+      {
+        "title": "Lock down the type",
+        "text": "Convert all text to outlines, or embed every font, and keep it at least 0.125\" inside the trim line."
+      },
+      {
+        "title": "Export one PDF",
+        "text": "Save a single print-ready PDF with front and back as separate pages, in the same orientation."
+      }
+    ],
+    "icon": "flyer",
+    "page": "flyers.html",
+    "order": 3
+  },
+  "vinyl-banners": {
+    "name": "Vinyl Banners",
+    "sub": "13oz Scrim Vinyl",
+    "cat": "Large Format",
+    "sale": false,
+    "unit": "banner",
+    "units": "banners",
+    "desc": "Durable full-colour banners for storefronts, events and job sites. UV-printed on scrim-reinforced vinyl that stands up to sun and rain, then hemmed and grommeted in-house so it arrives ready to hang.",
+    "points": [
+      "13oz matte scrim vinyl or 18oz blockout",
+      "Five stock sizes from 2 × 4 ft to 4 × 10 ft",
+      "Hems and grommets, pole pockets or trim only",
+      "Free prepress file check on every order"
+    ],
+    "banner": {
+      "title": "Banners that arrive ready to hang.",
+      "text": "UV-printed on 13oz scrim vinyl, hemmed and grommeted in-house."
+    },
+    "fields": [
+      {
+        "label": "Material",
+        "options": [
+          {
+            "text": "13oz Matte Scrim Vinyl",
+            "mult": 1,
+            "def": false
+          },
+          {
+            "text": "18oz Blockout Vinyl",
+            "mult": 1.45,
+            "def": false
+          }
+        ]
+      },
+      {
+        "label": "Size",
+        "options": [
+          {
+            "text": "2 ft × 4 ft",
+            "mult": 1,
+            "def": false
+          },
+          {
+            "text": "3 ft × 6 ft",
+            "mult": 2.1,
+            "def": false
+          },
+          {
+            "text": "3 ft × 10 ft",
+            "mult": 3.4,
+            "def": false
+          },
+          {
+            "text": "4 ft × 8 ft",
+            "mult": 3.6,
+            "def": false
+          },
+          {
+            "text": "4 ft × 10 ft",
+            "mult": 4.4,
+            "def": false
+          }
+        ]
+      },
+      {
+        "label": "Finishing",
+        "options": [
+          {
+            "text": "Hems & grommets",
+            "mult": 1,
+            "def": false
+          },
+          {
+            "text": "Pole pockets (top & bottom)",
+            "mult": 1.12,
+            "def": false
+          },
+          {
+            "text": "Trim only",
+            "mult": 0.95,
+            "def": false
+          }
+        ]
+      }
+    ],
+    "prices": [
+      {
+        "qty": 1,
+        "price": 18
+      },
+      {
+        "qty": 2,
+        "price": 34
+      },
+      {
+        "qty": 5,
+        "price": 79
+      },
+      {
+        "qty": 10,
+        "price": 149
+      },
+      {
+        "qty": 25,
+        "price": 349
+      }
+    ],
+    "defaultQty": 1,
+    "rush": 1.35,
+    "spec": [
+      {
+        "label": "Material",
+        "value": "13oz matte scrim vinyl or 18oz blockout vinyl"
+      },
+      {
+        "label": "Print",
+        "value": "Full-colour UV, single sided"
+      },
+      {
+        "label": "Quantities",
+        "value": "1 to 25"
+      },
+      {
+        "label": "Sizes",
+        "value": "2 × 4 ft, 3 × 6 ft, 3 × 10 ft, 4 × 8 ft, 4 × 10 ft"
+      },
+      {
+        "label": "Finishing",
+        "value": "Welded hems with grommets, pole pockets, or trim only"
+      },
+      {
+        "label": "Use",
+        "value": "Indoor and outdoor"
+      },
+      {
+        "label": "File Type",
+        "value": "Print-ready PDF"
+      },
+      {
+        "label": "Turnaround",
+        "value": "2–3 business days standard, next business day rush"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Set up the document",
+        "text": "Build the file at full size, or at half scale for large banners. Use CMYK at 100–150 dpi at final size."
+      },
+      {
+        "title": "Mind the edges",
+        "text": "No bleed is needed. Keep text and logos at least 1\" from every edge so hems and grommets do not cut into them."
+      },
+      {
+        "title": "Export one PDF",
+        "text": "Save a single print-ready PDF with text outlined. Leave grommet marks off the artwork."
+      }
+    ],
+    "icon": "banner",
+    "page": "vinyl-banners.html",
+    "order": 4
+  },
+  "postcards-10pt-matte-finish": {
+    "cat": "Print Products",
+    "defaultQty": 100,
+    "fields": [
+      {
+        "label": "Stock",
+        "options": [
+          {
+            "def": true,
+            "mult": 1,
+            "text": "10pt + Matte Finish"
+          }
+        ]
+      }
+    ],
+    "icon": "box",
+    "images": [],
+    "page": "",
+    "points": [],
+    "prices": [
+      {
+        "price": 0,
+        "qty": 100
+      }
+    ],
+    "rush": 1.35,
+    "sale": false,
+    "spec": [],
+    "steps": [],
+    "unit": "piece",
+    "units": "pieces",
+    "name": "Postcards",
+    "sub": "10pt + Matte Finish",
+    "desc": "A cost-effective mailer or handout — bright, durable, and sized to standard postal specs.",
+    "order": 7,
+    "banner": {
+      "text": "",
+      "title": "Postcards"
+    }
+  },
+  "postcards-14pt-matte-finish": {
+    "cat": "Print Products",
+    "defaultQty": 100,
+    "fields": [
+      {
+        "label": "Stock",
+        "options": [
+          {
+            "def": true,
+            "mult": 1,
+            "text": "14pt + Matte Finish"
+          }
+        ]
+      }
+    ],
+    "icon": "box",
+    "images": [],
+    "page": "",
+    "points": [],
+    "prices": [
+      {
+        "price": 0,
+        "qty": 100
+      }
+    ],
+    "rush": 1.35,
+    "sale": false,
+    "spec": [],
+    "steps": [],
+    "unit": "piece",
+    "units": "pieces",
+    "name": "Postcards",
+    "sub": "14pt + Matte Finish",
+    "desc": "A cost-effective mailer or handout — bright, durable, and sized to standard postal specs.",
+    "order": 6,
+    "banner": {
+      "text": "",
+      "title": "Postcards"
+    }
+  },
+  "vinyl-banners-15oz-heavy-duty-vinyl": {
+    "cat": "Large Format",
+    "defaultQty": 100,
+    "fields": [
+      {
+        "label": "Stock",
+        "options": [
+          {
+            "def": true,
+            "mult": 1,
+            "text": "15oz Heavy Duty Vinyl"
+          }
+        ]
+      }
+    ],
+    "icon": "box",
+    "page": "",
+    "points": [],
+    "prices": [
+      {
+        "price": 0,
+        "qty": 100
+      }
+    ],
+    "rush": 1.35,
+    "sale": false,
+    "spec": [],
+    "steps": [],
+    "unit": "piece",
+    "units": "pieces",
+    "name": "Vinyl Banners",
+    "sub": "15oz Heavy Duty Vinyl",
+    "desc": "13oz–18oz scrim vinyl, hemmed and grommeted for indoor or outdoor hanging.",
+    "order": 5,
+    "banner": {
+      "text": "",
+      "title": "Vinyl Banners"
+    }
+  }
+}
