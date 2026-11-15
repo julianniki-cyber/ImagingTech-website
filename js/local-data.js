@@ -104,10 +104,15 @@ var SUPABASE_CONFIG = {
   var authP = ready.then(function (sb) {
     return sb.auth.getSession().then(function (r) { return (r.data && r.data.session && r.data.session.user) || null; });
   }).catch(function () { return null; });
+  var editorWhy = '';
   var editorP = authP.then(function (u) {
     if (!u) return false;
-    return ready.then(function (sb) { return sb.rpc('is_editor'); }).then(function (r) { return !r.error && r.data === true; });
-  }).catch(function () { return false; });
+    return ready.then(function (sb) { return sb.rpc('is_editor'); }).then(function (r) {
+      if (r.error) { editorWhy = r.error.message || r.error.code || 'check failed'; console.warn('ImagingTech: editor check failed', r.error); }
+      else if (r.data !== true) editorWhy = 'database answered ' + JSON.stringify(r.data);
+      return !r.error && r.data === true;
+    });
+  }).catch(function (e) { editorWhy = (e && e.message) || 'check failed'; return false; });
 
   // map Supabase / Postgres errors onto the codes the pages already handle
   function mapErr(err) {
@@ -231,6 +236,7 @@ var SUPABASE_CONFIG = {
   // ---------- admin page: login bar + first-run seeding ----------
   if (!/admin\.html$/.test(location.pathname)) return;
 
+  var seedWhy = '';
   function seed(sb) {
     return sb.from('docs').select('id').eq('collection', 'site').eq('id', 'menu').maybeSingle().then(check).then(function (r) {
       if (r.data) return;
@@ -243,7 +249,10 @@ var SUPABASE_CONFIG = {
           console.info('ImagingTech: copied data/*.json into Supabase.');
         });
       });
-    }).catch(function (e) { console.warn('ImagingTech: could not seed Supabase', e); });
+    }).catch(function (e) {
+      console.warn('ImagingTech: could not seed Supabase', e);
+      seedWhy = 'Could not copy products into the database: ' + ((e && e.message) || (e && e.code) || 'unknown error');
+    });
   }
 
   function bar(sb, user, isEditor) {
@@ -255,7 +264,7 @@ var SUPABASE_CONFIG = {
     btn.style.cssText = 'background:#FFC72C;color:#14152A;border:none;border-radius:999px;padding:7px 14px;font:700 13px Sora,Inter,sans-serif;cursor:pointer;';
     b.appendChild(t);
     if (user) {
-      t.textContent = 'Signed in as ' + (user.email || 'editor') + (isEditor ? '' : ' (not an editor)');
+      t.textContent = 'Signed in as ' + (user.email || 'editor') + (isEditor ? '' : ' (not an editor: ' + editorWhy + ')');
       btn.textContent = 'Sign out';
       b.onsubmit = function (e) { e.preventDefault(); sb.auth.signOut().then(function () { location.reload(); }); };
     } else {
@@ -283,6 +292,12 @@ var SUPABASE_CONFIG = {
     var sb = r[0], user = r[1], isEditor = r[2];
     var show = function () { bar(sb, user, isEditor); };
     if (document.body) show(); else document.addEventListener('DOMContentLoaded', show);
-    if (isEditor) seed(sb);
+    if (isEditor) seed(sb).then(function () {
+      if (!seedWhy) return;
+      var n = document.createElement('div');
+      n.style.cssText = 'position:fixed;left:16px;bottom:16px;z-index:9999;max-width:min(520px,calc(100vw - 32px));background:#E91E63;color:#fff;font:600 13px Inter,sans-serif;padding:10px 14px;border-radius:12px;';
+      n.textContent = seedWhy;
+      document.body.appendChild(n);
+    });
   });
 })();
