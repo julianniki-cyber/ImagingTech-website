@@ -88,7 +88,7 @@ Add an `images` list to the product in `products.json`. The four main product pa
 
 - Many links are `href="#"`: Help & FAQs, Our Equipment, Contact Us, template downloads, most "Shop now" buttons.
 - **Cart** (`cart.html`, `js/cart.js`) works per visitor and sends **order requests** to the `orders` table in Supabase (see `supabase.sql` section 7). View them in Supabase → Table Editor → orders. There is no online payment yet.
-- **Get a Quote / Request a Trade Quote**, the newsletter sign-up and the search box don't send anything yet.
+- **Get a Quote** (`quote.html`) saves quote requests to the `quotes` table in Supabase (`supabase.sql` section 9). The newsletter sign-up and the search box don't send anything yet.
 - Brochures, Booklets, Door Hangers, Greeting Cards, Invitations and all Signs / Stickers / Promotional products have no page content yet.
 
 ---

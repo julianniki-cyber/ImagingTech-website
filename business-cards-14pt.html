@@ -861,7 +861,7 @@
         <span class="cart-count" hidden>0</span>
         <span class="label-text">Cart</span>
       </a>
-      <a href="./#quote" class="btn-quote">Get a Quote</a>
+      <a href="quote.html" class="btn-quote">Get a Quote</a>
       <button class="hamburger" aria-label="Open menu" id="drawerOpen">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
@@ -3080,7 +3080,7 @@
   </div>
 
   <div class="drawer-cta">
-    <a href="./#quote" class="btn-quote" style="display:block;text-align:center;">Get a Quote</a>
+    <a href="quote.html" class="btn-quote" style="display:block;text-align:center;">Get a Quote</a>
   </div>
 </aside>
 
@@ -3202,7 +3202,7 @@
               <span class="pd-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Blind shipped</span>
             </div>
             <p class="pd-desc">The everyday business card for resellers who need dependable quality at a price that leaves room for margin. Printed full colour on 14pt gloss cover, trimmed to size and boxed — ready to hand straight to your client.</p>
-            <div class="pd-custom"><span>Can't find what you are looking for?</span> <a href="./#quote">Click here</a> <span>to get a custom quote.</span></div>
+            <div class="pd-custom"><span>Can't find what you are looking for?</span> <a href="quote.html">Click here</a> <span>to get a custom quote.</span></div>
             <ul class="pd-points">
 <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg>14pt gloss cover, coated both sides, 95 bright</li>
 <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"/></svg>Full-colour CMYK, one or two sides</li>
@@ -3313,7 +3313,7 @@
           </div>
 
           <button type="submit" class="pd-add">Add to Cart</button>
-          <a href="./#quote" class="pd-quote-btn">Request a custom quote</a>
+          <a href="quote.html" class="pd-quote-btn">Request a custom quote</a>
           <div class="pd-added" id="pdAdded" role="status"></div>
           <p class="pd-note">Prices in USD, before tax and shipping. Upload artwork after checkout.</p>
         </form>
@@ -3587,6 +3587,8 @@
   // ----- draw the product from its data -----
   function pdRender(p){
     PD = p;
+    var qb = document.querySelector('.pd-quote-btn');
+    if(qb) qb.href = 'quote.html?product=' + encodeURIComponent([pdStr(p.name), pdStr(p.sub)].filter(Boolean).join(' — '));
     var name = pdStr(p.name), sub = pdStr(p.sub);
     document.title = name + (sub ? ' — ' + sub : '') + ' | ImagingTech';
     pdRenderGallery(p.images);

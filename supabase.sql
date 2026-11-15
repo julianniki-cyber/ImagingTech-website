@@ -95,3 +95,24 @@ drop policy if exists "trade update" on public.trade_accounts;
 create policy "trade read"   on public.trade_accounts for select using (user_id = auth.uid() or public.is_editor());
 create policy "trade insert" on public.trade_accounts for insert to authenticated with check (user_id = auth.uid());
 create policy "trade update" on public.trade_accounts for update to authenticated using (user_id = auth.uid()) with check (user_id = auth.uid());
+
+-- 9. Quote requests from quote.html: anyone can send one; customers see their own; editors see all
+create table if not exists public.quotes (
+  id         uuid primary key default gen_random_uuid(),
+  ref        text not null check (length(ref) < 40),
+  created_at timestamptz not null default now(),
+  status     text not null default 'new',
+  user_id    uuid default auth.uid() references auth.users(id) on delete set null,
+  customer   jsonb not null check (octet_length(customer::text) < 5000),
+  project    jsonb not null check (octet_length(project::text) < 20000)
+);
+alter table public.quotes enable row level security;
+drop policy if exists "quotes insert" on public.quotes;
+drop policy if exists "quotes read"   on public.quotes;
+drop policy if exists "quotes update" on public.quotes;
+drop policy if exists "quotes delete" on public.quotes;
+create policy "quotes insert" on public.quotes for insert to anon, authenticated
+  with check (status = 'new' and (user_id is null or user_id = auth.uid()));
+create policy "quotes read"   on public.quotes for select using (public.is_editor() or user_id = auth.uid());
+create policy "quotes update" on public.quotes for update using (public.is_editor()) with check (public.is_editor());
+create policy "quotes delete" on public.quotes for delete using (public.is_editor());

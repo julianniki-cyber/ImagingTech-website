@@ -684,7 +684,7 @@
         <span class="cart-count" hidden>0</span>
         <span class="label-text">Cart</span>
       </a>
-      <a href="./#quote" class="btn-quote">Get a Quote</a>
+      <a href="quote.html" class="btn-quote">Get a Quote</a>
       <button class="hamburger" aria-label="Open menu" id="drawerOpen">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
@@ -2903,7 +2903,7 @@
   </div>
 
   <div class="drawer-cta">
-    <a href="./#quote" class="btn-quote" style="display:block;text-align:center;">Get a Quote</a>
+    <a href="quote.html" class="btn-quote" style="display:block;text-align:center;">Get a Quote</a>
   </div>
 </aside>
 
@@ -2955,6 +2955,13 @@
           <h2>No order requests yet.</h2>
           <p>Add products to your cart and send them to us. They'll appear here.</p>
           <a href="./#categories" class="btn-primary">Browse products</a>
+        </div>
+        <h2 class="acct-h" style="margin-top:36px;">Your quote requests</h2>
+        <ul class="cart-list" id="quoteList"></ul>
+        <div class="cart-empty" id="quotesEmpty" hidden>
+          <h2>No quote requests yet.</h2>
+          <p>Need something custom? We'll price it for you.</p>
+          <a href="quote.html" class="btn-primary">Request a quote</a>
         </div>
       </div>
       <aside class="cart-side">
@@ -3207,6 +3214,25 @@
         });
       });
     }
+    function loadQuotes(sb, user){
+      sb.from('quotes').select('ref,created_at,status,project').eq('user_id', user.id).order('created_at', {ascending: false}).then(function(r){
+        var list = $('quoteList'); list.textContent = '';
+        var rows = (r && r.data) || [];
+        $('quotesEmpty').hidden = rows.length > 0;
+        rows.forEach(function(q){
+          var p = q.project || {}, li = el('li', 'order-card');
+          var top = el('div', 'top'), left = el('div');
+          left.appendChild(el('div', 'ref', q.ref));
+          left.appendChild(el('div', 'date', new Date(q.created_at).toLocaleString('en-US', {dateStyle: 'medium', timeStyle: 'short'})));
+          top.appendChild(left); top.appendChild(el('span', 'status', q.status || 'new'));
+          var ul = el('ul');
+          ul.appendChild(el('li', null, [p.category, p.product].filter(Boolean).join(' · ')));
+          ul.appendChild(el('li', null, ['Qty ' + (p.quantity || '—'), p.size, p.material].filter(Boolean).join(' · ')));
+          li.appendChild(top); li.appendChild(ul);
+          list.appendChild(li);
+        });
+      });
+    }
     function loadProfile(sb, user){
       var meta = user.user_metadata || {};
       $('whoEmail').textContent = user.email || '';
@@ -3220,7 +3246,7 @@
         if(!p.full_name) p.full_name = meta.full_name || '';
         var first = (p.full_name || '').split(' ')[0];
         $('acctTitle').textContent = first ? 'Welcome back, ' + first + '.' : 'Your trade account';
-        $('acctLead').textContent = 'Track your order requests here.';
+        $('acctLead').textContent = 'Track your order and quote requests here.';
       });
     }
     $('signOut').addEventListener('click', function(){
@@ -3233,6 +3259,7 @@
       show('acctIn');
       loadProfile(sb, user);
       loadOrders(sb, user);
+      loadQuotes(sb, user);
     }, function(){ show('acctOff'); });
   })();
 </script>
