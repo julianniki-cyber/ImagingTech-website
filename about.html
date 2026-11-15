@@ -438,7 +438,20 @@
   .promo .btn-primary{background:#fff;color:var(--indigo);margin-top:26px;}
   .promo .btn-primary:hover{background:var(--yellow);color:var(--ink);}
   .promo-visual{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
-  .promo-visual span{aspect-ratio:1;border-radius:10px;}
+  /* one photo spread across all 12 tiles: each tile shows its own slice, gaps included */
+  .promo-visual span{
+    position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;
+    background-image:url(images/printer-tiles-800.webp);
+    background-image:image-set(url(images/printer-tiles-800.webp) 1x, url(images/printer-tiles.webp) 2x);
+    background-size:calc(400% + 30px) calc(300% + 20px);
+    background-position:calc(var(--col) * 100% / 3) calc(var(--row) * 50%);
+  }
+  .promo-visual span::after{
+    content:"";position:absolute;inset:0;background:var(--c);
+    transition:opacity .7s ease;transition-delay:calc(var(--i) * 80ms);
+  }
+  .promo-visual.revealed span::after{opacity:0;}
+  .promo-visual.revealed span:hover::after{opacity:.45;transition-delay:0s;transition-duration:.25s;}
   @media(max-width:800px){.promo{grid-template-columns:1fr;padding:36px;}}
 
   /* ---------- footer ---------- */
@@ -2950,10 +2963,10 @@
         <p>Tell us what you're printing and we'll get back to you with trade pricing and a realistic turnaround — usually within one business day.</p>
         <a href="./#quote" class="btn-primary">Request a Trade Quote</a>
       </div>
-      <div class="promo-visual" aria-hidden="true">
-        <span style="background:#4B55B0;"></span><span style="background:#4FBF5B;"></span><span style="background:#FFD24D;"></span><span style="background:#EF4B84;"></span>
-        <span style="background:#26D1FF;"></span><span style="background:#2B337F;"></span><span style="background:#4B55B0;"></span><span style="background:#FFD24D;"></span>
-        <span style="background:#EF4B84;"></span><span style="background:#26D1FF;"></span><span style="background:#4FBF5B;"></span><span style="background:#2B337F;"></span>
+      <div class="promo-visual" role="img" aria-label="Wide-format printer producing a large colour print">
+        <span style="--c:#4B55B0;--col:0;--row:0;--i:0;"></span><span style="--c:#4FBF5B;--col:1;--row:0;--i:1;"></span><span style="--c:#FFD24D;--col:2;--row:0;--i:2;"></span><span style="--c:#EF4B84;--col:3;--row:0;--i:3;"></span>
+        <span style="--c:#26D1FF;--col:0;--row:1;--i:4;"></span><span style="--c:#2B337F;--col:1;--row:1;--i:5;"></span><span style="--c:#4B55B0;--col:2;--row:1;--i:6;"></span><span style="--c:#FFD24D;--col:3;--row:1;--i:7;"></span>
+        <span style="--c:#EF4B84;--col:0;--row:2;--i:8;"></span><span style="--c:#26D1FF;--col:1;--row:2;--i:9;"></span><span style="--c:#4FBF5B;--col:2;--row:2;--i:10;"></span><span style="--c:#2B337F;--col:3;--row:2;--i:11;"></span>
       </div>
     </div>
   </div>
@@ -3111,6 +3124,16 @@
       btn.parentElement.classList.toggle('open');
     });
   });
+  // Promo tiles: fade each colour away in turn to reveal the printer photo
+  (function(){
+    var tiles = document.querySelector('.promo-visual');
+    if(!tiles) return;
+    if(!('IntersectionObserver' in window)){ tiles.classList.add('revealed'); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ tiles.classList.add('revealed'); io.disconnect(); } });
+    }, {threshold:0.35});
+    io.observe(tiles);
+  })();
 </script>
 </body>
 </html>
