@@ -87,7 +87,7 @@ Add an `images` list to the product in `products.json`. The four main product pa
 ## 4. Things that are placeholders
 
 - Many links are `href="#"`: Help & FAQs, Our Equipment, Contact Us, template downloads, most "Shop now" buttons.
-- **Add to Cart** only bumps the cart counter. There is no real cart or checkout.
+- **Cart** (`cart.html`, `js/cart.js`) works per visitor and sends **order requests** to the `orders` table in Supabase (see `supabase.sql` section 7). View them in Supabase → Table Editor → orders. There is no online payment yet.
 - **Get a Quote / Request a Trade Quote**, the newsletter sign-up and the search box don't send anything yet.
 - Brochures, Booklets, Door Hangers, Greeting Cards, Invitations and all Signs / Stickers / Promotional products have no page content yet.
 

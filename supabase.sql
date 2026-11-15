@@ -49,3 +49,28 @@ create policy "uploads delete" on storage.objects for delete using (bucket_id = 
 
 -- 6. Add yourself as an editor (repeat this line for anyone else)
 insert into public.editors (email) values ('EDITOR_EMAIL') on conflict do nothing;
+
+-- 7. Order requests from cart.html: anyone can send one, only editors can read or change them
+create table if not exists public.orders (
+  id         uuid primary key default gen_random_uuid(),
+  ref        text not null,
+  created_at timestamptz not null default now(),
+  status     text not null default 'new',
+  customer   jsonb not null,
+  items      jsonb not null,
+  subtotal   numeric(12,2),
+  constraint orders_sane check (
+    jsonb_typeof(items) = 'array' and jsonb_array_length(items) between 1 and 100
+    and octet_length(customer::text) < 5000 and octet_length(items::text) < 100000
+    and length(ref) < 40
+  )
+);
+alter table public.orders enable row level security;
+drop policy if exists "orders insert" on public.orders;
+drop policy if exists "orders read"   on public.orders;
+drop policy if exists "orders update" on public.orders;
+drop policy if exists "orders delete" on public.orders;
+create policy "orders insert" on public.orders for insert to anon, authenticated with check (status = 'new');
+create policy "orders read"   on public.orders for select using (public.is_editor());
+create policy "orders update" on public.orders for update using (public.is_editor()) with check (public.is_editor());
+create policy "orders delete" on public.orders for delete using (public.is_editor());

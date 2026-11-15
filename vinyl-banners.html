@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <script src="js/local-data.js"></script>
+<script src="js/cart.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vinyl Banners — 13oz Scrim Vinyl | ImagingTech</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -855,9 +856,9 @@
         <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 1 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
         <span class="label-text">Trade sign in</span>
       </a>
-      <a href="#" class="header-action">
+      <a href="cart.html" class="header-action">
         <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
-        <span class="cart-count">3</span>
+        <span class="cart-count" hidden>0</span>
         <span class="label-text">Cart</span>
       </a>
       <a href="./#quote" class="btn-quote">Get a Quote</a>
@@ -3669,11 +3670,24 @@
     var total = pdUpdate();
     if(total == null) return;
     var qty = Number(document.getElementById('optQty').value);
-    document.querySelectorAll('.cart-count').forEach(function(c){
-      c.textContent = (parseInt(c.textContent, 10) || 0) + 1;
+    var unitWord = qty === 1 ? (pdStr(PD.unit) || 'unit') : (pdStr(PD.units) || 'units');
+    var opts = [];
+    document.querySelectorAll('.pd-opt').forEach(function(s){
+      var f = s.closest('.pd-field'), l = f && f.querySelector('label');
+      if(s.selectedIndex >= 0) opts.push({label: l ? l.textContent.trim() : '', value: s.options[s.selectedIndex].text});
     });
-    document.getElementById('pdAdded').textContent =
-      '✓ Added ' + qty.toLocaleString('en-US') + ' ' + (qty === 1 ? (pdStr(PD.unit) || 'unit') : (pdStr(PD.units) || 'units')) + ' (' + pdMoney(total) + ') to your cart';
+    var rush = pdForm.elements.turn.value === 'rush';
+    if(window.ITCart) ITCart.add({
+      doc: pdKey(), page: (location.pathname.split('/').pop() || 'product.html') + location.hash,
+      name: pdStr(PD.name), sub: pdStr(PD.sub), qty: qty, units: unitWord, options: opts,
+      turnaround: rush ? 'Rush (next business day)' : 'Standard (2–3 business days)',
+      total: total, img: pdPhoto(pdKey(), PD)
+    });
+    var added = document.getElementById('pdAdded');
+    added.textContent = '✓ Added ' + qty.toLocaleString('en-US') + ' ' + unitWord + ' (' + pdMoney(total) + ') to your cart · ';
+    var view = document.createElement('a'); view.href = 'cart.html'; view.textContent = 'View cart';
+    view.style.cssText = 'color:inherit;text-decoration:underline;';
+    added.appendChild(view);
   });
 
   // ----- "often ordered together" row, from the saved product list -----

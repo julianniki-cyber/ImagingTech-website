@@ -99,6 +99,7 @@ var SUPABASE_CONFIG = {
   }).then(function () {
     return window.supabase.createClient(base, SUPABASE_CONFIG.anonKey);
   });
+  window.itSupabase = ready; // used by cart.html to send order requests
 
   // getSession waits for a login link in the URL to be processed
   var authP = ready.then(function (sb) {
