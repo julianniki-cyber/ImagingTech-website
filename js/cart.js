@@ -67,5 +67,18 @@
   window.addEventListener('storage', function (e) {
     if (e.key === KEY) { paint(); document.dispatchEvent(new CustomEvent('itcart:change')); }
   });
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', paint); else paint();
+  // header: "Trade sign in" becomes "My account" for signed-in trade customers
+  function account() {
+    document.querySelectorAll('.header-action').forEach(function (a) {
+      var t = a.querySelector('.label-text');
+      if (!t || !/trade sign in|my account/i.test(t.textContent)) return;
+      a.setAttribute('href', 'account.html');
+      if (window.itUser) window.itUser.then(function (u) {
+        t.textContent = u ? 'My account' : 'Trade sign in';
+        if (u) a.setAttribute('aria-label', 'My account');
+      });
+    });
+  }
+  function boot() { paint(); account(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();

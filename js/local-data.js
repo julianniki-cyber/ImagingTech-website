@@ -82,6 +82,7 @@ var SUPABASE_CONFIG = {
     };
     var jsonUser = { canEdit: function () { return Promise.resolve(false); }, id: function () { return Promise.resolve(null); } };
     window.itImageUrl = function (id) { return '/_blob/' + id; };
+    window.itUser = Promise.resolve(null);
     window.claude = {
       use: function (name) { return Promise.resolve(name === 'db' ? jsonDb : name === 'user' ? jsonUser : null); }
     };
@@ -105,6 +106,7 @@ var SUPABASE_CONFIG = {
   var authP = ready.then(function (sb) {
     return sb.auth.getSession().then(function (r) { return (r.data && r.data.session && r.data.session.user) || null; });
   }).catch(function () { return null; });
+  window.itUser = authP; // signed-in Supabase user (or null) for trade accounts, cart and header
   var editorWhy = '';
   var editorP = authP.then(function (u) {
     if (!u) return false;

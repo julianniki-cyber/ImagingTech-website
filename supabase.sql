@@ -50,12 +50,13 @@ create policy "uploads delete" on storage.objects for delete using (bucket_id = 
 -- 6. Add yourself as an editor (repeat this line for anyone else)
 insert into public.editors (email) values ('EDITOR_EMAIL') on conflict do nothing;
 
--- 7. Order requests from cart.html: anyone can send one, only editors can read or change them
+-- 7. Order requests from cart.html: anyone can send one; customers see their own; editors see all
 create table if not exists public.orders (
   id         uuid primary key default gen_random_uuid(),
   ref        text not null,
   created_at timestamptz not null default now(),
   status     text not null default 'new',
+  user_id    uuid default auth.uid() references auth.users(id) on delete set null,
   customer   jsonb not null,
   items      jsonb not null,
   subtotal   numeric(12,2),
@@ -65,12 +66,32 @@ create table if not exists public.orders (
     and length(ref) < 40
   )
 );
+alter table public.orders add column if not exists user_id uuid default auth.uid() references auth.users(id) on delete set null;
 alter table public.orders enable row level security;
 drop policy if exists "orders insert" on public.orders;
 drop policy if exists "orders read"   on public.orders;
 drop policy if exists "orders update" on public.orders;
 drop policy if exists "orders delete" on public.orders;
-create policy "orders insert" on public.orders for insert to anon, authenticated with check (status = 'new');
-create policy "orders read"   on public.orders for select using (public.is_editor());
+create policy "orders insert" on public.orders for insert to anon, authenticated
+  with check (status = 'new' and (user_id is null or user_id = auth.uid()));
+create policy "orders read"   on public.orders for select using (public.is_editor() or user_id = auth.uid());
 create policy "orders update" on public.orders for update using (public.is_editor()) with check (public.is_editor());
 create policy "orders delete" on public.orders for delete using (public.is_editor());
+
+-- 8. Trade accounts (account.html): each customer manages their own details; editors see all
+create table if not exists public.trade_accounts (
+  user_id    uuid primary key references auth.users(id) on delete cascade,
+  email      text,
+  full_name  text check (length(full_name) <= 120),
+  company    text check (length(company) <= 160),
+  phone      text check (length(phone) <= 40),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+alter table public.trade_accounts enable row level security;
+drop policy if exists "trade read"   on public.trade_accounts;
+drop policy if exists "trade insert" on public.trade_accounts;
+drop policy if exists "trade update" on public.trade_accounts;
+create policy "trade read"   on public.trade_accounts for select using (user_id = auth.uid() or public.is_editor());
+create policy "trade insert" on public.trade_accounts for insert to authenticated with check (user_id = auth.uid());
+create policy "trade update" on public.trade_accounts for update to authenticated using (user_id = auth.uid()) with check (user_id = auth.uid());

@@ -352,6 +352,9 @@
     padding:14px;font-family:'Sora',sans-serif;font-weight:700;font-size:14.5px;
     transition:background .15s ease, transform .15s ease;
   }
+  .hero-signup-msg{font-size:13px;color:var(--ink-soft);min-height:0;margin:0;}
+  .hero-signup-msg.bad{color:#B3123F;}
+  .hero-signup-msg a{color:var(--indigo);text-decoration:underline;font-weight:600;}
   .hero-signup-form button:hover{background:#e8b820;transform:translateY(-1px);}
 
   @media(max-width:980px){
@@ -576,7 +579,7 @@
     </form>
 
     <div class="header-actions">
-      <a href="#" class="header-action">
+      <a href="account.html" class="header-action">
         <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 1 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
         <span class="label-text">Trade sign in</span>
       </a>
@@ -2872,12 +2875,13 @@
     <div class="hero-signup-card">
       <div class="hero-signup-card-inner">
         <h3>Sign up for <em>FREE</em> to see our trade-only prices.</h3>
-        <form class="hero-signup-form" onsubmit="return false;">
+        <form class="hero-signup-form" id="heroSignup" novalidate>
           <label class="sr-only" for="heroSignupName">Full Name</label>
           <input type="text" id="heroSignupName" name="name" placeholder="Full Name" autocomplete="name" required>
           <label class="sr-only" for="heroSignupEmail">Company Email Address</label>
           <input type="email" id="heroSignupEmail" name="email" placeholder="Company Email Address" autocomplete="email" required>
           <button type="submit">Sign Up Now</button>
+          <p class="hero-signup-msg" role="status"></p>
         </form>
       </div>
     </div>
@@ -3250,6 +3254,38 @@
       entries.forEach(function(e){ if(e.isIntersecting){ tiles.classList.add('revealed'); io.disconnect(); } });
     }, {threshold:0.35});
     io.observe(tiles);
+  })();
+  // Hero "Sign up for FREE": creates a trade account by emailing a login link
+  (function(){
+    var form = document.getElementById('heroSignup');
+    if(!form) return;
+    var msg = form.querySelector('.hero-signup-msg'), btn = form.querySelector('button');
+    function say(t, bad){ msg.textContent = t; msg.className = 'hero-signup-msg' + (bad ? ' bad' : ''); }
+    if(window.itUser) window.itUser.then(function(u){
+      if(!u) return;
+      form.textContent = '';
+      var p = document.createElement('p'); p.className = 'hero-signup-msg';
+      p.appendChild(document.createTextNode('You\'re signed in. '));
+      var a = document.createElement('a'); a.href = 'account.html'; a.textContent = 'Go to your trade account'; p.appendChild(a);
+      form.appendChild(p);
+    });
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = form.elements.name.value.trim(), email = form.elements.email.value.trim();
+      if(!name){ say('Please enter your name.', true); return form.elements.name.focus(); }
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ say('Please enter a valid email address.', true); return form.elements.email.focus(); }
+      if(!window.itSupabase){ say('Sign-up is not available right now. Please call us.', true); return; }
+      btn.disabled = true; say('Sending…');
+      window.itSupabase.then(function(sb){
+        return sb.auth.signInWithOtp({email: email, options: {shouldCreateUser: true, data: {full_name: name},
+          emailRedirectTo: new URL('account.html', location.href).href}});
+      }).then(function(r){
+        btn.disabled = false;
+        if(r.error){ say(/rate limit|too many/i.test(r.error.message) ? 'Too many sign-ups just now. Please try again shortly.' : 'Could not sign you up: ' + r.error.message, true); return; }
+        say('Check your inbox for a link to finish creating your trade account.');
+        form.elements.name.value = ''; form.elements.email.value = '';
+      }, function(){ btn.disabled = false; say('Could not sign you up. Please try again.', true); });
+    });
   })();
 </script>
 </body>

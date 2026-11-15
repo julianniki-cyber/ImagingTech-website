@@ -656,7 +656,7 @@
     </form>
 
     <div class="header-actions">
-      <a href="#" class="header-action">
+      <a href="account.html" class="header-action">
         <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 1 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
         <span class="label-text">Trade sign in</span>
       </a>
@@ -2936,7 +2936,7 @@
     <div class="cart-done" id="cartDone" hidden>
       <div class="cart-done-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
       <h2>Order request sent.</h2>
-      <p>Thanks! Your reference is <b id="doneRef"></b>. We'll email you to confirm pricing and artwork, usually within one business day.</p>
+      <p>Thanks! Your reference is <b id="doneRef"></b>. We'll email you to confirm pricing and artwork, usually within one business day. Trade account holders can track it under <a href="account.html" style="text-decoration:underline;">My account</a>.</p>
       <a href="." class="btn-primary">Back to home</a>
     </div>
   </div>
@@ -3144,6 +3144,19 @@
     }
     document.addEventListener('itcart:change', render);
     render();
+
+    // signed-in trade customers: fill the form from their account
+    if(window.itUser && window.itSupabase) Promise.all([window.itSupabase, window.itUser]).then(function(r){
+      var sb = r[0], u = r[1]; if(!u) return;
+      var f = document.getElementById('orderForm').elements;
+      if(!f.email.value) f.email.value = u.email || '';
+      sb.from('trade_accounts').select('full_name,company,phone').eq('user_id', u.id).maybeSingle().then(function(res){
+        var p = (res && res.data) || {}, meta = u.user_metadata || {};
+        if(!f.name.value) f.name.value = p.full_name || meta.full_name || '';
+        if(!f.company.value) f.company.value = p.company || meta.company || '';
+        if(!f.phone.value) f.phone.value = p.phone || meta.phone || '';
+      });
+    });
 
     var form = document.getElementById('orderForm'), msg = document.getElementById('orderMsg'), btn = document.getElementById('orderBtn');
     function say(t, bad){ msg.textContent = t; msg.className = 'cart-msg' + (bad ? ' bad' : ''); }
